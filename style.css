@@ -1,0 +1,193 @@
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+/* BRAND VARIABLES */
+
+:root{
+--chi-navy:#1c4587;
+--chi-gold:#cda349;
+--chi-text:#444;
+--chi-light:#f7f9fc;
+}
+
+/* BODY */
+
+body{
+font-family:"Inter",sans-serif;
+line-height:1.7;
+color:var(--chi-text);
+background-color:#ffffff;
+}
+
+/* LAYOUT */
+
+section{
+padding:80px 20px;
+max-width:1000px;
+margin:0 auto;
+}
+
+/* TYPOGRAPHY */
+
+h1{
+font-size:2.6rem;
+margin-bottom:20px;
+font-weight:600;
+color:var(--chi-navy);
+}
+
+h2{
+font-size:2rem;
+margin-bottom:20px;
+font-weight:600;
+color:var(--chi-navy);
+}
+
+h3{
+font-size:1.4rem;
+margin-bottom:10px;
+font-weight:600;
+color:var(--chi-navy);
+}
+
+h4{
+font-size:1.1rem;
+margin:20px 0 10px;
+font-weight:600;
+color:var(--chi-navy);
+}
+
+p{
+margin-bottom:15px;
+color:#555;
+}
+
+/* LISTS */
+
+ul{
+margin:15px 0 20px 20px;
+}
+
+li{
+margin-bottom:8px;
+}
+
+/* HERO SECTION */
+
+#hero{
+text-align:center;
+padding-top:120px;
+}
+
+#hero p{
+font-size:1.1rem;
+color:#555;
+max-width:700px;
+margin:0 auto 20px auto;
+}
+
+/* BUTTONS */
+
+a{
+display:inline-block;
+margin-top:15px;
+padding:12px 26px;
+text-decoration:none;
+border-radius:6px;
+font-size:0.95rem;
+transition:all .2s ease;
+}
+
+/* PRIMARY BUTTON */
+
+.cta-primary{
+background-color:var(--chi-gold);
+color:#ffffff;
+font-weight:500;
+}
+
+.cta-primary:hover{
+background-color:#b8923e;
+}
+
+/* SECONDARY BUTTON */
+
+.cta-secondary{
+border:2px solid var(--chi-navy);
+color:var(--chi-navy);
+}
+
+.cta-secondary:hover{
+background-color:var(--chi-navy);
+color:#ffffff;
+}
+
+/* DIAGNOSTIC SECTION */
+
+#diagnostic{
+text-align:center;
+background-color:var(--chi-light);
+border-radius:10px;
+}
+
+#diagnostic ul{
+display:inline-block;
+text-align:left;
+margin-top:20px;
+}
+
+/* TIER CARDS */
+
+.tier{
+background:#ffffff;
+padding:30px;
+margin-bottom:30px;
+border-radius:10px;
+box-shadow:0 6px 18px rgba(0,0,0,0.05);
+border-top:4px solid var(--chi-gold);
+}
+
+/* SECTION SEPARATION */
+
+section:nth-child(even){
+background-color:#fafafa;
+}
+
+/* CTA SECTION */
+
+#cta{
+text-align:center;
+}
+
+#cta h2{
+margin-bottom:15px;
+}
+
+/* CONTACT */
+
+#contact{
+text-align:center;
+}
+
+#contact a{
+color:var(--chi-navy);
+font-weight:500;
+}
+
+#contact a:hover{
+text-decoration:underline;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:30px;
+font-size:0.9rem;
+color:#777;
+}
