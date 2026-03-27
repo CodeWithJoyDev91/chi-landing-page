@@ -32,6 +32,11 @@ max-width:1000px;
 margin:0 auto;
 }
 
+.logo{
+  width:160px;
+  margin-bottom:30px;
+}
+
 /* TYPOGRAPHY */
 
 h1{

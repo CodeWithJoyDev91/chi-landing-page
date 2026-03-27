@@ -30,7 +30,7 @@
                     --risk-mod:#d68b1c;
                     --risk-high:#c23c3c;
                     --risk-crit:#a52b2b;
-                    }
+                  }
                 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
                 body {
@@ -40,14 +40,18 @@
                     font-size: 15px;
                     line-height: 1.6;
                     min-height: 100vh;
-                    }
+                  }
 
+                .logo-bar{
+                    width:160px;
+                    margin-bottom:30px;
+                  }
                 /* ── LAYOUT ── */
                 .shell {
                     display: grid;
                     grid-template-columns: 260px 1fr;
                     min-height: 100vh;
-                    }
+                  }
 
                 /* ── SIDEBAR ── */
                 .sidebar {
@@ -60,12 +64,17 @@
                     overflow-y: auto;
                     display: flex;
                     flex-direction: column;
-                    }
+                  }
 
                 .sidebar-logo {
                     padding: 0 28px 32px;
                     border-bottom: 1px solid var(--border);
-                    }
+                  }
+
+                .sidebar-logo img{
+                    width:120px;
+                    margin-bottom:25px;
+                  }
 
                 .logo-tag {
                     font-family: 'DM Mono', monospace;
@@ -75,29 +84,29 @@
                     color: var(--accent2);
                     text-transform: uppercase;
                     margin-bottom: 6px;
-                    }
+                  }
 
                 .logo-title {
                     font-family: 'DM Serif Display', serif;
                     font-size: 22px;
                     color: var(--text);
                     line-height: 1.2;
-                    }
+                  }
 
                 .logo-bar {
                     text-align:center;
                     margin-top:40px;
                     margin-bottom:20px;
-                    }
+                  }
 
                 .logo-bar img {
                     height:60px;
-                    }
+                  }
 
                 .sidebar-nav {
                     padding: 24px 0;
                     flex: 1;
-                    }
+                  }
 
                 .nav-domain-label {
                     padding: 0 28px;
@@ -109,11 +118,11 @@
                     text-transform: uppercase;
                     margin-bottom: 6px;
                     margin-top: 20px;
-                    }
+                  }
 
                 .nav-domain-label:first-child { 
                     margin-top: 0; 
-                    }
+                  }
 
                 .nav-item {
                     display: flex;
@@ -125,22 +134,22 @@
                     border-left: 2px solid transparent;
                     color: var(--text-muted);
                     font-size: 13px;
-                    }
+                  }
 
                 .nav-item:hover { 
                     background: rgba(255,255,255,0.03); 
                     color: var(--text-mid); 
-                    }
+                  }
 
                 .nav-item.active {
                     background: rgba(28,69,135,0.06);
                     border-left-color: var(--navy);
                     color: var(--navy);
-                    }
+                  }
 
                 .nav-item.completed {
                     color: var(--text-mid);
-                    }
+                  }
 
                 .nav-dot {
                     width: 6px; height: 6px;
@@ -148,15 +157,15 @@
                     background: var(--border-active);
                     flex-shrink: 0;
                     transition: background 0.2s;
-                    }
+                  }
 
                 .nav-item.active .nav-dot { 
                     background: var(--accent); 
-                    }
+                  }
 
                 .nav-item.completed .nav-dot { 
                     background: var(--green); 
-                    }
+                  }
 
                 .nav-check {
                     width: 14px; height: 14px;
@@ -168,21 +177,21 @@
                     justify-content: center;
                     font-size: 8px;
                     color: #0c0c0e;
-                    }
+                  }
 
                 .nav-item.completed .nav-dot { 
                     display: none; 
-                    }
+                  }
 
                 .nav-item.completed .nav-check { 
                     display: flex; 
-                    }
+                  }
 
                 .sidebar-progress {
                     padding: 20px 28px;
                     border-top: 1px solid var(--border);
                     margin-top: auto;
-                    }
+                  }
 
                 .progress-label {
                     font-family: 'DM Mono', monospace;
@@ -193,32 +202,32 @@
                     margin-bottom: 10px;
                     display: flex;
                     justify-content: space-between;
-                    }
+                  }
 
                 .progress-track {
                     height: 3px;
                     background: var(--surface2);
                     border-radius: 2px;
                     overflow: hidden;
-                    }
+                  }
 
                 .progress-fill {
                     height: 100%;
                     background: linear-gradient(90deg, var(--accent2), var(--accent));
                     border-radius: 2px;
                     transition: width 0.4s ease;
-                    }
+                  }
 
                  /* ── MAIN ── */
                 .main {
                     padding: 60px 64px;
                     max-width: 820px;
-                    }
+                  }
 
                 /* ── INTRO SCREEN ── */
                 .intro-screen { 
                     display: block; 
-                    }
+                  }
 
                 .intro-eyebrow {
                     font-family: 'DM Mono', monospace;
@@ -227,7 +236,7 @@
                     color: var(--accent2);
                     text-transform: uppercase;
                     margin-bottom: 20px;
-                    }
+                  }
 
                 .intro-headline {
                     font-family: 'DM Serif Display', serif;
@@ -235,12 +244,12 @@
                     line-height: 1.08;
                     color: var(--text);
                     margin-bottom: 12px;
-                    }
+                  }
 
                 .intro-headline em {
                     font-style: italic;
                     color: var(--accent);
-                    }
+                  }
 
                 .intro-sub {
                     font-size: 17px;
@@ -248,40 +257,40 @@
                     max-width: 520px;
                     line-height: 1.65;
                     margin-bottom: 48px;
-                    }
+                  }
 
                 .intro-stats {
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
                     gap: 16px;
                     margin-bottom: 48px;
-                    }
+                  }
 
                 .intro-note{
                     font-size:13px;
                     color:var(--text-muted);
                     margin-bottom:24px;
-                    }
+                  }
 
                 .stat-card {
                     background: var(--surface);
                     border: 1px solid var(--border);
                     border-radius: 10px;
                     padding: 20px;
-                    }
+                  }
 
                 .stat-num {
                     font-family: 'DM Serif Display', serif;
                     font-size: 32px;
                     color: var(--accent);
                     margin-bottom: 4px;
-                    }
+                  }
 
                 .stat-label {
                     font-size: 12px;
                     color: var(--text-muted);
                     line-height: 1.4;
-                    }
+                  }
 
                 .btn-primary {
                     display: inline-flex;
@@ -296,16 +305,16 @@
                     border: none;
                     cursor: pointer;
                     transition: background .2s ease, transform .1s ease;
-                    } 
+                  } 
 
                 .btn-primary:hover {
                     background: var(--gold-dark);
                     transform: translateY(-1px);
-                    }
+                  }
 
                 .btn-primary:active { 
                     transform: translateY(0); 
-                    }
+                  }
 
                 .btn-secondary {
                     background: transparent;
@@ -315,25 +324,25 @@
                     padding: 12px 22px;
                     border-radius: 6px;
                     cursor: pointer;
-                    }
+                  }
 
                 .btn-secondary:hover {
                     background: var(--navy);
                     color: #ffffff;
-                    }
+                  }
 
                 /* ── SECTION SCREEN ── */
                 .section-screen { 
                     display: none; 
-                    }
+                  }
 
                 .section-screen.active { 
                     display: block; 
-                    }
+                  }
 
                 .section-header {
                     margin-bottom: 40px;
-                    }
+                  }
 
                 .section-domain {
                     font-family: 'DM Mono', monospace;
@@ -342,7 +351,7 @@
                     color: var(--accent2);
                     text-transform: uppercase;
                     margin-bottom: 10px;
-                    }
+                  }
 
                 .section-title {
                     font-family: 'DM Serif Display', serif;
@@ -350,7 +359,7 @@
                     line-height: 1.1;
                     color: var(--text);
                     margin-bottom: 14px;
-                    }
+                  }
 
                 .risk-badge {
                     display: inline-flex;
@@ -363,55 +372,55 @@
                     padding: 5px 10px;
                     border-radius: 4px;
                     margin-bottom: 20px;
-                    }
+                  }
 
                 .risk-badge.legal { 
                     background: rgba(196,169,106,0.1); 
                     color: var(--accent2); 
                     border: 1px solid rgba(196,169,106,0.2); 
-                    }
+                  }
 
                 .risk-badge.data { 
                     background: rgba(92,184,122,0.08); 
                     color: var(--green); 
                     border: 1px solid rgba(92,184,122,0.15); 
-                    }
+                  }
 
                 .risk-badge.revenue { 
                     background: rgba(232,162,60,0.08); 
                     color: var(--amber); 
                     border: 1px solid rgba(232,162,60,0.15); 
-                    }
+                  }
 
                 .risk-badge.ops { 
                     background: rgba(92,184,122,0.08); 
                     color: var(--green); 
                     border: 1px solid rgba(92,184,122,0.15); 
-                    }
+                  }
 
                 .risk-badge.security { 
                     background: rgba(232,92,92,0.08); 
                     color: var(--red); 
                     border: 1px solid rgba(232,92,92,0.15); 
-                    }
+                  }
 
                 .risk-badge.compliance { 
                     background: rgba(232,162,60,0.08); 
                     color: var(--amber); 
                     border: 1px solid rgba(232,162,60,0.15); 
-                    }
+                  }
 
                 .risk-badge.resilience { 
                     background: rgba(232,92,92,0.08); 
                     color: var(--red); 
                     border: 1px solid rgba(232,92,92,0.15); 
-                    }
+                  }
 
                 .risk-badge.business { 
                     background: rgba(196,169,106,0.1); 
                     color: var(--accent2); 
                     border: 1px solid rgba(196,169,106,0.2); 
-                    }
+                  }
 
                 .section-context {
                     background: var(--surface);
@@ -421,7 +430,7 @@
                     margin-bottom: 32px;
                     position: relative;
                     overflow: hidden;
-                    }
+                  }
 
                 .section-context::before {
                     content: '';
@@ -430,7 +439,7 @@
                     width: 3px;
                     background: var(--accent2);
                     border-radius: 0 2px 2px 0;
-                    }
+                  }
 
                 .context-label {
                     font-family: 'DM Mono', monospace;
@@ -439,13 +448,13 @@
                     color: var(--text-muted);
                     text-transform: uppercase;
                     margin-bottom: 8px;
-                    }
+                  }
 
                 .context-text {
                     font-size: 14px;
                     color: var(--text-mid);
                     line-height: 1.65;
-                    }
+                  }
 
                  /* ── QUESTIONS ── */
                 .questions-label {
@@ -455,7 +464,7 @@
                     color: var(--text-muted);
                     text-transform: uppercase;
                     margin-bottom: 16px;
-                    }
+                  }
 
                 .question-item {
                     background: #ffffff;
@@ -464,31 +473,31 @@
                     padding: 20px 22px;
                     margin-bottom: 12px;
                     transition: border-color 0.2s, box-shadow 0.2s;
-                    }
+                  }
 
                 .question-item:has(.answer-btn.selected) {
                     border-color: var(--navy);
                     box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-                    }
+                  }
 
                 .question-text {
                     font-size: 14px;
                     color: var(--text);
                     margin-bottom: 14px;
                     line-height: 1.55;
-                    }
+                  }
 
                 .question-num {
                     font-family: 'DM Mono', monospace;
                     font-size: 10px;
                     color: var(--text-muted);
                     margin-bottom: 6px;
-                    }
+                  }
 
                 .answer-row {
                     display: flex;
                     gap: 8px;
-                    }
+                  }
 
                 .answer-btn {
                     flex: 1;
@@ -500,30 +509,30 @@
                     font-size: 12px;
                     cursor: pointer;
                     transition: all .15s ease;
-                    }
+                  }
 
                 .answer-btn:hover {
                     border-color: var(--navy);
                     color: var(--navy);
-                    }
+                  }
 
                 .answer-btn.selected.yes {
                     background: rgba(46,158,91,0.08);
                     border-color: var(--green);
                     color: var(--green);
-                    }
+                  }
 
                 .answer-btn.selected.partial {
                     background: rgba(214,139,28,0.08);
                     border-color: var(--amber);
                     color: var(--amber);
-                    }
+                  }
 
                 .answer-btn.selected.no {
                     background: rgba(194,60,60,0.08);
                     border-color: var(--red);
                     color: var(--red);
-                    }
+                  }
 
                 /* ── SECTION NAV ── */
                 .section-nav {
@@ -533,31 +542,31 @@
                     margin-top: 36px;
                     padding-top: 28px;
                     border-top: 1px solid var(--border);
-                    }
+                  }
 
                 .section-score-mini {
                     font-family: 'DM Mono', monospace;
                     font-size: 12px;
                     color: var(--text-muted);
-                    }
+                  }
 
                 .section-score-mini span {
                     color: var(--accent);
                     font-size: 15px;
-                    }
+                  }
 
                  /* ── RESULTS SCREEN ── */
                 .results-screen { 
                     display: none; 
-                    }
+                  }
 
                 .results-screen.active { 
                     display: block; 
-                    }
+                  }
 
                 .results-header {
                     margin-bottom: 48px;
-                    }
+                  }
 
                 .results-eyebrow {
                     font-family: 'DM Mono', monospace;
@@ -566,7 +575,7 @@
                     color: var(--accent2);
                     text-transform: uppercase;
                     margin-bottom: 14px;
-                    }
+                  }
 
                 .results-title {
                     font-family: 'DM Serif Display', serif;
@@ -574,7 +583,7 @@
                     line-height: 1.1;
                     color: var(--text);
                     margin-bottom: 16px;
-                    }
+                  }
 
                 /* ── SCORE DIAL ── */
                 .score-block {
@@ -588,28 +597,28 @@
                     margin-bottom: 40px;
                     align-items: center;
                     box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-                    }
+                  }
 
                 .score-dial {
                     text-align: center;
-                    }
+                  }
 
                 .dial-svg { 
                     width: 160px; 
                     height: 160px; 
-                    }
+                  }
 
                 .dial-num {
                     font-family: 'DM Serif Display', serif;
                     font-size: 46px;
                     color: var(--text);
-                    }
+                  }
 
                 .dial-denom {
                     font-family: 'DM Mono', monospace;
                     font-size: 13px;
                     color: var(--text-muted);
-                    }
+                  }
 
                 .score-verdict-label {
                     font-family: 'DM Mono', monospace;
@@ -617,19 +626,19 @@
                     letter-spacing: 0.14em;
                     text-transform: uppercase;
                     margin-bottom: 8px;
-                    }
+                  }
 
                 .score-verdict {
                     font-family: 'DM Serif Display', serif;
                     font-size: 26px;
                     margin-bottom: 12px;
-                     }
+                  }
 
                 .score-description {
                     font-size: 14px;
                     color: var(--text-mid);
                     line-height: 1.65;
-                    }
+                  }
 
                 /* ── DOMAIN BREAKDOWN ── */
                 .breakdown-title {
@@ -637,7 +646,7 @@
                     font-size: 22px;
                     color: var(--text);
                     margin-bottom: 20px;
-                    }
+                  }
 
                 .domain-row {
                     display: flex;
@@ -645,24 +654,24 @@
                     gap: 14px;
                     padding: 14px 0;
                     border-bottom: 1px solid var(--border);
-                    }
+                  }
 
                 .domain-row:last-child { 
                     border-bottom: none; 
-                    }
+                  }
 
                 .domain-name {
                     font-size: 13px;
                     color: var(--text);
                     width: 200px;
                     flex-shrink: 0;
-                    }
+                  }
 
                 .domain-risk-name {
                     font-size: 11px;
                     color: var(--text-muted);
                     margin-top: 2px;
-                    }
+                  }
 
                 .domain-bar-track {
                     flex: 1;
@@ -670,717 +679,758 @@
                     background: var(--surface2);
                     border-radius: 3px;
                     overflow: hidden;
+                  }
+
+                .domain-bar-fill {
+                    height: 100%;
+                    border-radius: 3px;
+                    transition: width 0.5s ease;
+                  }
+
+                .domain-score-val {
+                    font-family: 'DM Mono', monospace;
+                    font-size: 12px;
+                    color: var(--text-muted);
+                    width: 36px;
+                    text-align: right;
+                    flex-shrink: 0;
+                  }
+
+                .domain-flag {
+                    font-size: 10px;
+                    font-family: 'DM Mono', monospace;
+                    letter-spacing: 0.06em;
+                    padding: 3px 8px;
+                    border-radius: 4px;
+                    flex-shrink: 0;
+                  }
+
+                  .flag-low { 
+                    background: rgba(92,184,122,0.1); 
+                    color: var(--green); 
+                  }
+
+                  .flag-mod { 
+                    background: rgba(232,162,60,0.1); 
+                    color: var(--amber); 
+                  }
+
+                  .flag-high { 
+                    background: rgba(232,92,92,0.1); 
+                    color: var(--red);
+                  }
+
+                  .flag-crit { 
+                    background: rgba(196,60,60,0.15); 
+                    color: var(--risk-crit); 
+                  }
+
+                  /* ── CTA ── */
+                  .cta-block {
+                    background: #f7f9fc;
+                    border: 1px solid var(--border);
+                    border-radius: 12px;
+                    padding: 36px;
+                    margin-top: 40px;
+                    text-align: center;
+                  }
+
+                  .cta-title {
+                    font-family: 'DM Serif Display', serif;
+                    font-size: 26px;
+                    color: var(--text);
+                    margin-bottom: 10px;
+                  }
+
+                  .cta-sub {
+                    font-size: 14px;
+                    color: var(--text-mid);
+                    max-width: 440px;
+                    margin: 0 auto 28px;
+                    line-height: 1.6;
+                  }
+
+                  .cta-buttons {
+                    display: flex;
+                    gap: 12px;
+                    justify-content: center;
+                  }
+
+                  /* ── HIDDEN ── */
+                  .hidden { 
+                    display: none !important; 
+                  }
+
+                  /* ── ANIMATIONS ── */
+                  @keyframes fadeSlideUp {
+                    from { opacity: 0; transform: translateY(14px); }
+                    to { opacity: 1; transform: translateY(0); }
+                  }
+
+                  .section-screen.active,
+                  .results-screen.active,
+                  .intro-screen {
+                    animation: fadeSlideUp 0.3s ease forwards;
+                  }
+
+                  /* ── RESPONSIVE ── */
+                  @media (max-width: 760px) {
+                    .shell { 
+                      grid-template-columns: 1fr; 
                     }
 
-  .domain-bar-fill {
-    height: 100%;
-    border-radius: 3px;
-    transition: width 0.5s ease;
-  }
+                    .sidebar { 
+                      position: static; 
+                      height: auto; 
+                    }
 
-  .domain-score-val {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    color: var(--text-muted);
-    width: 36px;
-    text-align: right;
-    flex-shrink: 0;
-  }
+                    .main { 
+                      padding: 32px 24px; 
+                    }
 
-  .domain-flag {
-    font-size: 10px;
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 0.06em;
-    padding: 3px 8px;
-    border-radius: 4px;
-    flex-shrink: 0;
-  }
+                    .intro-headline { 
+                      font-size: 36px; 
+                    }
 
-  .flag-low { background: rgba(92,184,122,0.1); color: var(--green); }
-  .flag-mod { background: rgba(232,162,60,0.1); color: var(--amber); }
-  .flag-high { background: rgba(232,92,92,0.1); color: var(--red); }
-  .flag-crit { background: rgba(196,60,60,0.15); color: var(--risk-crit); }
+                    .intro-stats { 
+                      grid-template-columns: 1fr; 
+                    }
 
-  /* ── CTA ── */
-  .cta-block {
-    background: #f7f9fc;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 36px;
-    margin-top: 40px;
-    text-align: center;
-  }
+                    .score-block { 
+                      grid-template-columns: 1fr; 
+                    }
 
-  .cta-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 26px;
-    color: var(--text);
-    margin-bottom: 10px;
-  }
+                    .cta-buttons { 
+                      flex-direction: column; 
+                      align-items: center; 
+                    }
+                }
+            </style>
+        </head>
+        <body>
 
-  .cta-sub {
-    font-size: 14px;
-    color: var(--text-mid);
-    max-width: 440px;
-    margin: 0 auto 28px;
-    line-height: 1.6;
-  }
+          <div class="shell">
 
-  .cta-buttons {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-  }
+            <!-- ── SIDEBAR ── -->
+            <aside class="sidebar">
+              <div class="sidebar-logo">
+                <img src="Images/CHI Favicon.png" alt="CHI Logo">
+                <div class="logo-tag">CHI</div>
+                <div class="logo-title">SaaS Risk<br>Diagnostic</div>
+              </div>
 
-  /* ── HIDDEN ── */
-  .hidden { display: none !important; }
+              <nav class="sidebar-nav" id="sidebarNav">
+                <!-- populated by JS -->
+              </nav>
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeSlideUp {
-    from { opacity: 0; transform: translateY(14px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+              <div class="sidebar-progress">
+                <div class="progress-label">
+                  <span>Progress</span>
+                  <span id="progressPct">0%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" id="progressFill" style="width:0%"></div>
+                </div>
+              </div>
+            </aside>
 
-  .section-screen.active,
-  .results-screen.active,
-  .intro-screen {
-    animation: fadeSlideUp 0.3s ease forwards;
-  }
+            <!-- ── CONTENT ── -->
+            <main class="main" id="mainContent">
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 760px) {
-    .shell { grid-template-columns: 1fr; }
-    .sidebar { position: static; height: auto; }
-    .main { padding: 32px 24px; }
-    .intro-headline { font-size: 36px; }
-    .intro-stats { grid-template-columns: 1fr; }
-    .score-block { grid-template-columns: 1fr; }
-    .cta-buttons { flex-direction: column; align-items: center; }
-  }
-</style>
-</head>
+              <div class="logo-bar">
+                <img src="Images/Logo with background.png" alt="CHI Consulting">
+              </div>
 
-<body>
+              <!-- INTRO -->
+              <div class="intro-screen" id="introScreen">
+                <div class="intro-eyebrow">SaaS Risk Diagnostic</div>
+                <h1 class="intro-headline">Map your SaaS risks<br><em>before they</em><br>become real problems.</h1>
+                <p class="intro-sub">
+                Assess your platform across ten critical SaaS risk domains including legal,
+                data governance, security exposure, compliance structure, and operational
+                resilience. In under five minutes you'll see where hidden vulnerabilities
+                could threaten growth.
+                </p>
+                <p class="intro-note">
+                No signup required. Results available instantly.
+                </p>
+                <div class="intro-stats">
+                  <div class="stat-card">
+                    <div class="stat-num">10</div>
+                    <div class="stat-label">Risk categories across your SaaS platform</div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-num">50</div>
+                    <div class="stat-label">Diagnostic questions, ~8 minutes total</div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-num">1</div>
+                    <div class="stat-label">Prioritised risk score to act on immediately</div>
+                  </div>
+                </div>
+                <p class="intro-trust">
+                Used by early-stage SaaS founders preparing to scale or raise capital.
+                </p>
+                <button class="btn-primary" onclick="startAudit()">
+                  Begin Audit
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
 
-<div class="shell">
+              <!-- SECTION SCREENS (generated by JS) -->
+              <div id="sectionScreens"></div>
 
-  <!-- ── SIDEBAR ── -->
-  <aside class="sidebar">
-    <div class="sidebar-logo">
-      <div class="logo-tag">CHI</div>
-      <div class="logo-title">SaaS Risk<br>Audit</div>
-    </div>
+              <!-- RESULTS -->
+              <div id="emailGate" class="section-screen">
+                <h2>Before Viewing Your Risk Results</h2>
+                <p>
+                Enter your email to receive a copy of your SaaS Risk Diagnostic results.
+                </p>
+                <input type="email" id="userEmail" placeholder="Enter your email">
+                <button onclick="submitEmail()">View My Results</button>
+              </div>
 
-    <nav class="sidebar-nav" id="sidebarNav">
-      <!-- populated by JS -->
-    </nav>
+              <div class="results-screen" id="resultsScreen">
+                <div class="results-header">
+                  <div class="results-eyebrow">Audit Complete</div>
+                  <h2 class="results-title">Your Risk Profile</h2>
+                </div>
 
-    <div class="sidebar-progress">
-      <div class="progress-label">
-        <span>Progress</span>
-        <span id="progressPct">0%</span>
-      </div>
-      <div class="progress-track">
-        <div class="progress-fill" id="progressFill" style="width:0%"></div>
-      </div>
-    </div>
-  </aside>
+                <div class="score-block">
+                  <div class="score-dial">
+                    <svg class="dial-svg" viewBox="0 0 160 160" id="dialSvg">
+                      <circle cx="80" cy="80" r="64" fill="none" stroke="#1c1c21" stroke-width="10"/>
+                      <circle cx="80" cy="80" r="64" fill="none" stroke="#e8d5a3" stroke-width="10"
+                        stroke-dasharray="402" stroke-dashoffset="402"
+                        stroke-linecap="round"
+                        transform="rotate(-90 80 80)"
+                        id="dialArc"
+                        style="transition: stroke-dashoffset 1s ease, stroke 0.5s ease"/>
+                      <text x="80" y="76" text-anchor="middle" font-family="DM Serif Display, serif" font-size="32" fill="#f0ede8" id="dialNum">0</text>
+                      <text x="80" y="96" text-anchor="middle" font-family="DM Mono, monospace" font-size="11" fill="#6b6872">/100</text>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="score-verdict-label" id="verdictLabel" style="color: var(--accent2)">Risk Level</div>
+                    <div class="score-verdict" id="verdictTitle">—</div>
+                    <div class="score-description" id="verdictDesc">—</div>
+                  </div>
+                </div>
 
-  <!-- ── CONTENT ── -->
-  <main class="main" id="mainContent">
+                <h3 class="breakdown-title">Risk Breakdown by Domain</h3>
+                <div id="domainBreakdown"></div>
 
-    <div class="logo-bar">
-      <img src="chi-logo.png" alt="CHI Consulting">
-    </div>
+                <div class="cta-block">
+                  <div class="cta-title">See the risks founders usually miss.</div>
 
-    <!-- INTRO -->
-    <div class="intro-screen" id="introScreen">
-      <div class="intro-eyebrow">SaaS Risk Diagnostic</div>
-        <h1 class="intro-headline">Map your SaaS risks<br><em>before they</em><br>become real problems.</h1>
-        <p class="intro-sub">
-        Assess your platform across ten critical SaaS risk domains including legal,
-          data governance, security exposure, compliance structure, and operational
-        resilience. In under five minutes you'll see where hidden vulnerabilities
-        could threaten growth.
-        </p>
-        <p class="intro-note">
-        No signup required. Results available instantly.
-        </p>
-      <div class="intro-stats">
-        <div class="stat-card">
-          <div class="stat-num">10</div>
-          <div class="stat-label">Risk categories across your SaaS platform</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">50</div>
-          <div class="stat-label">Diagnostic questions, ~8 minutes total</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">1</div>
-          <div class="stat-label">Prioritised risk score to act on immediately</div>
-        </div>
-      </div>
-      <p class="intro-trust">
-      Used by early-stage SaaS founders preparing to scale or raise capital.
-      </p>
-      <button class="btn-primary" onclick="startAudit()">
-        Begin Audit
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
+                    <div class="cta-sub">
+                    The CHI SaaS Risk Audit goes beyond this diagnostic. 
+                    We review your contracts, compliance exposure, data structure, 
+                    and operational risk points — then produce a clear remediation roadmap 
+                    so you know exactly what to fix before scaling or raising capital.
+                    </div>
 
-    <!-- SECTION SCREENS (generated by JS) -->
-    <div id="sectionScreens"></div>
+                    <div class="cta-buttons">
+                      <button class="btn-primary">Book the Full <button class="btn-primary" onclick="window.open('https://calendly.com/codehiveinnovations-risk/30min','_blank')">
+                      Book the Full CHI SaaS Risk Audit
+                      </button>CHI SaaS Risk Audit</button>
+                    </div>
 
-    <!-- RESULTS -->
-    <div id="emailGate" class="section-screen">
-      <h2>Before Viewing Your Risk Results</h2>
-      <p>
-      Enter your email to receive a copy of your SaaS Risk Diagnostic results.
-      </p>
-      <input type="email" id="userEmail" placeholder="Enter your email">
-      <button onclick="submitEmail()">View My Results</button>
-    </div>
+                    <div class="cta-note">
+                    Private founder review. Limited availability each month.
+                    </div>
+                    <button class="btn-secondary" onclick="resetAudit()">
+                      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5A4.5 4.5 0 016.5 2c1.5 0 2.8.7 3.7 1.8M11 6.5A4.5 4.5 0 016.5 11c-1.5 0-2.8-.7-3.7-1.8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M9.5 1.5v2.5H12M1 9h2.5v2.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      Retake Audit
+                    </button>
+                  </div>
+                </div>
+              </div>
 
-    <div class="results-screen" id="resultsScreen">
-      <div class="results-header">
-        <div class="results-eyebrow">Audit Complete</div>
-        <h2 class="results-title">Your Risk Profile</h2>
-      </div>
-
-      <div class="score-block">
-        <div class="score-dial">
-          <svg class="dial-svg" viewBox="0 0 160 160" id="dialSvg">
-            <circle cx="80" cy="80" r="64" fill="none" stroke="#1c1c21" stroke-width="10"/>
-            <circle cx="80" cy="80" r="64" fill="none" stroke="#e8d5a3" stroke-width="10"
-              stroke-dasharray="402" stroke-dashoffset="402"
-              stroke-linecap="round"
-              transform="rotate(-90 80 80)"
-              id="dialArc"
-              style="transition: stroke-dashoffset 1s ease, stroke 0.5s ease"/>
-            <text x="80" y="76" text-anchor="middle" font-family="DM Serif Display, serif" font-size="32" fill="#f0ede8" id="dialNum">0</text>
-            <text x="80" y="96" text-anchor="middle" font-family="DM Mono, monospace" font-size="11" fill="#6b6872">/100</text>
-          </svg>
-        </div>
-        <div>
-          <div class="score-verdict-label" id="verdictLabel" style="color: var(--accent2)">Risk Level</div>
-          <div class="score-verdict" id="verdictTitle">—</div>
-          <div class="score-description" id="verdictDesc">—</div>
-        </div>
-      </div>
-
-      <h3 class="breakdown-title">Risk Breakdown by Domain</h3>
-      <div id="domainBreakdown"></div>
-
-      <div class="cta-block">
-        <div class="cta-title">See the risks founders usually miss.</div>
-
-        <div class="cta-sub">
-        The CHI SaaS Risk Audit goes beyond this diagnostic. 
-        We review your contracts, compliance exposure, data structure, 
-        and operational risk points — then produce a clear remediation roadmap 
-        so you know exactly what to fix before scaling or raising capital.
-        </div>
-
-        <div class="cta-buttons">
-        <button class="btn-primary">Book the Full <button class="btn-primary" onclick="window.open('https://calendly.com/codehiveinnovations-risk/30min','_blank')">
-        Book the Full CHI SaaS Risk Audit
-        </button>CHI SaaS Risk Audit</button>
-        </div>
-        <div class="cta-note">
-        Private founder review. Limited availability each month.
-        </div>
-          <button class="btn-secondary" onclick="resetAudit()">
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5A4.5 4.5 0 016.5 2c1.5 0 2.8.7 3.7 1.8M11 6.5A4.5 4.5 0 016.5 11c-1.5 0-2.8-.7-3.7-1.8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M9.5 1.5v2.5H12M1 9h2.5v2.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Retake Audit
-          </button>
-        </div>
-      </div>
-    </div>
-
-  </main>
-</div>
-
-<script>
-const SECTIONS = [
-  {
-    id: 'tos',
-    domain: 'Domain 1 — Legal Structure',
-    badge: 'legal',
-    badgeLabel: 'Legal',
-    title: 'Terms of Service',
-    riskName: 'Weak or Missing Terms of Service',
-    context: 'A Terms of Service only protects your business if it actually reflects how your product works. Generic or copied templates often fail to cover the specific risks your SaaS creates — around payments, data, outputs, or integrations — and can leave you more exposed than having nothing.',
-    questions: [
-      'Was your Terms of Service written specifically for your SaaS product?',
-      'Does it clearly describe what your software does and does not guarantee?',
-      'Does it include a clear limitation of liability?',
-      'Does it define acceptable user behaviour on the platform?',
-      'Does it explain how disputes between the company and users will be handled?'
-    ]
-  },
-  {
-    id: 'privacy',
-    domain: 'Domain 1 — Legal Structure',
-    badge: 'legal',
-    badgeLabel: 'Legal',
-    title: 'Privacy Policy',
-    riskName: 'No Proper Privacy Policy (or Non-Compliant One)',
-    context: 'Your Privacy Policy must accurately reflect how your SaaS actually collects, stores, and shares user data. A policy that doesn\'t match your real practices — or that was generated from a template — can create regulatory exposure under frameworks like GDPR and POPIA, even if your company isn\'t based in those regions.',
-    questions: [
-      'Does your Privacy Policy accurately describe all types of data your SaaS collects?',
-      'Does it clearly explain how that data is used and stored?',
-      'Does it describe whether data is shared with third-party services or integrations?',
-      'Does it explain how users can request deletion or modification of their data?',
-      'Is your Privacy Policy reviewed periodically as your SaaS evolves?'
-    ]
-  },
-  {
-    id: 'liability',
-    domain: 'Domain 1 — Legal Structure',
-    badge: 'legal',
-    badgeLabel: 'Legal',
-    title: 'Liability Limitations',
-    riskName: 'No Clear Liability Limitations',
-    context: 'Simply having a Terms of Service doesn\'t cap your legal exposure. Without clearly structured liability clauses — defining what damages are excluded and your maximum financial responsibility — a single customer dispute over downtime, data loss, or incorrect outputs could expose you to claims far beyond what your business can absorb.',
-    questions: [
-      'Does your Terms of Service clearly limit the types of damages your company can be held responsible for?',
-      'Is there a defined maximum financial liability your company accepts in relation to the use of the platform?',
-      'Does your agreement clarify that users rely on the software at their own risk where appropriate?',
-      'Are users informed about potential service interruptions, bugs, or system limitations?',
-      'Have these liability provisions been reviewed to ensure they align with how your SaaS actually operates?'
-    ]
-  },
-  {
-    id: 'data',
-    domain: 'Domain 2 — Data Governance',
-    badge: 'data',
-    badgeLabel: 'Data',
-    title: 'User Data Handling',
-    riskName: 'Improper Handling of User Data',
-    context: 'Data protection isn\'t just about storage — it\'s about how data is collected, accessed, processed, and controlled throughout your entire system. As your platform integrates with more services, the number of points where user data moves through your infrastructure increases. Without clear controls, each one is a potential failure point.',
-    questions: [
-      'Do you know exactly what types of user data your SaaS collects and stores?',
-      'Is sensitive user data protected using secure storage and encryption practices?',
-      'Are access permissions in place so that only authorised individuals can access user data?',
-      'Do you limit data collection to only what is necessary for your SaaS to function?',
-      'Do you regularly review how user data moves between your platform and third-party integrations?'
-    ]
-  },
-  {
-    id: 'billing',
-    domain: 'Domain 3 — Revenue & Billing',
-    badge: 'revenue',
-    badgeLabel: 'Revenue',
-    title: 'Subscription & Billing Terms',
-    riskName: 'Unclear Subscription / Billing Terms',
-    context: 'Subscription billing disputes are one of the most common sources of chargeback claims and reputational damage for SaaS companies. When renewal schedules, cancellation procedures, and refund policies aren\'t clearly communicated, payment processors — who typically favour the consumer — will decide outcomes you could have controlled.',
-    questions: [
-      'Do your Terms of Service clearly explain how subscription billing works?',
-      'Is it clear when subscriptions automatically renew?',
-      'Are cancellation procedures clearly explained to users?',
-      'Do users understand your refund policy before purchasing?',
-      'Are pricing changes or billing adjustments clearly communicated in advance?'
-    ]
-  },
-  {
-    id: 'thirdparty',
-    domain: 'Domain 4 — Operational & Platform',
-    badge: 'ops',
-    badgeLabel: 'Operations',
-    title: 'Third-Party Dependencies',
-    riskName: 'Using Third-Party Tools Without Understanding Risk',
-    context: 'Every tool you integrate becomes a dependency you don\'t control. Payment processors, authentication services, APIs — if any one of them changes its terms, goes down, or suffers a breach, your platform is affected. Most founders only discover how deep these dependencies run when a critical integration fails.',
-    questions: [
-      'Do you maintain a clear list of all third-party services your SaaS depends on?',
-      'Do you understand how each third-party provider handles user data or sensitive information?',
-      'Do you have contingency plans if a key integration becomes unavailable?',
-      'Are you aware of the terms and usage limits associated with the APIs or services you rely on?',
-      'Have you evaluated whether any critical part of your product depends entirely on a single external provider?'
-    ]
-  },
-  {
-    id: 'security',
-    domain: 'Domain 5 — Security',
-    badge: 'security',
-    badgeLabel: 'Security',
-    title: 'Security & Data Breach Exposure',
-    riskName: 'Security Weaknesses / Data Breach Exposure',
-    context: 'Cloud providers offer security layers, but they don\'t protect you from misconfigurations, weak authentication, exposed APIs, or inadequate access controls inside your own platform. Even small implementation errors can create vulnerabilities — and for an early-stage startup, a single breach can cause reputational damage that\'s difficult to recover from.',
-    questions: [
-      'Do you have a clear understanding of how user authentication is secured in your platform?',
-      'Are sensitive user data and credentials properly encrypted when stored or transmitted?',
-      'Do you restrict system access based on roles or permissions?',
-      'Are your APIs protected against unauthorized access or abuse?',
-      'Have you evaluated potential security vulnerabilities in your platform architecture?'
-    ]
-  },
-  {
-    id: 'compliance',
-    domain: 'Domain 6 — Regulatory & Compliance',
-    badge: 'compliance',
-    badgeLabel: 'Compliance',
-    title: 'Industry Regulations',
-    riskName: 'Non-Compliance with Industry Regulations',
-    context: 'Compliance doesn\'t only matter when you\'re serving enterprise clients. Depending on what data your platform processes, you may already be within scope of data protection, financial, or security regulations — before you\'ve thought about it. Enterprise customers won\'t wait for you to catch up; they\'ll move on to vendors who can demonstrate readiness.',
-    questions: [
-      'Do you know which regulations may apply to your SaaS product based on the type of data you process?',
-      'Have you evaluated whether your platform may fall under privacy or data protection laws in certain jurisdictions?',
-      'Are you aware of security or compliance standards that enterprise customers may expect?',
-      'Do you have internal processes for handling user data requests or regulatory inquiries?',
-      'Have you reviewed whether third-party services you use meet relevant compliance expectations?'
-    ]
-  },
-  {
-    id: 'incident',
-    domain: 'Domain 7 — Operational Resilience',
-    badge: 'resilience',
-    badgeLabel: 'Resilience',
-    title: 'Incident Response',
-    riskName: 'No Incident Response Plan',
-    context: 'Even well-built systems go down. What determines how much damage an incident causes isn\'t whether it happens — it\'s how fast and effectively your team responds. Without a clear plan, teams react under pressure, communication delays compound the problem, and what could have been a minor disruption becomes a credibility crisis.',
-    questions: [
-      'Do you have a defined process for responding to major system failures or security incidents?',
-      'Is there a clear person or team responsible for managing incident response?',
-      'Do you have procedures for communicating with users during service disruptions?',
-      'Have you considered how quickly your team could identify and contain a system failure?',
-      'Do you maintain backups or recovery procedures for critical data?'
-    ]
-  },
-  {
-    id: 'marketing',
-    domain: 'Domain 8 — Business & Representation',
-    badge: 'business',
-    badgeLabel: 'Business',
-    title: 'Marketing Claims',
-    riskName: 'Misleading Marketing or Product Claims',
-    context: 'Claims made in your product pages, sales materials, and pitch decks create expectations. If your platform doesn\'t consistently deliver on those claims — whether around security, compliance, uptime, or performance — customers can argue they were misled. For early-stage companies, even a small number of these disputes creates disproportionate operational and legal pressure.',
-    questions: [
-      'Are the claims made in your marketing materials consistent with your platform\'s actual capabilities?',
-      'Do you avoid claiming compliance with standards or regulations that have not been formally verified?',
-      'Are statements about reliability, uptime, or performance realistic and supportable?',
-      'Are product limitations or constraints clearly communicated where appropriate?',
-      'Do marketing and technical teams align on how the platform is represented publicly?'
-    ]
-  }
-];
-
-// State
-let answers = {}; // { sectionId: [0|1|2, ...] }
-let currentSection = 0;
-let currentView = 'intro'; // intro | section | results
-
-// ── BUILD SIDEBAR ──
-function buildSidebar() {
-  const nav = document.getElementById('sidebarNav');
-  let lastDomain = '';
-  let html = '';
-
-  SECTIONS.forEach((sec, i) => {
-    if (sec.domain !== lastDomain) {
-      const shortDomain = sec.domain.replace(/Domain \d+ — /, '');
-      html += `<div class="nav-domain-label">${shortDomain}</div>`;
-      lastDomain = sec.domain;
-    }
-    html += `
-      <div class="nav-item" id="navItem${i}" onclick="goToSection(${i})">
-        <div class="nav-dot"></div>
-        <div class="nav-check">✓</div>
-        <span>${sec.title}</span>
-      </div>`;
-  });
-
-  // Results
-  html += `
-    <div class="nav-domain-label" style="margin-top:20px">Summary</div>
-    <div class="nav-item" id="navItemResults" onclick="showResults()">
-      <div class="nav-dot"></div>
-      <div class="nav-check">✓</div>
-      <span>Risk Report</span>
-    </div>`;
-
-  nav.innerHTML = html;
-}
-
-// ── BUILD SECTION SCREENS ──
-function buildSections() {
-  const container = document.getElementById('sectionScreens');
-  let html = '';
-
-  SECTIONS.forEach((sec, si) => {
-    const qHtml = sec.questions.map((q, qi) => `
-      <div class="question-item" id="qItem${si}_${qi}">
-        <div class="question-num">Q${qi + 1} of 5</div>
-        <div class="question-text">${q}</div>
-        <div class="answer-row">
-          <button class="answer-btn yes" onclick="setAnswer(${si}, ${qi}, 0, this)">Yes</button>
-          <button class="answer-btn partial" onclick="setAnswer(${si}, ${qi}, 1, this)">Partially</button>
-          <button class="answer-btn no" onclick="setAnswer(${si}, ${qi}, 2, this)">No</button>
-        </div>
-      </div>`).join('');
-
-    html += `
-      <div class="section-screen" id="section${si}">
-        <div class="section-header">
-          <div class="section-domain">${sec.domain}</div>
-          <h2 class="section-title">${sec.title}</h2>
-          <div class="risk-badge ${sec.badge}">${sec.badgeLabel} Risk</div>
-          <div class="section-context">
-            <div class="context-label">Why This Matters</div>
-            <div class="context-text">${sec.context}</div>
+            </main>
           </div>
-        </div>
 
-        <div class="questions-label">Assessment Questions</div>
-        ${qHtml}
+          <script>
+            const SECTIONS = [
+            {
+              id: 'tos',
+              domain: 'Domain 1 — Legal Structure',
+              badge: 'legal',
+              badgeLabel: 'Legal',
+              title: 'Terms of Service',
+              riskName: 'Weak or Missing Terms of Service',
+              context: 'A Terms of Service only protects your business if it actually reflects how your product works. Generic or copied templates often fail to cover the specific risks your SaaS creates — around payments, data, outputs, or integrations — and can leave you more exposed than having nothing.',
+              questions: [
+                'Was your Terms of Service written specifically for your SaaS product?',
+                'Does it clearly describe what your software does and does not guarantee?',
+                'Does it include a clear limitation of liability?',
+                'Does it define acceptable user behaviour on the platform?',
+                'Does it explain how disputes between the company and users will be handled?'
+              ]
+            },
+            {
+              id: 'privacy',
+              domain: 'Domain 1 — Legal Structure',
+              badge: 'legal',
+              badgeLabel: 'Legal',
+              title: 'Privacy Policy',
+              riskName: 'No Proper Privacy Policy (or Non-Compliant One)',
+              context: 'Your Privacy Policy must accurately reflect how your SaaS actually collects, stores, and shares user data. A policy that doesn\'t match your real practices — or that was generated from a template — can create regulatory exposure under frameworks like GDPR and POPIA, even if your company isn\'t based in those regions.',
+              questions: [
+                'Does your Privacy Policy accurately describe all types of data your SaaS collects?',
+                'Does it clearly explain how that data is used and stored?',
+                'Does it describe whether data is shared with third-party services or integrations?',
+                'Does it explain how users can request deletion or modification of their data?',
+                'Is your Privacy Policy reviewed periodically as your SaaS evolves?'
+              ]
+            },
+            {
+              id: 'liability',
+              domain: 'Domain 1 — Legal Structure',
+              badge: 'legal',
+              badgeLabel: 'Legal',
+              title: 'Liability Limitations',
+              riskName: 'No Clear Liability Limitations',
+              context: 'Simply having a Terms of Service doesn\'t cap your legal exposure. Without clearly structured liability clauses — defining what damages are excluded and your maximum financial responsibility — a single customer dispute over downtime, data loss, or incorrect outputs could expose you to claims far beyond what your business can absorb.',
+              questions: [
+                'Does your Terms of Service clearly limit the types of damages your company can be held responsible for?',
+                'Is there a defined maximum financial liability your company accepts in relation to the use of the platform?',
+                'Does your agreement clarify that users rely on the software at their own risk where appropriate?',
+                'Are users informed about potential service interruptions, bugs, or system limitations?',
+                'Have these liability provisions been reviewed to ensure they align with how your SaaS actually operates?'
+              ]
+            },
+            {
+              id: 'data',
+              domain: 'Domain 2 — Data Governance',
+              badge: 'data',
+              badgeLabel: 'Data',
+              title: 'User Data Handling',
+              riskName: 'Improper Handling of User Data',
+              context: 'Data protection isn\'t just about storage — it\'s about how data is collected, accessed, processed, and controlled throughout your entire system. As your platform integrates with more services, the number of points where user data moves through your infrastructure increases. Without clear controls, each one is a potential failure point.',
+              questions: [
+                'Do you know exactly what types of user data your SaaS collects and stores?',
+                'Is sensitive user data protected using secure storage and encryption practices?',
+                'Are access permissions in place so that only authorised individuals can access user data?',
+                'Do you limit data collection to only what is necessary for your SaaS to function?',
+                'Do you regularly review how user data moves between your platform and third-party integrations?'
+              ]
+            },
+            {
+              id: 'billing',
+              domain: 'Domain 3 — Revenue & Billing',
+              badge: 'revenue',
+              badgeLabel: 'Revenue',
+              title: 'Subscription & Billing Terms',
+              riskName: 'Unclear Subscription / Billing Terms',
+              context: 'Subscription billing disputes are one of the most common sources of chargeback claims and reputational damage for SaaS companies. When renewal schedules, cancellation procedures, and refund policies aren\'t clearly communicated, payment processors — who typically favour the consumer — will decide outcomes you could have controlled.',
+              questions: [
+                'Do your Terms of Service clearly explain how subscription billing works?',
+                'Is it clear when subscriptions automatically renew?',
+                'Are cancellation procedures clearly explained to users?',
+                'Do users understand your refund policy before purchasing?',
+                'Are pricing changes or billing adjustments clearly communicated in advance?'
+              ]
+            },
+            {
+              id: 'thirdparty',
+              domain: 'Domain 4 — Operational & Platform',
+              badge: 'ops',
+              badgeLabel: 'Operations',
+              title: 'Third-Party Dependencies',
+              riskName: 'Using Third-Party Tools Without Understanding Risk',
+              context: 'Every tool you integrate becomes a dependency you don\'t control. Payment processors, authentication services, APIs — if any one of them changes its terms, goes down, or suffers a breach, your platform is affected. Most founders only discover how deep these dependencies run when a critical integration fails.',
+              questions: [
+                'Do you maintain a clear list of all third-party services your SaaS depends on?',
+                'Do you understand how each third-party provider handles user data or sensitive information?',
+                'Do you have contingency plans if a key integration becomes unavailable?',
+                'Are you aware of the terms and usage limits associated with the APIs or services you rely on?',
+                'Have you evaluated whether any critical part of your product depends entirely on a single external provider?'
+              ]
+            },
+            {
+              id: 'security',
+              domain: 'Domain 5 — Security',
+              badge: 'security',
+              badgeLabel: 'Security',
+              title: 'Security & Data Breach Exposure',
+              riskName: 'Security Weaknesses / Data Breach Exposure',
+              context: 'Cloud providers offer security layers, but they don\'t protect you from misconfigurations, weak authentication, exposed APIs, or inadequate access controls inside your own platform. Even small implementation errors can create vulnerabilities — and for an early-stage startup, a single breach can cause reputational damage that\'s difficult to recover from.',
+              questions: [
+                'Do you have a clear understanding of how user authentication is secured in your platform?',
+                'Are sensitive user data and credentials properly encrypted when stored or transmitted?',
+                'Do you restrict system access based on roles or permissions?',
+                'Are your APIs protected against unauthorized access or abuse?',
+                'Have you evaluated potential security vulnerabilities in your platform architecture?'
+              ]
+            },
+            {
+              id: 'compliance',
+              domain: 'Domain 6 — Regulatory & Compliance',
+              badge: 'compliance',
+              badgeLabel: 'Compliance',
+              title: 'Industry Regulations',
+              riskName: 'Non-Compliance with Industry Regulations',
+              context: 'Compliance doesn\'t only matter when you\'re serving enterprise clients. Depending on what data your platform processes, you may already be within scope of data protection, financial, or security regulations — before you\'ve thought about it. Enterprise customers won\'t wait for you to catch up; they\'ll move on to vendors who can demonstrate readiness.',
+              questions: [
+                'Do you know which regulations may apply to your SaaS product based on the type of data you process?',
+                'Have you evaluated whether your platform may fall under privacy or data protection laws in certain jurisdictions?',
+                'Are you aware of security or compliance standards that enterprise customers may expect?',
+                'Do you have internal processes for handling user data requests or regulatory inquiries?',
+                'Have you reviewed whether third-party services you use meet relevant compliance expectations?'
+              ]
+            },
+            {
+              id: 'incident',
+              domain: 'Domain 7 — Operational Resilience',
+              badge: 'resilience',
+              badgeLabel: 'Resilience',
+              title: 'Incident Response',
+              riskName: 'No Incident Response Plan',
+              context: 'Even well-built systems go down. What determines how much damage an incident causes isn\'t whether it happens — it\'s how fast and effectively your team responds. Without a clear plan, teams react under pressure, communication delays compound the problem, and what could have been a minor disruption becomes a credibility crisis.',
+              questions: [
+                'Do you have a defined process for responding to major system failures or security incidents?',
+                'Is there a clear person or team responsible for managing incident response?',
+                'Do you have procedures for communicating with users during service disruptions?',
+                'Have you considered how quickly your team could identify and contain a system failure?',
+                'Do you maintain backups or recovery procedures for critical data?'
+              ]
+            },
+            {
+              id: 'marketing',
+              domain: 'Domain 8 — Business & Representation',
+              badge: 'business',
+              badgeLabel: 'Business',
+              title: 'Marketing Claims',
+              riskName: 'Misleading Marketing or Product Claims',
+              context: 'Claims made in your product pages, sales materials, and pitch decks create expectations. If your platform doesn\'t consistently deliver on those claims — whether around security, compliance, uptime, or performance — customers can argue they were misled. For early-stage companies, even a small number of these disputes creates disproportionate operational and legal pressure.',
+              questions: [
+                'Are the claims made in your marketing materials consistent with your platform\'s actual capabilities?',
+                'Do you avoid claiming compliance with standards or regulations that have not been formally verified?',
+                'Are statements about reliability, uptime, or performance realistic and supportable?',
+                'Are product limitations or constraints clearly communicated where appropriate?',
+                'Do marketing and technical teams align on how the platform is represented publicly?'
+              ]
+            }
+          ];
 
-        <div class="section-nav">
-          <button class="btn-secondary" onclick="${si === 0 ? 'showIntro()' : `goToSection(${si - 1})`}">
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M10 6.5H3M5.5 3.5L2 7l3.5 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Back
-          </button>
-          <div class="section-score-mini" id="sectionScoreMini${si}"></div>
-          <button class="btn-primary" onclick="${si === SECTIONS.length - 1 ? 'showResults()' : `goToSection(${si + 1})`}">
-            ${si === SECTIONS.length - 1 ? 'View Results' : 'Next'}
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
-      </div>`;
-  });
+          // State
+            let answers = {}; // { sectionId: [0|1|2, ...] }
+            let currentSection = 0;
+            let currentView = 'intro'; // intro | section | results
 
-  container.innerHTML = html;
-}
+          // ── BUILD SIDEBAR ──
+          function buildSidebar() {
+            const nav = document.getElementById('sidebarNav');
+            let lastDomain = '';
+            let html = '';
 
-// ── SET ANSWER ──
-function setAnswer(si, qi, val, btn) {
-  if (!answers[si]) answers[si] = new Array(5).fill(null);
-  answers[si][qi] = val;
+          SECTIONS.forEach((sec, i) => {
+            if (sec.domain !== lastDomain) {
+            const shortDomain = sec.domain.replace(/Domain \d+ — /, '');
+            html += `<div class="nav-domain-label">${shortDomain}</div>`;
+            lastDomain = sec.domain;
+            }
+            html += `
+              <div class="nav-item" id="navItem${i}" onclick="goToSection(${i})">
+                <div class="nav-dot"></div>
+                <div class="nav-check">✓</div>
+                  <span>${sec.title}</span>
+              </div>`;
+            });
 
-  // Update button styles
-  const row = btn.parentElement;
-  row.querySelectorAll('.answer-btn').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected');
+          // Results
+            html += `
+              <div class="nav-domain-label" style="margin-top:20px">Summary</div>
+              <div class="nav-item" id="navItemResults" onclick="showResults()">
+                <div class="nav-dot"></div>
+                <div class="nav-check">✓</div>
+                  <span>Risk Report</span>
+              </div>`;
 
-  updateProgress();
-  updateSectionScore(si);
-}
+              nav.innerHTML = html;
+          }
 
-// ── SECTION SCORE ──
-function getSectionScore(si) {
-  if (!answers[si]) return null;
-  const arr = answers[si];
-  if (arr.some(v => v === null)) return null;
-  return arr.reduce((a, b) => a + b, 0);
-}
+          // ── BUILD SECTION SCREENS ──
+            function buildSections() {
+              const container = document.getElementById('sectionScreens');
+              let html = '';
 
-function updateSectionScore(si) {
-  const score = getSectionScore(si);
-  const el = document.getElementById(`sectionScoreMini${si}`);
-  if (!el) return;
-  if (score !== null) {
-    el.innerHTML = `Section score: <span>${score}/10</span>`;
-  }
-}
+            SECTIONS.forEach((sec, si) => {
+              const qHtml = sec.questions.map((q, qi) => `
+                <div class="question-item" id="qItem${si}_${qi}">
+                  <div class="question-num">Q${qi + 1} of 5</div>
+                  <div class="question-text">${q}</div>
+                  <div class="answer-row">
+                    <button class="answer-btn yes" onclick="setAnswer(${si}, ${qi}, 0, this)">Yes</button>
+                    <button class="answer-btn partial" onclick="setAnswer(${si}, ${qi}, 1, this)">Partially</button>
+                    <button class="answer-btn no" onclick="setAnswer(${si}, ${qi}, 2, this)">No</button>
+                  </div>
+                </div>`).join('');
 
-// ── PROGRESS ──
-function updateProgress() {
-  let answered = 0;
-  SECTIONS.forEach((sec, si) => {
-    const arr = answers[si] || [];
-    answered += arr.filter(v => v !== null).length;
+              html += `
+                <div class="section-screen" id="section${si}">
+                  <div class="section-header">
+                    <div class="section-domain">${sec.domain}</div>
+                    <h2 class="section-title">${sec.title}</h2>
+                    <div class="risk-badge ${sec.badge}">${sec.badgeLabel} Risk</div>
+                    <div class="section-context">
+                      <div class="context-label">Why This Matters</div>
+                      <div class="context-text">${sec.context}</div>
+                    </div>
+                  </div>
 
-    // Update nav
-    const navItem = document.getElementById(`navItem${si}`);
-    if (navItem) {
-      const complete = arr.filter(v => v !== null).length === 5;
-      navItem.classList.toggle('completed', complete);
-    }
-  });
+                  <div class="questions-label">Assessment Questions</div>
+                  ${qHtml}
 
-  const total = SECTIONS.length * 5;
-  const pct = Math.round((answered / total) * 100);
-  document.getElementById('progressFill').style.width = pct + '%';
-  document.getElementById('progressPct').textContent = pct + '%';
-}
+                  <div class="section-nav">
+                    <button class="btn-secondary" onclick="${si === 0 ? 'showIntro()' : `goToSection(${si - 1})`}">
+                      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M10 6.5H3M5.5 3.5L2 7l3.5 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      Back
+                    </button>
+                    <div class="section-score-mini" id="sectionScoreMini${si}"></div>
+                    <button class="btn-primary" onclick="${si === SECTIONS.length - 1 ? 'showResults()' : `goToSection(${si + 1})`}">
+                      ${si === SECTIONS.length - 1 ? 'View Results' : 'Next'}
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                  </div>
+                </div>`;
+              });
 
-// ── NAVIGATION ──
-function showIntro() {
-  document.getElementById('introScreen').style.display = 'block';
-  document.querySelectorAll('.section-screen').forEach(s => s.classList.remove('active'));
-  document.getElementById('resultsScreen').classList.remove('active');
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-}
+              container.innerHTML = html;
+            }
 
-function startAudit() {
+            // ── SET ANSWER ──
+              function setAnswer(si, qi, val, btn) {
+              if (!answers[si]) answers[si] = new Array(5).fill(null);
+              answers[si][qi] = val;
 
-  document.getElementById('introScreen').style.display = 'none';
+            // Update button styles
+              const row = btn.parentElement;
+              row.querySelectorAll('.answer-btn').forEach(b => b.classList.remove('selected'));
+              btn.classList.add('selected');
 
-  document.querySelectorAll('.section-screen').forEach(s => s.classList.remove('active'));
+              updateProgress();
+              updateSectionScore(si);
+              }
 
-  document.getElementById('section1').classList.add('active');
+            // ── SECTION SCORE ──
+              function getSectionScore(si) {
+              if (!answers[si]) return null;
+              const arr = answers[si];
+              if (arr.some(v => v === null)) return null;
+              return arr.reduce((a, b) => a + b, 0);
+              }
 
-  // Conversion trick: show early progress
-  const progressBar = document.querySelector('.progress-fill');
-  if (progressBar) {
-    progressBar.style.width = "10%";
-  }
+              function updateSectionScore(si) {
+              const score = getSectionScore(si);
+              const el = document.getElementById(`sectionScoreMini${si}`);
+              if (!el) return;
+              if (score !== null) {
+                el.innerHTML = `Section score: <span>${score}/10</span>`;
+                }
+              }
 
-}
+            // ── PROGRESS ──
+              function updateProgress() {
+              let answered = 0;
+              SECTIONS.forEach((sec, si) => {
+                const arr = answers[si] || [];
+                answered += arr.filter(v => v !== null).length;
 
-function goToSection(si) {
-  document.getElementById('introScreen').style.display = 'none';
-  document.getElementById('resultsScreen').classList.remove('active');
-  document.querySelectorAll('.section-screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(`section${si}`).classList.add('active');
+                // Update nav
+                  const navItem = document.getElementById(`navItem${si}`);
+                  if (navItem) {
+                    const complete = arr.filter(v => v !== null).length === 5;
+                    navItem.classList.toggle('completed', complete);
+                    }
+                  });
 
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  const navItem = document.getElementById(`navItem${si}`);
-  if (navItem) navItem.classList.add('active');
+                  const total = SECTIONS.length * 5;
+                  const pct = Math.round((answered / total) * 100);
+                  document.getElementById('progressFill').style.width = pct + '%';
+                  document.getElementById('progressPct').textContent = pct + '%';
+              }
 
-  currentSection = si;
-  updateSectionScore(si);
-  window.scrollTo(0, 0);
-}
+              // ── NAVIGATION ──
+              function showIntro() {
+                document.getElementById('introScreen').style.display = 'block';
+                document.querySelectorAll('.section-screen').forEach(s => s.classList.remove('active'));
+                document.getElementById('resultsScreen').classList.remove('active');
+                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+              }
 
-// ── RESULTS ──
-let emailCaptured = false;
+              function startAudit() {
+                document.getElementById('introScreen').style.display = 'none';
+                document.querySelectorAll('.section-screen').forEach(s => s.classList.remove('active'));
+                document.getElementById('section1').classList.add('active');
 
-function showResults() {
+                // Conversion trick: show early progress
+                const progressBar = document.querySelector('.progress-fill');
+                if (progressBar) {
+                  progressBar.style.width = "10%";
+                }
+              }
 
-  if (!emailCaptured) {
-    document.getElementById('emailGate').classList.add('active');
-    return;
-  }
+              function goToSection(si) {
+                document.getElementById('introScreen').style.display = 'none';
+                document.getElementById('resultsScreen').classList.remove('active');
+                document.querySelectorAll('.section-screen').forEach(s => s.classList.remove('active'));
+                document.getElementById(`section${si}`).classList.add('active');
 
-  document.getElementById('introScreen').style.display = 'none';
-  document.querySelectorAll('.section-screen').forEach(s => s.classList.remove('active'));
-  document.getElementById('resultsScreen').classList.add('active');
+                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+                const navItem = document.getElementById(`navItem${si}`);
+                if (navItem) navItem.classList.add('active');
 
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  document.getElementById('navItemResults').classList.add('active');
-}
+                currentSection = si;
+                updateSectionScore(si);
+                window.scrollTo(0, 0);
+              }
 
-  renderResults();
-  window.scrollTo(0, 0);
-}
+              // ── RESULTS ──
+              let emailCaptured = false;
 
-function renderResults() {
-  // Total score
-  let total = 0;
-  SECTIONS.forEach((_, si) => {
-    const arr = answers[si] || new Array(5).fill(0);
-    total += arr.reduce((a, b) => a + (b || 0), 0);
-  });
+              function showResults() {
 
-  // Animate dial
-  const circumference = 402;
-  const offset = circumference - (total / 100) * circumference;
-  const arc = document.getElementById('dialArc');
-  const dialNum = document.getElementById('dialNum');
+                if (!emailCaptured) {
+                  document.getElementById('emailGate').classList.add('active');
+                  return;
+                }
 
-  let color = '#5cb87a';
-  if (total > 70) color = '#e85c5c';
-  else if (total > 40) color = '#e8a23c';
-  else if (total > 20) color = '#e8d5a3';
+                document.getElementById('introScreen').style.display = 'none';
+                document.querySelectorAll('.section-screen').forEach(s => s.classList.remove('active'));
+                document.getElementById('resultsScreen').classList.add('active');
 
-  setTimeout(() => {
-    arc.style.strokeDashoffset = offset;
-    arc.style.stroke = color;
-    let n = 0;
-    const ticker = setInterval(() => {
-      n = Math.min(n + 2, total);
-      dialNum.textContent = n;
-      if (n >= total) clearInterval(ticker);
-    }, 20);
-  }, 100);
+                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+                document.getElementById('navItemResults').classList.add('active');
+              }
 
-  // Verdict
-  let verdictLabel, verdictTitle, verdictDesc, verdictColor;
-  if (total <= 20) {
-    verdictLabel = 'Low Risk Exposure';
-    verdictTitle = 'Well-Structured';
-    verdictDesc = 'Your platform appears to have strong foundational protections across most key areas. Even well-prepared platforms benefit from periodic review as the product evolves.';
-    verdictColor = 'var(--green)';
-  } else if (total <= 40) {
-    verdictLabel = 'Moderate Risk Exposure';
-    verdictTitle = 'Gaps to Address';
-    verdictDesc = 'Important safeguards may be in place, but several areas need attention. As your SaaS scales, these gaps can compound into larger structural vulnerabilities.';
-    verdictColor = 'var(--accent)';
-  } else if (total <= 70) {
-    verdictLabel = 'Elevated Risk Exposure';
-    verdictTitle = 'Action Required';
-    verdictDesc = 'Several important risk controls are not yet fully implemented. As your user base expands, these unresolved risks in areas like data protection and security will create real operational pressure.';
-    verdictColor = 'var(--amber)';
-  } else {
-    verdictLabel = 'High Risk Exposure';
-    verdictTitle = 'Immediate Attention Needed';
-    verdictDesc = 'Multiple structural safeguards are missing or unclear. Your platform is currently vulnerable to user disputes, data incidents, regulatory scrutiny, and operational disruption.';
-    verdictColor = 'var(--red)';
-  }
+              renderResults();
+              window.scrollTo(0, 0);
 
-  document.getElementById('verdictLabel').textContent = verdictLabel;
-  document.getElementById('verdictLabel').style.color = verdictColor;
-  document.getElementById('verdictTitle').textContent = verdictTitle;
-  document.getElementById('verdictTitle').style.color = verdictColor;
-  document.getElementById('verdictDesc').textContent = verdictDesc;
 
-  // Domain breakdown
-  const breakdown = document.getElementById('domainBreakdown');
-  breakdown.innerHTML = SECTIONS.map((sec, si) => {
-    const arr = answers[si] || new Array(5).fill(0);
-    const score = arr.reduce((a, b) => a + (b || 0), 0);
-    const pct = (score / 10) * 100;
+            function renderResults() {
+              // Total score
+              let total = 0;
+              SECTIONS.forEach((_, si) => {
+                const arr = answers[si] || new Array(5).fill(0);
+                total += arr.reduce((a, b) => a + (b || 0), 0);
+              });
 
-    let barColor, flagClass, flagText;
-    if (score <= 2) { barColor = 'var(--risk-low)'; flagClass = 'flag-low'; flagText = 'Low'; }
-    else if (score <= 5) { barColor = 'var(--accent)'; flagClass = 'flag-mod'; flagText = 'Moderate'; }
-    else if (score <= 8) { barColor = 'var(--amber)'; flagClass = 'flag-high'; flagText = 'Elevated'; }
-    else { barColor = 'var(--risk-crit)'; flagClass = 'flag-crit'; flagText = 'High'; }
+              // Animate dial
+              const circumference = 402;
+              const offset = circumference - (total / 100) * circumference;
+              const arc = document.getElementById('dialArc');
+              const dialNum = document.getElementById('dialNum');
 
-    return `
-      <div class="domain-row">
-        <div style="width:180px;flex-shrink:0;">
-          <div class="domain-name">${sec.title}</div>
-          <div class="domain-risk-name">${sec.riskName}</div>
-        </div>
-        <div class="domain-bar-track">
-          <div class="domain-bar-fill" style="width:${pct}%;background:${barColor}"></div>
-        </div>
-        <div class="domain-score-val">${score}/10</div>
-        <div class="domain-flag ${flagClass}">${flagText}</div>
-      </div>`;
-  }).join('');
-}
+              let color = '#5cb87a';
+              if (total > 70) color = '#e85c5c';
+              else if (total > 40) color = '#e8a23c';
+              else if (total > 20) color = '#e8d5a3';
 
-function resetAudit() {
-  answers = {};
-  document.querySelectorAll('.answer-btn').forEach(b => b.classList.remove('selected'));
-  document.querySelectorAll('.nav-item').forEach(n => {
-    n.classList.remove('active', 'completed');
-  });
-  updateProgress();
-  showIntro();
-}
+              setTimeout(() => {
+                arc.style.strokeDashoffset = offset;
+                arc.style.stroke = color;
+                let n = 0;
+                const ticker = setInterval(() => {
+                  n = Math.min(n + 2, total);
+                  dialNum.textContent = n;
+                  if (n >= total) clearInterval(ticker);
+                }, 20);
+              }, 100);
 
-function submitEmail() {
+              // Verdict
+              let verdictLabel, verdictTitle, verdictDesc, verdictColor;
+              if (total <= 20) {
+                verdictLabel = 'Low Risk Exposure';
+                verdictTitle = 'Well-Structured';
+                verdictDesc = 'Your platform appears to have strong foundational protections across most key areas. Even well-prepared platforms benefit from periodic review as the product evolves.';
+                verdictColor = 'var(--green)';
+              } 
+              else if (total <= 40) {
+                verdictLabel = 'Moderate Risk Exposure';
+                verdictTitle = 'Gaps to Address';
+                verdictDesc = 'Important safeguards may be in place, but several areas need attention. As your SaaS scales, these gaps can compound into larger structural vulnerabilities.';
+                verdictColor = 'var(--accent)';
+              } 
+              else if (total <= 70) {
+                verdictLabel = 'Elevated Risk Exposure';
+                verdictTitle = 'Action Required';
+                verdictDesc = 'Several important risk controls are not yet fully implemented. As your user base expands, these unresolved risks in areas like data protection and security will create real operational pressure.';
+                verdictColor = 'var(--amber)';
+              } 
+              else {
+                verdictLabel = 'High Risk Exposure';
+                verdictTitle = 'Immediate Attention Needed';
+                verdictDesc = 'Multiple structural safeguards are missing or unclear. Your platform is currently vulnerable to user disputes, data incidents, regulatory scrutiny, and operational disruption.';
+                verdictColor = 'var(--red)';
+              }
 
-  const email = document.getElementById('userEmail').value;
+              document.getElementById('verdictLabel').textContent = verdictLabel;
+              document.getElementById('verdictLabel').style.color = verdictColor;
+              document.getElementById('verdictTitle').textContent = verdictTitle;
+              document.getElementById('verdictTitle').style.color = verdictColor;
+              document.getElementById('verdictDesc').textContent = verdictDesc;
 
-  if (!email) {
-    alert("Please enter a valid email");
-    return;
-  }
+              // Domain breakdown
+              const breakdown = document.getElementById('domainBreakdown');
+              breakdown.innerHTML = SECTIONS.map((sec, si) => {
+                const arr = answers[si] || new Array(5).fill(0);
+                const score = arr.reduce((a, b) => a + (b || 0), 0);
+                const pct = (score / 10) * 100;
 
-  emailCaptured = true;
+                let barColor, flagClass, flagText;
+                if (score <= 2) { barColor = 'var(--risk-low)'; flagClass = 'flag-low'; flagText = 'Low'; }
+                else if (score <= 5) { barColor = 'var(--accent)'; flagClass = 'flag-mod'; flagText = 'Moderate'; }
+                else if (score <= 8) { barColor = 'var(--amber)'; flagClass = 'flag-high'; flagText = 'Elevated'; }
+                else { barColor = 'var(--risk-crit)'; flagClass = 'flag-crit'; flagText = 'High'; }
 
-  document.getElementById('emailGate').classList.remove('active');
+                return `
+                <div class="domain-row">
+                  <div style="width:180px;flex-shrink:0;">
+                    <div class="domain-name">${sec.title}</div>
+                    <div class="domain-risk-name">${sec.riskName}</div>
+                  </div>
+                  <div class="domain-bar-track">
+                    <div class="domain-bar-fill" style="width:${pct}%;background:${barColor}"></div>
+                  </div>
+                  <div class="domain-score-val">${score}/10</div>
+                  <div class="domain-flag ${flagClass}">${flagText}</div>
+                </div>`;
+              }).join('');
+            }
 
-  showResults();
-}
+            function resetAudit() {
+              answers = {};
+              document.querySelectorAll('.answer-btn').forEach(b => b.classList.remove('selected'));
+              document.querySelectorAll('.nav-item').forEach(n => {
+                n.classList.remove('active', 'completed');
+                });
+              updateProgress();
+              showIntro();
+            }
 
-// ── INIT ──
-buildSidebar();
-buildSections();
-</script>
-</body>
-</html>
+            function submitEmail() {
+
+              const email = document.getElementById('userEmail').value;
+
+              if (!email) {
+                alert("Please enter a valid email");
+                return;
+              }
+
+              emailCaptured = true;
+
+              document.getElementById('emailGate').classList.remove('active');
+
+              showResults();
+            }
+
+            // ── INIT ──
+            buildSidebar();
+            buildSections();
+          </script>
+        </body>
+    </html>
