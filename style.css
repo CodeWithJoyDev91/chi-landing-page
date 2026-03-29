@@ -26,10 +26,10 @@ background-color:#ffffff;
 
 /* HEADER */
 header{
-  display:flex;
+  text-align:center;
+  padding:30px 20px;
   justify-content:space-between;
   align-items:center;
-  padding:20px 40px;
   max-width:1200px;
   margin:0 auto;
   border-bottom:1px solid #eee;
@@ -46,6 +46,10 @@ margin:0 auto;
 header .logo{
   width:140px;
   margin-bottom:0;
+}
+
+.logo img{
+  width:220px;
 }
 
 /* TYPOGRAPHY */
@@ -88,10 +92,9 @@ color:#555;
 nav ul{
   list-style:none;
   display:flex;
-  gap:25px;
-  align-items:center;
-  margin:0;
-  padding:0;
+  justify-content:center;
+  gap:28px;
+  margin-bottom:25px;
 }
 
 ul{
@@ -106,7 +109,7 @@ margin-bottom:8px;
 
 #hero{
 text-align:center;
-padding-top:120px;
+padding-top:100px;
 }
 
 #hero p{
@@ -123,6 +126,7 @@ nav a{
   color:var(--chi-navy);
   font-size:0.9rem;
   font-weight:500;
+  font-size:0.9rem;
   padding:0;
   margin:0;
 }
