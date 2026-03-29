@@ -24,6 +24,17 @@ color:var(--chi-text);
 background-color:#ffffff;
 }
 
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 40px;
+  max-width:1200px;
+  margin:0 auto;
+  border-bottom:1px solid #eee;
+}
+
 /* LAYOUT */
 
 section{
@@ -32,9 +43,9 @@ max-width:1000px;
 margin:0 auto;
 }
 
-.logo{
-  width:160px;
-  margin-bottom:30px;
+header .logo{
+  width:140px;
+  margin-bottom:0;
 }
 
 /* TYPOGRAPHY */
@@ -74,6 +85,15 @@ color:#555;
 
 /* LISTS */
 
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:25px;
+  align-items:center;
+  margin:0;
+  padding:0;
+}
+
 ul{
 margin:15px 0 20px 20px;
 }
@@ -97,6 +117,15 @@ margin:0 auto 20px auto;
 }
 
 /* BUTTONS */
+
+nav a{
+  text-decoration:none;
+  color:var(--chi-navy);
+  font-size:0.9rem;
+  font-weight:500;
+  padding:0;
+  margin:0;
+}
 
 a{
 display:inline-block;
