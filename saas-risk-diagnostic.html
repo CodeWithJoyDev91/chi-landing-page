@@ -970,483 +970,469 @@
 
           <script>
             const SECTIONS = [
-            {
-              id: 'tos',
-              domain: 'Domain 1 — Legal Structure',
-              badge: 'legal',
-              badgeLabel: 'Legal',
-              title: 'Terms of Service',
-              riskName: 'Weak or Missing Terms of Service',
-              context: 'A Terms of Service only protects your business if it actually reflects how your product works. Generic or copied templates often fail to cover the specific risks your SaaS creates — around payments, data, outputs, or integrations — and can leave you more exposed than having nothing.',
-              questions: [
-                'Was your Terms of Service written specifically for your SaaS product?',
-                'Does it clearly describe what your software does and does not guarantee?',
-                'Does it include a clear limitation of liability?',
-                'Does it define acceptable user behaviour on the platform?',
-                'Does it explain how disputes between the company and users will be handled?'
-              ]
-            },
-            {
-              id: 'privacy',
-              domain: 'Domain 1 — Legal Structure',
-              badge: 'legal',
-              badgeLabel: 'Legal',
-              title: 'Privacy Policy',
-              riskName: 'No Proper Privacy Policy (or Non-Compliant One)',
-              context: 'Your Privacy Policy must accurately reflect how your SaaS actually collects, stores, and shares user data. A policy that doesn\'t match your real practices — or that was generated from a template — can create regulatory exposure under frameworks like GDPR and POPIA, even if your company isn\'t based in those regions.',
-              questions: [
-                'Does your Privacy Policy accurately describe all types of data your SaaS collects?',
-                'Does it clearly explain how that data is used and stored?',
-                'Does it describe whether data is shared with third-party services or integrations?',
-                'Does it explain how users can request deletion or modification of their data?',
-                'Is your Privacy Policy reviewed periodically as your SaaS evolves?'
-              ]
-            },
-            {
-              id: 'liability',
-              domain: 'Domain 1 — Legal Structure',
-              badge: 'legal',
-              badgeLabel: 'Legal',
-              title: 'Liability Limitations',
-              riskName: 'No Clear Liability Limitations',
-              context: 'Simply having a Terms of Service doesn\'t cap your legal exposure. Without clearly structured liability clauses — defining what damages are excluded and your maximum financial responsibility — a single customer dispute over downtime, data loss, or incorrect outputs could expose you to claims far beyond what your business can absorb.',
-              questions: [
-                'Does your Terms of Service clearly limit the types of damages your company can be held responsible for?',
-                'Is there a defined maximum financial liability your company accepts in relation to the use of the platform?',
-                'Does your agreement clarify that users rely on the software at their own risk where appropriate?',
-                'Are users informed about potential service interruptions, bugs, or system limitations?',
-                'Have these liability provisions been reviewed to ensure they align with how your SaaS actually operates?'
-              ]
-            },
-            {
-              id: 'data',
-              domain: 'Domain 2 — Data Governance',
-              badge: 'data',
-              badgeLabel: 'Data',
-              title: 'User Data Handling',
-              riskName: 'Improper Handling of User Data',
-              context: 'Data protection isn\'t just about storage — it\'s about how data is collected, accessed, processed, and controlled throughout your entire system. As your platform integrates with more services, the number of points where user data moves through your infrastructure increases. Without clear controls, each one is a potential failure point.',
-              questions: [
-                'Do you know exactly what types of user data your SaaS collects and stores?',
-                'Is sensitive user data protected using secure storage and encryption practices?',
-                'Are access permissions in place so that only authorised individuals can access user data?',
-                'Do you limit data collection to only what is necessary for your SaaS to function?',
-                'Do you regularly review how user data moves between your platform and third-party integrations?'
-              ]
-            },
-            {
-              id: 'billing',
-              domain: 'Domain 3 — Revenue & Billing',
-              badge: 'revenue',
-              badgeLabel: 'Revenue',
-              title: 'Subscription & Billing Terms',
-              riskName: 'Unclear Subscription / Billing Terms',
-              context: 'Subscription billing disputes are one of the most common sources of chargeback claims and reputational damage for SaaS companies. When renewal schedules, cancellation procedures, and refund policies aren\'t clearly communicated, payment processors — who typically favour the consumer — will decide outcomes you could have controlled.',
-              questions: [
-                'Do your Terms of Service clearly explain how subscription billing works?',
-                'Is it clear when subscriptions automatically renew?',
-                'Are cancellation procedures clearly explained to users?',
-                'Do users understand your refund policy before purchasing?',
-                'Are pricing changes or billing adjustments clearly communicated in advance?'
-              ]
-            },
-            {
-              id: 'thirdparty',
-              domain: 'Domain 4 — Operational & Platform',
-              badge: 'ops',
-              badgeLabel: 'Operations',
-              title: 'Third-Party Dependencies',
-              riskName: 'Using Third-Party Tools Without Understanding Risk',
-              context: 'Every tool you integrate becomes a dependency you don\'t control. Payment processors, authentication services, APIs — if any one of them changes its terms, goes down, or suffers a breach, your platform is affected. Most founders only discover how deep these dependencies run when a critical integration fails.',
-              questions: [
-                'Do you maintain a clear list of all third-party services your SaaS depends on?',
-                'Do you understand how each third-party provider handles user data or sensitive information?',
-                'Do you have contingency plans if a key integration becomes unavailable?',
-                'Are you aware of the terms and usage limits associated with the APIs or services you rely on?',
-                'Have you evaluated whether any critical part of your product depends entirely on a single external provider?'
-              ]
-            },
-            {
-              id: 'security',
-              domain: 'Domain 5 — Security',
-              badge: 'security',
-              badgeLabel: 'Security',
-              title: 'Security & Data Breach Exposure',
-              riskName: 'Security Weaknesses / Data Breach Exposure',
-              context: 'Cloud providers offer security layers, but they don\'t protect you from misconfigurations, weak authentication, exposed APIs, or inadequate access controls inside your own platform. Even small implementation errors can create vulnerabilities — and for an early-stage startup, a single breach can cause reputational damage that\'s difficult to recover from.',
-              questions: [
-                'Do you have a clear understanding of how user authentication is secured in your platform?',
-                'Are sensitive user data and credentials properly encrypted when stored or transmitted?',
-                'Do you restrict system access based on roles or permissions?',
-                'Are your APIs protected against unauthorized access or abuse?',
-                'Have you evaluated potential security vulnerabilities in your platform architecture?'
-              ]
-            },
-            {
-              id: 'compliance',
-              domain: 'Domain 6 — Regulatory & Compliance',
-              badge: 'compliance',
-              badgeLabel: 'Compliance',
-              title: 'Industry Regulations',
-              riskName: 'Non-Compliance with Industry Regulations',
-              context: 'Compliance doesn\'t only matter when you\'re serving enterprise clients. Depending on what data your platform processes, you may already be within scope of data protection, financial, or security regulations — before you\'ve thought about it. Enterprise customers won\'t wait for you to catch up; they\'ll move on to vendors who can demonstrate readiness.',
-              questions: [
-                'Do you know which regulations may apply to your SaaS product based on the type of data you process?',
-                'Have you evaluated whether your platform may fall under privacy or data protection laws in certain jurisdictions?',
-                'Are you aware of security or compliance standards that enterprise customers may expect?',
-                'Do you have internal processes for handling user data requests or regulatory inquiries?',
-                'Have you reviewed whether third-party services you use meet relevant compliance expectations?'
-              ]
-            },
-            {
-              id: 'incident',
-              domain: 'Domain 7 — Operational Resilience',
-              badge: 'resilience',
-              badgeLabel: 'Resilience',
-              title: 'Incident Response',
-              riskName: 'No Incident Response Plan',
-              context: 'Even well-built systems go down. What determines how much damage an incident causes isn\'t whether it happens — it\'s how fast and effectively your team responds. Without a clear plan, teams react under pressure, communication delays compound the problem, and what could have been a minor disruption becomes a credibility crisis.',
-              questions: [
-                'Do you have a defined process for responding to major system failures or security incidents?',
-                'Is there a clear person or team responsible for managing incident response?',
-                'Do you have procedures for communicating with users during service disruptions?',
-                'Have you considered how quickly your team could identify and contain a system failure?',
-                'Do you maintain backups or recovery procedures for critical data?'
-              ]
-            },
-            {
-              id: 'marketing',
-              domain: 'Domain 8 — Business & Representation',
-              badge: 'business',
-              badgeLabel: 'Business',
-              title: 'Marketing Claims',
-              riskName: 'Misleading Marketing or Product Claims',
-              context: 'Claims made in your product pages, sales materials, and pitch decks create expectations. If your platform doesn\'t consistently deliver on those claims — whether around security, compliance, uptime, or performance — customers can argue they were misled. For early-stage companies, even a small number of these disputes creates disproportionate operational and legal pressure.',
-              questions: [
-                'Are the claims made in your marketing materials consistent with your platform\'s actual capabilities?',
-                'Do you avoid claiming compliance with standards or regulations that have not been formally verified?',
-                'Are statements about reliability, uptime, or performance realistic and supportable?',
-                'Are product limitations or constraints clearly communicated where appropriate?',
-                'Do marketing and technical teams align on how the platform is represented publicly?'
-              ]
-            }
-          ];
+          {
+            id: 'tos',
+            domain: 'Domain 1 — Legal Structure',
+            badge: 'legal',
+            badgeLabel: 'Legal',
+            title: 'Terms of Service',
+            riskName: 'Weak or Missing Terms of Service',
+            context: 'A Terms of Service only protects your business if it actually reflects how your product works. Generic or copied templates often fail to cover the specific risks your SaaS creates — around payments, data, outputs, or integrations — and can leave you more exposed than having nothing.',
+            questions: [
+              'Was your Terms of Service written specifically for your SaaS product?',
+              'Does it clearly describe what your software does and does not guarantee?',
+              'Does it include a clear limitation of liability?',
+              'Does it define acceptable user behaviour on the platform?',
+              'Does it explain how disputes between the company and users will be handled?'
+            ]
+          },
+          {
+            id: 'privacy',
+            domain: 'Domain 1 — Legal Structure',
+            badge: 'legal',
+            badgeLabel: 'Legal',
+            title: 'Privacy Policy',
+            riskName: 'No Proper Privacy Policy (or Non-Compliant One)',
+            context: 'Your Privacy Policy must accurately reflect how your SaaS actually collects, stores, and shares user data. A policy that doesn\'t match your real practices — or that was generated from a template — can create regulatory exposure under frameworks like GDPR and POPIA, even if your company isn\'t based in those regions.',
+            questions: [
+              'Does your Privacy Policy accurately describe all types of data your SaaS collects?',
+              'Does it clearly explain how that data is used and stored?',
+              'Does it describe whether data is shared with third-party services or integrations?',
+              'Does it explain how users can request deletion or modification of their data?',
+              'Is your Privacy Policy reviewed periodically as your SaaS evolves?'
+            ]
+          },
+          {
+            id: 'liability',
+            domain: 'Domain 1 — Legal Structure',
+            badge: 'legal',
+            badgeLabel: 'Legal',
+            title: 'Liability Limitations',
+            riskName: 'No Clear Liability Limitations',
+            context: 'Simply having a Terms of Service doesn\'t cap your legal exposure. Without clearly structured liability clauses — defining what damages are excluded and your maximum financial responsibility — a single customer dispute over downtime, data loss, or incorrect outputs could expose you to claims far beyond what your business can absorb.',
+            questions: [
+              'Does your Terms of Service clearly limit the types of damages your company can be held responsible for?',
+              'Is there a defined maximum financial liability your company accepts in relation to the use of the platform?',
+              'Does your agreement clarify that users rely on the software at their own risk where appropriate?',
+              'Are users informed about potential service interruptions, bugs, or system limitations?',
+              'Have these liability provisions been reviewed to ensure they align with how your SaaS actually operates?'
+            ]
+          },
+          {
+            id: 'data',
+            domain: 'Domain 2 — Data Governance',
+            badge: 'data',
+            badgeLabel: 'Data',
+            title: 'User Data Handling',
+            riskName: 'Improper Handling of User Data',
+            context: 'Data protection isn\'t just about storage — it\'s about how data is collected, accessed, processed, and controlled throughout your entire system. As your platform integrates with more services, the number of points where user data moves through your infrastructure increases. Without clear controls, each one is a potential failure point.',
+            questions: [
+              'Do you know exactly what types of user data your SaaS collects and stores?',
+              'Is sensitive user data protected using secure storage and encryption practices?',
+              'Are access permissions in place so that only authorised individuals can access user data?',
+              'Do you limit data collection to only what is necessary for your SaaS to function?',
+              'Do you regularly review how user data moves between your platform and third-party integrations?'
+            ]
+          },
+          {
+            id: 'billing',
+            domain: 'Domain 3 — Revenue & Billing',
+            badge: 'revenue',
+            badgeLabel: 'Revenue',
+            title: 'Subscription & Billing Terms',
+            riskName: 'Unclear Subscription / Billing Terms',
+            context: 'Subscription billing disputes are one of the most common sources of chargeback claims and reputational damage for SaaS companies. When renewal schedules, cancellation procedures, and refund policies aren\'t clearly communicated, payment processors — who typically favour the consumer — will decide outcomes you could have controlled.',
+            questions: [
+              'Do your Terms of Service clearly explain how subscription billing works?',
+              'Is it clear when subscriptions automatically renew?',
+              'Are cancellation procedures clearly explained to users?',
+              'Do users understand your refund policy before purchasing?',
+              'Are pricing changes or billing adjustments clearly communicated in advance?'
+            ]
+          },
+          {
+            id: 'thirdparty',
+            domain: 'Domain 4 — Operational & Platform',
+            badge: 'ops',
+            badgeLabel: 'Operations',
+            title: 'Third-Party Dependencies',
+            riskName: 'Using Third-Party Tools Without Understanding Risk',
+            context: 'Every tool you integrate becomes a dependency you don\'t control. Payment processors, authentication services, APIs — if any one of them changes its terms, goes down, or suffers a breach, your platform is affected. Most founders only discover how deep these dependencies run when a critical integration fails.',
+            questions: [
+              'Do you maintain a clear list of all third-party services your SaaS depends on?',
+              'Do you understand how each third-party provider handles user data or sensitive information?',
+              'Do you have contingency plans if a key integration becomes unavailable?',
+              'Are you aware of the terms and usage limits associated with the APIs or services you rely on?',
+              'Have you evaluated whether any critical part of your product depends entirely on a single external provider?'
+            ]
+          },
+          {
+            id: 'security',
+            domain: 'Domain 5 — Security',
+            badge: 'security',
+            badgeLabel: 'Security',
+            title: 'Security & Data Breach Exposure',
+            riskName: 'Security Weaknesses / Data Breach Exposure',
+            context: 'Cloud providers offer security layers, but they don\'t protect you from misconfigurations, weak authentication, exposed APIs, or inadequate access controls inside your own platform. Even small implementation errors can create vulnerabilities — and for an early-stage startup, a single breach can cause reputational damage that\'s difficult to recover from.',
+            questions: [
+              'Do you have a clear understanding of how user authentication is secured in your platform?',
+              'Are sensitive user data and credentials properly encrypted when stored or transmitted?',
+              'Do you restrict system access based on roles or permissions?',
+              'Are your APIs protected against unauthorized access or abuse?',
+              'Have you evaluated potential security vulnerabilities in your platform architecture?'
+            ]
+          },
+          {
+            id: 'compliance',
+            domain: 'Domain 6 — Regulatory & Compliance',
+            badge: 'compliance',
+            badgeLabel: 'Compliance',
+            title: 'Industry Regulations',
+            riskName: 'Non-Compliance with Industry Regulations',
+            context: 'Compliance doesn\'t only matter when you\'re serving enterprise clients. Depending on what data your platform processes, you may already be within scope of data protection, financial, or security regulations — before you\'ve thought about it. Enterprise customers won\'t wait for you to catch up; they\'ll move on to vendors who can demonstrate readiness.',
+            questions: [
+              'Do you know which regulations may apply to your SaaS product based on the type of data you process?',
+              'Have you evaluated whether your platform may fall under privacy or data protection laws in certain jurisdictions?',
+              'Are you aware of security or compliance standards that enterprise customers may expect?',
+              'Do you have internal processes for handling user data requests or regulatory inquiries?',
+              'Have you reviewed whether third-party services you use meet relevant compliance expectations?'
+            ]
+          },
+          {
+            id: 'incident',
+            domain: 'Domain 7 — Operational Resilience',
+            badge: 'resilience',
+            badgeLabel: 'Resilience',
+            title: 'Incident Response',
+            riskName: 'No Incident Response Plan',
+            context: 'Even well-built systems go down. What determines how much damage an incident causes isn\'t whether it happens — it\'s how fast and effectively your team responds. Without a clear plan, teams react under pressure, communication delays compound the problem, and what could have been a minor disruption becomes a credibility crisis.',
+            questions: [
+              'Do you have a defined process for responding to major system failures or security incidents?',
+              'Is there a clear person or team responsible for managing incident response?',
+              'Do you have procedures for communicating with users during service disruptions?',
+              'Have you considered how quickly your team could identify and contain a system failure?',
+              'Do you maintain backups or recovery procedures for critical data?'
+            ]
+          },
+          {
+            id: 'marketing',
+            domain: 'Domain 8 — Business & Representation',
+            badge: 'business',
+            badgeLabel: 'Business',
+            title: 'Marketing Claims',
+            riskName: 'Misleading Marketing or Product Claims',
+            context: 'Claims made in your product pages, sales materials, and pitch decks create expectations. If your platform doesn\'t consistently deliver on those claims — whether around security, compliance, uptime, or performance — customers can argue they were misled. For early-stage companies, even a small number of these disputes creates disproportionate operational and legal pressure.',
+            questions: [
+              'Are the claims made in your marketing materials consistent with your platform\'s actual capabilities?',
+              'Do you avoid claiming compliance with standards or regulations that have not been formally verified?',
+              'Are statements about reliability, uptime, or performance realistic and supportable?',
+              'Are product limitations or constraints clearly communicated where appropriate?',
+              'Do marketing and technical teams align on how the platform is represented publicly?'
+            ]
+          }
+        ];
 
-          // State
-            let answers = {}; // { sectionId: [0|1|2, ...] }
-            let currentSection = 0;
-            let currentView = 'intro'; // intro | section | results
+        // ── STATE ──
+        let answers = {};
+        let currentSection = 0;
+        let currentView = 'intro';
+        let emailCaptured = false;
 
-          // ── BUILD SIDEBAR ──
-          function buildSidebar() {
-            const nav = document.getElementById('sidebarNav');
-            let lastDomain = '';
-            let html = '';
+        // ── BUILD SIDEBAR ──
+        function buildSidebar() {
+          const nav = document.getElementById('sidebarNav');
+          let lastDomain = '';
+          let html = '';
 
           SECTIONS.forEach((sec, i) => {
             if (sec.domain !== lastDomain) {
-            const shortDomain = sec.domain.replace(/Domain \d+ — /, '');
-            html += `<div class="nav-domain-label">${shortDomain}</div>`;
-            lastDomain = sec.domain;
+              const shortDomain = sec.domain.replace(/Domain \d+ — /, '');
+              html += `<div class="nav-domain-label">${shortDomain}</div>`;
+              lastDomain = sec.domain;
             }
             html += `
               <div class="nav-item" id="navItem${i}" onclick="goToSection(${i})">
                 <div class="nav-dot"></div>
                 <div class="nav-check">✓</div>
-                  <span>${sec.title}</span>
+                <span>${sec.title}</span>
               </div>`;
-            });
+          });
 
-          // Results
+          html += `
+            <div class="nav-domain-label" style="margin-top:20px">Summary</div>
+            <div class="nav-item" id="navItemResults" onclick="showResults()">
+              <div class="nav-dot"></div>
+              <div class="nav-check">✓</div>
+              <span>Risk Report</span>
+            </div>`;
+
+          nav.innerHTML = html;
+        }
+
+        // ── BUILD SECTION SCREENS ──
+        function buildSections() {
+          const container = document.getElementById('sectionScreens');
+          let html = '';
+
+          SECTIONS.forEach((sec, si) => {
+            const qHtml = sec.questions.map((q, qi) => `
+              <div class="question-item" id="qItem${si}_${qi}">
+                <div class="question-num">Q${qi + 1} of 5</div>
+                <div class="question-text">${q}</div>
+                <div class="answer-row">
+                  <button class="answer-btn yes"     onclick="setAnswer(${si}, ${qi}, 0, this)">Yes</button>
+                  <button class="answer-btn partial" onclick="setAnswer(${si}, ${qi}, 1, this)">Partially</button>
+                  <button class="answer-btn no"      onclick="setAnswer(${si}, ${qi}, 2, this)">No</button>
+                </div>
+              </div>`).join('');
+
+            const isLast = si === SECTIONS.length - 1;
+            const remaining = SECTIONS.length - si - 1;
+
             html += `
-              <div class="nav-domain-label" style="margin-top:20px">Summary</div>
-              <div class="nav-item" id="navItemResults" onclick="showResults()">
-                <div class="nav-dot"></div>
-                <div class="nav-check">✓</div>
-                  <span>Risk Report</span>
-              </div>`;
+              <div class="section-screen" id="section${si}">
+                <div class="section-header">
+                  <div class="section-domain">${sec.domain}</div>
+                  <h2 class="section-title">${sec.title}</h2>
+                  <div class="risk-badge ${sec.badge}">${sec.badgeLabel} Risk</div>
+                  <div class="section-context">
+                    <div class="context-label">Why This Matters</div>
+                    <div class="context-text">${sec.context}</div>
+                  </div>
+                </div>
 
-              nav.innerHTML = html;
+                <div class="questions-label">Assessment Questions</div>
+                ${qHtml}
+
+                <div class="section-nav">
+                  <button class="btn-secondary" onclick="${si === 0 ? 'showIntro()' : `goToSection(${si - 1})`}">
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                      <path d="M10 6.5H3M5.5 3.5L2 7l3.5 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Back
+                  </button>
+                  <div class="sections-remaining" id="remainingCount${si}">
+                    ${isLast
+                      ? `<span style="color:var(--chi-navy);font-weight:600;">Last section</span>`
+                      : `<span style="color:var(--chi-navy);font-weight:600;">${remaining}</span> section${remaining === 1 ? '' : 's'} remaining`
+                    }
+                  </div>
+                  <button class="btn-primary" onclick="${isLast ? 'showResults()' : `goToSection(${si + 1})`}">
+                    ${isLast ? 'View Results' : 'Next'}
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>`;
+          });
+
+          container.innerHTML = html;
+        }
+
+        // ── SET ANSWER ──
+        function setAnswer(si, qi, val, btn) {
+          if (!answers[si]) answers[si] = new Array(5).fill(null);
+          answers[si][qi] = val;
+
+          const row = btn.parentElement;
+          row.querySelectorAll('.answer-btn').forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+
+          updateProgress();
+        }
+
+        // ── PROGRESS ──
+        function updateProgress() {
+          let answered = 0;
+
+          SECTIONS.forEach((sec, si) => {
+            const arr = answers[si] || [];
+            answered += arr.filter(v => v !== null).length;
+
+            const navItem = document.getElementById(`navItem${si}`);
+            if (navItem) {
+              const complete = arr.filter(v => v !== null).length === 5;
+              navItem.classList.toggle('completed', complete);
+            }
+          });
+
+          const total = SECTIONS.length * 5;
+          const pct = Math.round((answered / total) * 100);
+          document.getElementById('progressFill').style.width = pct + '%';
+          document.getElementById('progressPct').textContent = pct + '%';
+        }
+
+        // ── NAVIGATION ──
+        function showIntro() {
+          document.getElementById('introScreen').style.display = 'block';
+          document.querySelectorAll('.section-screen').forEach(s => s.classList.remove('active'));
+          document.getElementById('resultsScreen').classList.remove('active');
+          document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        }
+
+        function startAudit() {
+          document.getElementById('introScreen').style.display = 'none';
+          document.querySelectorAll('.section-screen').forEach(s => s.classList.remove('active'));
+          document.getElementById('section0').classList.add('active');
+
+          document.getElementById(`navItem0`).classList.add('active');
+          currentSection = 0;
+
+          const progressBar = document.querySelector('.progress-fill');
+          if (progressBar) progressBar.style.width = '10%';
+
+          window.scrollTo(0, 0);
+        }
+
+        function goToSection(si) {
+          document.getElementById('introScreen').style.display = 'none';
+          document.getElementById('resultsScreen').classList.remove('active');
+          document.getElementById('emailGate').classList.remove('active');
+          document.querySelectorAll('.section-screen').forEach(s => s.classList.remove('active'));
+          document.getElementById(`section${si}`).classList.add('active');
+
+          document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+          const navItem = document.getElementById(`navItem${si}`);
+          if (navItem) navItem.classList.add('active');
+
+          currentSection = si;
+          window.scrollTo(0, 0);
+        }
+
+        // ── RESULTS ──
+        function showResults() {
+          if (!emailCaptured) {
+            document.getElementById('introScreen').style.display = 'none';
+            document.querySelectorAll('.section-screen').forEach(s => s.classList.remove('active'));
+            document.getElementById('emailGate').classList.add('active');
+            return;
           }
 
-          // ── BUILD SECTION SCREENS ──
-            function buildSections() {
-              const container = document.getElementById('sectionScreens');
-              let html = '';
+          document.getElementById('introScreen').style.display = 'none';
+          document.querySelectorAll('.section-screen').forEach(s => s.classList.remove('active'));
+          document.getElementById('emailGate').classList.remove('active');
+          document.getElementById('resultsScreen').classList.add('active');
 
-            SECTIONS.forEach((sec, si) => {
-              const qHtml = sec.questions.map((q, qi) => `
-                <div class="question-item" id="qItem${si}_${qi}">
-                  <div class="question-num">Q${qi + 1} of 5</div>
-                  <div class="question-text">${q}</div>
-                  <div class="answer-row">
-                    <button class="answer-btn yes" onclick="setAnswer(${si}, ${qi}, 0, this)">Yes</button>
-                    <button class="answer-btn partial" onclick="setAnswer(${si}, ${qi}, 1, this)">Partially</button>
-                    <button class="answer-btn no" onclick="setAnswer(${si}, ${qi}, 2, this)">No</button>
-                  </div>
-                </div>`).join('');
+          document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+          document.getElementById('navItemResults').classList.add('active');
 
-              html += `
-                <div class="section-screen" id="section${si}">
-                  <div class="section-header">
-                    <div class="section-domain">${sec.domain}</div>
-                    <h2 class="section-title">${sec.title}</h2>
-                    <div class="risk-badge ${sec.badge}">${sec.badgeLabel} Risk</div>
-                    <div class="section-context">
-                      <div class="context-label">Why This Matters</div>
-                      <div class="context-text">${sec.context}</div>
-                    </div>
-                  </div>
+          renderResults();
+          window.scrollTo(0, 0);
+        }
 
-                  <div class="questions-label">Assessment Questions</div>
-                  ${qHtml}
+        function submitEmail() {
+          const email = document.getElementById('userEmail').value;
+          if (!email || !email.includes('@')) {
+            alert('Please enter a valid email address.');
+            return;
+          }
+          emailCaptured = true;
+          document.getElementById('emailGate').classList.remove('active');
+          showResults();
+        }
 
-                  <div class="section-nav">
-                    <button class="btn-secondary" onclick="${si === 0 ? 'showIntro()' : `goToSection(${si - 1})`}">
-                      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M10 6.5H3M5.5 3.5L2 7l3.5 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                      Back
-                    </button>
-                    <div class="section-score-mini" id="sectionScoreMini${si}"></div>
-                    <button class="btn-primary" onclick="${si === SECTIONS.length - 1 ? 'showResults()' : `goToSection(${si + 1})`}">
-                      ${si === SECTIONS.length - 1 ? 'View Results' : 'Next'}
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </button>
-                  </div>
-                </div>`;
-              });
+        // ── RENDER RESULTS ──
+        function renderResults() {
+          let total = 0;
+          SECTIONS.forEach((_, si) => {
+            const arr = answers[si] || new Array(5).fill(0);
+            total += arr.reduce((a, b) => a + (b ?? 0), 0);
+          });
 
-              container.innerHTML = html;
-            }
+          // Animate dial
+          const circumference = 402;
+          const offset = circumference - (total / 100) * circumference;
+          const arc = document.getElementById('dialArc');
+          const dialNum = document.getElementById('dialNum');
 
-            // ── SET ANSWER ──
-              function setAnswer(si, qi, val, btn) {
-              if (!answers[si]) answers[si] = new Array(5).fill(null);
-              answers[si][qi] = val;
+          let color = '#2e9e5b';
+          if (total > 70)      color = '#c23c3c';
+          else if (total > 40) color = '#d68b1c';
+          else if (total > 20) color = '#cda349';
 
-            // Update button styles
-              const row = btn.parentElement;
-              row.querySelectorAll('.answer-btn').forEach(b => b.classList.remove('selected'));
-              btn.classList.add('selected');
+          setTimeout(() => {
+            arc.style.strokeDashoffset = offset;
+            arc.style.stroke = color;
+            let n = 0;
+            const ticker = setInterval(() => {
+              n = Math.min(n + 2, total);
+              dialNum.textContent = n;
+              if (n >= total) clearInterval(ticker);
+            }, 20);
+          }, 100);
 
-              updateProgress();
-              updateSectionScore(si);
-              }
+          // Verdict
+          let verdictLabel, verdictTitle, verdictDesc, verdictColor;
+          if (total <= 20) {
+            verdictLabel = 'Low Risk Exposure';
+            verdictTitle = 'Well-Structured';
+            verdictDesc  = 'Your platform appears to have strong foundational protections across most key areas. Even well-prepared platforms benefit from periodic review as the product evolves.';
+            verdictColor = 'var(--green)';
+          } else if (total <= 40) {
+            verdictLabel = 'Moderate Risk Exposure';
+            verdictTitle = 'Gaps to Address';
+            verdictDesc  = 'Important safeguards may be in place, but several areas need attention. As your SaaS scales, these gaps can compound into larger structural vulnerabilities.';
+            verdictColor = 'var(--chi-gold)';
+          } else if (total <= 70) {
+            verdictLabel = 'Elevated Risk Exposure';
+            verdictTitle = 'Action Required';
+            verdictDesc  = 'Several important risk controls are not yet fully implemented. As your user base expands, these unresolved risks in areas like data protection and security will create real operational pressure.';
+            verdictColor = 'var(--amber)';
+          } else {
+            verdictLabel = 'High Risk Exposure';
+            verdictTitle = 'Immediate Attention Needed';
+            verdictDesc  = 'Multiple structural safeguards are missing or unclear. Your platform is currently vulnerable to user disputes, data incidents, regulatory scrutiny, and operational disruption.';
+            verdictColor = 'var(--red)';
+          }
 
-            // ── SECTION SCORE ──
-              function getSectionScore(si) {
-              if (!answers[si]) return null;
-              const arr = answers[si];
-              if (arr.some(v => v === null)) return null;
-              return arr.reduce((a, b) => a + b, 0);
-              }
+          document.getElementById('verdictLabel').textContent = verdictLabel;
+          document.getElementById('verdictLabel').style.color  = verdictColor;
+          document.getElementById('verdictTitle').textContent = verdictTitle;
+          document.getElementById('verdictTitle').style.color  = verdictColor;
+          document.getElementById('verdictDesc').textContent  = verdictDesc;
 
-              function updateSectionScore(si) {
-              const score = getSectionScore(si);
-              const el = document.getElementById(`sectionScoreMini${si}`);
-              if (!el) return;
-              if (score !== null) {
-                el.innerHTML = `Section score: <span>${score}/10</span>`;
-                }
-              }
+          // Domain breakdown
+          const breakdown = document.getElementById('domainBreakdown');
+          breakdown.innerHTML = SECTIONS.map((sec, si) => {
+            const arr   = answers[si] || new Array(5).fill(0);
+            const score = arr.reduce((a, b) => a + (b ?? 0), 0);
+            const pct   = (score / 10) * 100;
 
-            // ── PROGRESS ──
-              function updateProgress() {
-              let answered = 0;
-              SECTIONS.forEach((sec, si) => {
-                const arr = answers[si] || [];
-                answered += arr.filter(v => v !== null).length;
+            let barColor, flagClass, flagText;
+            if (score <= 2)      { barColor = 'var(--green)';     flagClass = 'flag-low';  flagText = 'Low'; }
+            else if (score <= 5) { barColor = 'var(--chi-gold)';  flagClass = 'flag-mod';  flagText = 'Moderate'; }
+            else if (score <= 8) { barColor = 'var(--amber)';     flagClass = 'flag-high'; flagText = 'Elevated'; }
+            else                 { barColor = 'var(--risk-crit)'; flagClass = 'flag-crit'; flagText = 'High'; }
 
-                // Update nav
-                  const navItem = document.getElementById(`navItem${si}`);
-                  if (navItem) {
-                    const complete = arr.filter(v => v !== null).length === 5;
-                    navItem.classList.toggle('completed', complete);
-                    }
-                  });
+            return `
+              <div class="domain-row">
+                <div style="width:180px;flex-shrink:0;">
+                  <div class="domain-name">${sec.title}</div>
+                  <div class="domain-risk-name">${sec.riskName}</div>
+                </div>
+                <div class="domain-bar-track">
+                  <div class="domain-bar-fill" style="width:${pct}%;background:${barColor}"></div>
+                </div>
+                <div class="domain-score-val">${score}/10</div>
+                <div class="domain-flag ${flagClass}">${flagText}</div>
+              </div>`;
+          }).join('');
+        }
 
-                  const total = SECTIONS.length * 5;
-                  const pct = Math.round((answered / total) * 100);
-                  document.getElementById('progressFill').style.width = pct + '%';
-                  document.getElementById('progressPct').textContent = pct + '%';
-              }
+        // ── RESET ──
+        function resetAudit() {
+          answers = {};
+          emailCaptured = false;
+          document.querySelectorAll('.answer-btn').forEach(b => b.classList.remove('selected'));
+          document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active', 'completed'));
+          updateProgress();
+          showIntro();
+        }
 
-              // ── NAVIGATION ──
-              function showIntro() {
-                document.getElementById('introScreen').style.display = 'block';
-                document.querySelectorAll('.section-screen').forEach(s => s.classList.remove('active'));
-                document.getElementById('resultsScreen').classList.remove('active');
-                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-              }
-
-              function startAudit() {
-                document.getElementById('introScreen').style.display = 'none';
-                document.querySelectorAll('.section-screen').forEach(s => s.classList.remove('active'));
-                document.getElementById('section1').classList.add('active');
-
-                // Conversion trick: show early progress
-                const progressBar = document.querySelector('.progress-fill');
-                if (progressBar) {
-                  progressBar.style.width = "10%";
-                }
-              }
-
-              function goToSection(si) {
-                document.getElementById('introScreen').style.display = 'none';
-                document.getElementById('resultsScreen').classList.remove('active');
-                document.querySelectorAll('.section-screen').forEach(s => s.classList.remove('active'));
-                document.getElementById(`section${si}`).classList.add('active');
-
-                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-                const navItem = document.getElementById(`navItem${si}`);
-                if (navItem) navItem.classList.add('active');
-
-                currentSection = si;
-                updateSectionScore(si);
-                window.scrollTo(0, 0);
-              }
-
-              // ── RESULTS ──
-              let emailCaptured = false;
-
-              function showResults() {
-
-                if (!emailCaptured) {
-                  document.getElementById('emailGate').classList.add('active');
-                  return;
-                }
-
-                document.getElementById('introScreen').style.display = 'none';
-                document.querySelectorAll('.section-screen').forEach(s => s.classList.remove('active'));
-                document.getElementById('resultsScreen').classList.add('active');
-
-                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-                document.getElementById('navItemResults').classList.add('active');
-              }
-
-              renderResults();
-              window.scrollTo(0, 0);
-
-
-            function renderResults() {
-              // Total score
-              let total = 0;
-              SECTIONS.forEach((_, si) => {
-                const arr = answers[si] || new Array(5).fill(0);
-                total += arr.reduce((a, b) => a + (b || 0), 0);
-              });
-
-              // Animate dial
-              const circumference = 402;
-              const offset = circumference - (total / 100) * circumference;
-              const arc = document.getElementById('dialArc');
-              const dialNum = document.getElementById('dialNum');
-
-              let color = '#5cb87a';
-              if (total > 70) color = '#e85c5c';
-              else if (total > 40) color = '#e8a23c';
-              else if (total > 20) color = '#e8d5a3';
-
-              setTimeout(() => {
-                arc.style.strokeDashoffset = offset;
-                arc.style.stroke = color;
-                let n = 0;
-                const ticker = setInterval(() => {
-                  n = Math.min(n + 2, total);
-                  dialNum.textContent = n;
-                  if (n >= total) clearInterval(ticker);
-                }, 20);
-              }, 100);
-
-              // Verdict
-              let verdictLabel, verdictTitle, verdictDesc, verdictColor;
-              if (total <= 20) {
-                verdictLabel = 'Low Risk Exposure';
-                verdictTitle = 'Well-Structured';
-                verdictDesc = 'Your platform appears to have strong foundational protections across most key areas. Even well-prepared platforms benefit from periodic review as the product evolves.';
-                verdictColor = 'var(--green)';
-              } 
-              else if (total <= 40) {
-                verdictLabel = 'Moderate Risk Exposure';
-                verdictTitle = 'Gaps to Address';
-                verdictDesc = 'Important safeguards may be in place, but several areas need attention. As your SaaS scales, these gaps can compound into larger structural vulnerabilities.';
-                verdictColor = 'var(--accent)';
-              } 
-              else if (total <= 70) {
-                verdictLabel = 'Elevated Risk Exposure';
-                verdictTitle = 'Action Required';
-                verdictDesc = 'Several important risk controls are not yet fully implemented. As your user base expands, these unresolved risks in areas like data protection and security will create real operational pressure.';
-                verdictColor = 'var(--amber)';
-              } 
-              else {
-                verdictLabel = 'High Risk Exposure';
-                verdictTitle = 'Immediate Attention Needed';
-                verdictDesc = 'Multiple structural safeguards are missing or unclear. Your platform is currently vulnerable to user disputes, data incidents, regulatory scrutiny, and operational disruption.';
-                verdictColor = 'var(--red)';
-              }
-
-              document.getElementById('verdictLabel').textContent = verdictLabel;
-              document.getElementById('verdictLabel').style.color = verdictColor;
-              document.getElementById('verdictTitle').textContent = verdictTitle;
-              document.getElementById('verdictTitle').style.color = verdictColor;
-              document.getElementById('verdictDesc').textContent = verdictDesc;
-
-              // Domain breakdown
-              const breakdown = document.getElementById('domainBreakdown');
-              breakdown.innerHTML = SECTIONS.map((sec, si) => {
-                const arr = answers[si] || new Array(5).fill(0);
-                const score = arr.reduce((a, b) => a + (b || 0), 0);
-                const pct = (score / 10) * 100;
-
-                let barColor, flagClass, flagText;
-                if (score <= 2) { barColor = 'var(--risk-low)'; flagClass = 'flag-low'; flagText = 'Low'; }
-                else if (score <= 5) { barColor = 'var(--accent)'; flagClass = 'flag-mod'; flagText = 'Moderate'; }
-                else if (score <= 8) { barColor = 'var(--amber)'; flagClass = 'flag-high'; flagText = 'Elevated'; }
-                else { barColor = 'var(--risk-crit)'; flagClass = 'flag-crit'; flagText = 'High'; }
-
-                return `
-                <div class="domain-row">
-                  <div style="width:180px;flex-shrink:0;">
-                    <div class="domain-name">${sec.title}</div>
-                    <div class="domain-risk-name">${sec.riskName}</div>
-                  </div>
-                  <div class="domain-bar-track">
-                    <div class="domain-bar-fill" style="width:${pct}%;background:${barColor}"></div>
-                  </div>
-                  <div class="domain-score-val">${score}/10</div>
-                  <div class="domain-flag ${flagClass}">${flagText}</div>
-                </div>`;
-              }).join('');
-            }
-
-            function resetAudit() {
-              answers = {};
-              document.querySelectorAll('.answer-btn').forEach(b => b.classList.remove('selected'));
-              document.querySelectorAll('.nav-item').forEach(n => {
-                n.classList.remove('active', 'completed');
-                });
-              updateProgress();
-              showIntro();
-            }
-
-            function submitEmail() {
-
-              const email = document.getElementById('userEmail').value;
-
-              if (!email) {
-                alert("Please enter a valid email");
-                return;
-              }
-
-              emailCaptured = true;
-
-              document.getElementById('emailGate').classList.remove('active');
-
-              showResults();
-            }
-
-            // ── INIT ──
-            buildSidebar();
-            buildSections();
+        // ── INIT ──
+        buildSidebar();
+        buildSections();
           </script>
         </body>
     </html>
