@@ -12,6 +12,7 @@ box-sizing:border-box;
 --chi-navy:#1c4587;
 --chi-gold:#cda349;
 --chi-text:#444;
+--chi-text-muted: #777;
 --chi-light:#f7f9fc;
 }
 
@@ -26,17 +27,24 @@ background-color:#ffffff;
 }
 
 /* HEADER */
-header{
-  display: flex;
-  padding:10px 60px;
-  align-items:center;
-  width:100%;
-  border-bottom:1px solid #eee;
-  gap: 50px;
+header {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-header .logo{
-  width: 300px;
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 40px;
+  gap: 40px;
+}
+
+.header-inner .logo {
+  width: clamp(150px, 18vw, 260px);
   flex-shrink: 0;
 }
 
@@ -94,13 +102,18 @@ color:#555;
 
 /* LISTS */
 
-nav ul{
+.header-inner nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav ul {
   list-style: none;
   display: flex;
-  justify-content: space-evenly;
-  gap:60px;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: clamp(24px, 3vw, 50px);
   margin-bottom: 0;
-  width: 100%;
 }
 
 ul{
@@ -127,13 +140,14 @@ margin:0 auto 20px auto;
 
 /* BUTTONS */
 
-nav a{
-  text-decoration:none;
-  color:var(--chi-navy);
-  font-size:1.5rem;
-  font-weight:500;
-  padding:0;
-  margin:0;
+nav a {
+  text-decoration: none;
+  color: var(--chi-navy);
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
 }
 
 a{
@@ -142,7 +156,7 @@ margin-top:15px;
 padding:12px 26px;
 text-decoration:none;
 border-radius:6px;
-font-size:0.95rem;
+font: 1.5rem;
 transition:all .2s ease;
 }
 
