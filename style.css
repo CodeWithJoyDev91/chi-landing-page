@@ -204,6 +204,39 @@ color:#ffffff;
   margin-top: 20px;
 }
 
+.tool-meta {
+  padding-bottom: 20px;
+}
+
+.price-note {
+  font-size:1.4rem;
+  margin-bottom:10px;
+  font-weight:600;
+  color:var(--chi-navy);
+  padding-top: 10px;
+}
+
+.inner-example {
+  padding-top: 10px;
+}
+
+.report-preview {
+    position: relative;
+    display: inline-block;
+    padding-top: 10px;
+}
+
+.report-preview img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.preview-note {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 /* PROBLEM */
 
 #problem h2 {
