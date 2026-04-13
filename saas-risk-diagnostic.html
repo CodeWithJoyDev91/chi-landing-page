@@ -826,6 +826,39 @@
                     flex-shrink: 0;
                   }
 
+                  .domain-row {
+                    flex-wrap: wrap;
+                  }
+
+                  .domain-guidance {
+                    width: 100%;
+                    margin-top: 10px;
+                    padding: 12px 16px;
+                    background: #f7f9fc;
+                    border-left: 3px solid #ccc;
+                    border-radius: 4px;
+                    font-size: 13px;
+                    line-height: 1.6;
+                    color: #444;
+                  }
+
+                  .flag-low  + .domain-guidance,
+                  .domain-row:has(.flag-low)  .domain-guidance { border-left-color: var(--green); }
+                  .domain-row:has(.flag-mod)  .domain-guidance { border-left-color: var(--chi-gold); }
+                  .domain-row:has(.flag-high) .domain-guidance { border-left-color: var(--amber); }
+                  .domain-row:has(.flag-crit) .domain-guidance { border-left-color: var(--risk-crit); }
+
+                  .guidance-issue {
+                    font-weight: 600;
+                    margin-bottom: 6px;
+                    color: #333;
+                  }
+
+                  .guidance-why,
+                  .guidance-action {
+                    margin-top: 4px;
+                  }
+
                   .flag-low {
                     background: rgba(46, 158, 91, 0.1);
                     color: var(--green);
@@ -1257,6 +1290,229 @@
             }
           ];
 
+          const riskGuidance = {
+            terms: {
+              low: {
+                issue: "Your platform appears to have reasonably structured Terms of Service.",
+                why: "Clear Terms of Service help define user obligations and platform rules while reducing legal ambiguity.",
+                action: "Continue reviewing and updating your Terms of Service as your platform evolves."
+              },
+              moderate: {
+                issue: "Your Terms of Service may be incomplete or missing key provisions.",
+                why: "Weak terms can create disputes around acceptable use, liability, and user responsibilities.",
+                action: "Review your Terms of Service to ensure acceptable use rules, liability limitations, and user obligations are clearly defined."
+              },
+              elevated: {
+                issue: "Your Terms of Service may be missing several important protective provisions.",
+                why: "Incomplete terms can leave gaps around acceptable use, liability allocation, and dispute resolution.",
+                action: "Strengthen your Terms of Service by clearly defining platform rules, liability limitations, and dispute handling procedures."
+              },
+              high: {
+                issue: "Your platform may lack adequate Terms of Service protections.",
+                why: "Without strong contractual terms, platforms face higher legal exposure and difficulty managing user disputes.",
+                action: "Establish comprehensive Terms of Service covering platform rules, liability limits, and dispute handling."
+              }
+            },
+            privacy: {
+              low: {
+                issue: "Your platform appears to have a defined privacy policy and data disclosure practices.",
+                why: "Clear privacy policies help users understand how their data is collected and used.",
+                action: "Regularly review your privacy policy to ensure it reflects how your platform handles user data."
+              },
+              moderate: {
+                issue: "Your privacy policy may lack clarity or full disclosure regarding user data practices.",
+                why: "Incomplete privacy disclosures can create regulatory risk and reduce user trust.",
+                action: "Review your privacy policy to ensure it clearly explains how data is collected, stored, and processed."
+              },
+              elevated: {
+                issue: "Your privacy policy may be missing several important disclosure requirements.",
+                why: "Incomplete privacy terms can leave gaps around data handling, user rights, and third-party sharing.",
+                action: "Strengthen your privacy policy by clearly describing what data is collected, how it is used, and how users can exercise their rights."
+              },
+              high: {
+                issue: "Your platform may lack an adequate privacy policy or clear data disclosures.",
+                why: "Weak or missing privacy policies increase exposure to regulatory scrutiny and compliance risks.",
+                action: "Implement a comprehensive privacy policy that clearly explains your platform's data collection and handling practices."
+              }
+            },
+            liability: {
+              low: {
+                issue: "Your platform appears to include liability limitation provisions.",
+                why: "Liability limits help reduce exposure to damages arising from platform use.",
+                action: "Ensure your liability provisions remain aligned with your evolving business risks."
+              },
+              moderate: {
+                issue: "Your liability protections may be incomplete or weak.",
+                why: "Without clear liability limits, platforms may face greater financial exposure in disputes.",
+                action: "Review your liability limitation clauses to ensure they appropriately protect the platform."
+              },
+              elevated: {
+                issue: "Your liability limitations may not fully protect the platform across all risk scenarios.",
+                why: "Gaps in liability coverage can expose your business to claims beyond what you can reasonably absorb.",
+                action: "Review and strengthen your liability clauses to ensure they clearly cap financial exposure and exclude consequential damages."
+              },
+              high: {
+                issue: "Your platform may lack clear liability limitations.",
+                why: "Without liability protections, legal claims could expose the platform to significant financial risk.",
+                action: "Introduce clear liability limitation provisions within your Terms of Service."
+              }
+            },
+            userdata: {
+              low: {
+                issue: "Your platform appears to have defined user data handling practices.",
+                why: "Structured data handling reduces compliance risks and strengthens user trust.",
+                action: "Continue maintaining clear processes for managing user data."
+              },
+              moderate: {
+                issue: "Your data handling practices may lack consistency or clarity.",
+                why: "Unclear data governance increases the risk of privacy breaches and regulatory issues.",
+                action: "Establish clearer policies governing how user data is collected, stored, and accessed."
+              },
+              elevated: {
+                issue: "Your platform may lack clearly defined user data governance practices.",
+                why: "Unstructured data handling increases the risk of privacy issues, security gaps, and compliance problems.",
+                action: "Establish clearer internal policies for how user data is collected, stored, and accessed."
+              },
+              high: {
+                issue: "Your platform may lack structured user data handling procedures.",
+                why: "Weak data governance significantly increases exposure to privacy violations and data misuse.",
+                action: "Implement clear data governance practices covering data collection, storage, and access controls."
+              }
+            },
+            billing: {
+              low: {
+                issue: "Your subscription and billing structure appears reasonably defined.",
+                why: "Clear billing terms reduce disputes related to charges and cancellations.",
+                action: "Regularly review your billing policies as pricing or subscription models evolve."
+              },
+              moderate: {
+                issue: "Your billing terms may lack clarity around subscriptions, renewals, or cancellations.",
+                why: "Ambiguous billing practices can create customer disputes and reputational risk.",
+                action: "Clarify subscription terms, billing cycles, and cancellation procedures."
+              },
+              elevated: {
+                issue: "Your billing and subscription policies may contain gaps or unclear terms.",
+                why: "Unclear billing rules can lead to disputes related to renewals, refunds, and cancellations.",
+                action: "Strengthen your billing terms by clearly defining subscription cycles, cancellation rules, and refund policies."
+              },
+              high: {
+                issue: "Your platform may lack clear subscription or billing terms.",
+                why: "Weak billing policies can lead to customer disputes and regulatory scrutiny.",
+                action: "Define clear subscription, renewal, refund, and cancellation policies."
+              }
+            },
+            thirdparty: {
+              low: {
+                issue: "Your platform appears to manage third-party dependencies with reasonable awareness.",
+                why: "Understanding external service dependencies helps reduce operational disruption.",
+                action: "Continue monitoring key third-party services that support your platform."
+              },
+              moderate: {
+                issue: "Your platform may rely on third-party services without clearly defined safeguards.",
+                why: "External dependencies can introduce operational or security vulnerabilities.",
+                action: "Review third-party integrations and ensure you understand associated risks."
+              },
+              elevated: {
+                issue: "Your platform may depend on third-party services without sufficient risk oversight.",
+                why: "External dependencies can introduce operational disruptions or security vulnerabilities.",
+                action: "Review critical third-party integrations and ensure you understand their risks and service limitations."
+              },
+              high: {
+                issue: "Your platform may rely heavily on third-party services without clear oversight.",
+                why: "Unmanaged dependencies can create operational instability and security exposure.",
+                action: "Audit your third-party integrations and implement risk management practices."
+              }
+            },
+            security: {
+              low: {
+                issue: "Your platform appears to incorporate some security protections.",
+                why: "Strong security practices help protect user data and maintain trust.",
+                action: "Continue improving security measures as your platform grows."
+              },
+              moderate: {
+                issue: "Your platform's security controls may be limited or inconsistently applied.",
+                why: "Weak security practices increase the risk of data breaches and platform compromise.",
+                action: "Review your platform's authentication, encryption, and access control practices."
+              },
+              elevated: {
+                issue: "Your platform's security controls may be insufficient for the type of data you manage.",
+                why: "Weak or inconsistent security practices increase the risk of unauthorized access or data breaches.",
+                action: "Review authentication controls, encryption practices, and access permissions across your platform."
+              },
+              high: {
+                issue: "Your platform may lack adequate security protections.",
+                why: "Insufficient security measures increase the likelihood of data breaches and operational disruption.",
+                action: "Implement stronger platform security practices including authentication controls and data protection safeguards."
+              }
+            },
+            regulations: {
+              low: {
+                issue: "Your platform appears aware of relevant industry regulatory considerations.",
+                why: "Understanding applicable regulations reduces compliance risk as your platform grows.",
+                action: "Continue monitoring regulatory requirements relevant to your industry."
+              },
+              moderate: {
+                issue: "Your platform may not fully address applicable regulatory obligations.",
+                why: "Overlooking regulatory requirements can expose platforms to legal and operational penalties.",
+                action: "Review which industry regulations apply to your service and ensure your policies reflect them."
+              },
+              elevated: {
+                issue: "Your platform may not fully account for industry-specific regulatory requirements.",
+                why: "Failure to address applicable regulations can expose the platform to enforcement actions or compliance penalties.",
+                action: "Identify the regulatory frameworks relevant to your industry and review whether your policies align with them."
+              },
+              high: {
+                issue: "Your platform may lack awareness of applicable regulatory requirements.",
+                why: "Ignoring industry regulations can lead to enforcement action and operational disruption.",
+                action: "Identify which regulations apply to your industry and ensure your platform practices align with them."
+              }
+            },
+            incident: {
+              low: {
+                issue: "Your platform appears to have some awareness of incident response planning.",
+                why: "Prepared response plans reduce damage during operational or security incidents.",
+                action: "Continue refining your incident response procedures."
+              },
+              moderate: {
+                issue: "Your incident response processes may be informal or incomplete.",
+                why: "Without clear response procedures, incidents can escalate and cause greater disruption.",
+                action: "Develop clearer procedures for identifying, responding to, and managing platform incidents."
+              },
+              elevated: {
+                issue: "Your platform may lack a structured incident response process.",
+                why: "Without defined response procedures, incidents can escalate quickly and cause disproportionate damage.",
+                action: "Document your incident response process, assign clear responsibilities, and establish user communication procedures."
+              },
+              high: {
+                issue: "Your platform may lack a defined incident response strategy.",
+                why: "Without preparation, security or operational incidents can cause significant disruption.",
+                action: "Create a basic incident response plan outlining how issues will be detected and handled."
+              }
+            },
+            marketing: {
+              low: {
+                issue: "Your platform's marketing practices appear reasonably aligned with product capabilities.",
+                why: "Accurate marketing claims help reduce legal and reputational risk.",
+                action: "Continue ensuring marketing messages accurately reflect your platform's functionality."
+              },
+              moderate: {
+                issue: "Some marketing claims may overstate platform capabilities.",
+                why: "Overly broad claims can create customer disputes or regulatory scrutiny.",
+                action: "Review marketing materials to ensure claims are accurate and supported."
+              },
+              elevated: {
+                issue: "Some marketing claims may create expectations that the platform cannot consistently support.",
+                why: "Overstated or unclear claims can create customer disputes and reputational risks.",
+                action: "Review marketing materials to ensure claims accurately reflect the platform's actual functionality."
+              },
+              high: {
+                issue: "Your marketing claims may create potential misrepresentation risk.",
+                why: "Misleading or exaggerated claims can expose the platform to legal complaints.",
+                action: "Ensure marketing language accurately reflects what the platform delivers."
+              }
+            }
+          };
+
           // ── STATE ──
           let answers = {};
           let currentSection = 0;
@@ -1505,6 +1761,11 @@
           function renderResults() {
             const total = calcTotal();
 
+            const riskGuidanceKeys = [
+              'terms','privacy','liability','userdata','billing',
+              'thirdparty','security','regulations','incident','marketing'
+            ];
+
             const circumference = 402;
             const offset = circumference - (total / 100) * circumference;
             const arc = document.getElementById('dialArc');
@@ -1561,23 +1822,31 @@
               const score = arr.reduce((a, b) => a + (b ?? 0), 0);
               const pct   = (score / 10) * 100;
 
-              let barColor, flagClass, flagText;
-              if (score <= 2)      { barColor = 'var(--green)';     flagClass = 'flag-low';  flagText = 'Low'; }
-              else if (score <= 5) { barColor = 'var(--chi-gold)';  flagClass = 'flag-mod';  flagText = 'Moderate'; }
-              else if (score <= 8) { barColor = 'var(--amber)';     flagClass = 'flag-high'; flagText = 'Elevated'; }
-              else                 { barColor = 'var(--risk-crit)'; flagClass = 'flag-crit'; flagText = 'High'; }
+              let barColor, flagClass, flagText, guidanceKey;
+              if (score <= 2)      { barColor = 'var(--green)';     flagClass = 'flag-low';  flagText = 'low'; }
+              else if (score <= 5) { barColor = 'var(--chi-gold)';  flagClass = 'flag-mod';  flagText = 'moderate'; }
+              else if (score <= 8) { barColor = 'var(--amber)';     flagClass = 'flag-high'; flagText = 'elevated'; }
+              else                 { barColor = 'var(--risk-crit)'; flagClass = 'flag-crit'; flagText = 'high'; }
+
+              const guidanceData = riskGuidance[riskGuidanceKeys[si]]?.[flagText] || {};
+              const flagLabel = flagText.charAt(0).toUpperCase() + flagText.slice(1);
 
               return `
                 <div class="domain-row">
                   <div style="width:240px;flex-shrink:0;">
                     <div class="domain-name">${sec.title}</div>
-                    <div class="domain-risk-name">${sec.riskName}</div>
                   </div>
                   <div class="domain-bar-track">
                     <div class="domain-bar-fill" style="width:${pct}%;background:${barColor}"></div>
                   </div>
                   <div class="domain-score-val">${score}/10</div>
-                  <div class="domain-flag ${flagClass}">${flagText}</div>
+                  <div class="domain-flag ${flagClass}">${flagLabel}</div>
+                  ${guidanceData.issue ? `
+                  <div class="domain-guidance">
+                    <div class="guidance-issue">⚠ ${guidanceData.issue}</div>
+                    <div class="guidance-why"><strong>Why it matters:</strong> ${guidanceData.why}</div>
+                    <div class="guidance-action"><strong>Action:</strong> ${guidanceData.action}</div>
+                  </div>` : ''}
                 </div>`;
             }).join('');
           }
