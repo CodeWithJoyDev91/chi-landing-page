@@ -1083,11 +1083,18 @@
 
                   <div class="email-gate-form">
                     <input 
+                      type="text" 
+                      id="userName" 
+                      class="email-input"
+                      placeholder="Your Name"
+                    >
+                    <input 
                       type="email" 
                       id="userEmail" 
                       class="email-input"
                       placeholder="your@email.com"
                     >
+                    
                     <button class="btn-primary" onclick="submitEmail()">
                       View My Results
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -1722,41 +1729,80 @@
           }
 
           function submitEmail() {
-            const email = document.getElementById('userEmail').value;
+            const email = document.getElementById('userEmail').value.trim();
+            const userName = document.getElementById('userName').value.trim() || 'User';
+
             if (!email || !email.includes('@')) {
               alert('Please enter a valid email address.');
               return;
             }
 
-            emailCaptured = true;
+            // Build diagnostic answers summary
             const total = calcTotal();
+            const riskLevel = total <= 20 ? 'Low' : total <= 40 ? 'Moderate' : total <= 70 ? 'Elevated' : 'High';
+            const labels = ['Yes', 'Partially', 'No'];
+            const riskGuidanceKeys = ['terms','privacy','liability','userdata','billing','thirdparty','security','regulations','incident','marketing'];
 
-            // Build readable answer summary for your records
-            const summary = SECTIONS.map((sec, si) => {
+            const domainSummary = SECTIONS.map((sec, si) => {
               const arr = answers[si] || new Array(5).fill(0);
               const score = arr.reduce((a, b) => a + (b ?? 0), 0);
-              const labels = ['Yes', 'Partially', 'No'];
-              const qLines = sec.questions.map((q, qi) => `  Q${qi+1}: ${q}\n  Answer: ${labels[arr[qi] ?? 0]}`).join('\n');
-              return `${sec.domain} — ${sec.title} (${score}/10)\n${qLines}`;
-            }).join('\n\n');
+              const level = score <= 2 ? 'low' : score <= 5 ? 'moderate' : score <= 8 ? 'elevated' : 'high';
+              const levelLabel = level.charAt(0).toUpperCase() + level.slice(1);
+              const guidance = riskGuidance[riskGuidanceKeys[si]]?.[level] || {};
+              const qLines = sec.questions.map((q, qi) => `Q${qi+1}: ${q} — ${labels[arr[qi] ?? 0]}`).join(' | ');
+              return {
+                domain: sec.title,
+                score: `${score}/10`,
+                level: levelLabel,
+                finding: guidance.issue || '',
+                action: guidance.action || '',
+                responses: qLines
+              };
+            });
 
-            // Send to Formspree — replace YOUR_FORM_ID with your actual Formspree ID
-            fetch('https://formspree.io/f/YOUR_FORM_ID', {
+            // Show a loading state on the button
+            const btn = document.querySelector('#emailGate .btn-primary');
+            btn.textContent = 'Generating your report...';
+            btn.disabled = true;
+
+            // Send to Flask backend
+            fetch('http://localhost:5000/generate-report', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
-                email: email,
-                totalScore: total,
-                riskLevel: total <= 20 ? 'Low' : total <= 40 ? 'Moderate' : total <= 70 ? 'Elevated' : 'High',
-                detailedAnswers: summary,
-                timestamp: new Date().toISOString()
+                subscriber: {
+                  email_address: email,
+                  first_name: userName,
+                  id: email.replace(/[^a-z0-9]/gi, '_')  // use email as unique user_id
+                },
+                diagnostic: {
+                  total_score: total,
+                  risk_level: riskLevel,
+                  domains: domainSummary,
+                  completed_at: new Date().toISOString()
+                }
               })
-            }).catch(err => console.error('Formspree error:', err));
-
-            document.getElementById('emailGate').classList.remove('active');
-            showResults();
+            })
+            .then(res => res.json())
+            .then(data => {
+              if (data.error) {
+                alert('Something went wrong generating your report. Please try again.');
+                btn.textContent = 'View My Results';
+                btn.disabled = false;
+                return;
+              }
+              // Success — proceed to results screen
+              emailCaptured = true;
+              document.getElementById('emailGate').classList.remove('active');
+              showResults();
+            })
+            .catch(err => {
+              console.error('Backend error:', err);
+              alert('Could not connect to the report server. Please try again.');
+              btn.textContent = 'View My Results';
+              btn.disabled = false;
+            });
           }
-
           // ── RENDER RESULTS ──
           function renderResults() {
             const total = calcTotal();
