@@ -1766,7 +1766,7 @@
             btn.disabled = true;
 
             // Send to Flask backend
-            fetch('https://giggly-daytime-cosmos.ngrok-free.dev/generate-report', {
+            fetch('https://giggly-daytime-cosmos.ngrok-free.dev -> http://localhost:5000', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
