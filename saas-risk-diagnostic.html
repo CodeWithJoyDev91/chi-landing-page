@@ -1768,7 +1768,10 @@
             // Send to Flask backend
             fetch('https://giggly-daytime-cosmos.ngrok-free.dev/generate-report', {
               method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
+              headers: { 
+                'Content-Type': 'application/json',
+                'ngrok-skip-browser-warning': 'true'
+              },
               body: JSON.stringify({
                 subscriber: {
                   email_address: email,
