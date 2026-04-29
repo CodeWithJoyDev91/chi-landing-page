@@ -1103,6 +1103,9 @@
                     </button>
                   </div>
                   <p class="email-gate-note">No spam. Unsubscribe at any time.</p>
+                  <p class="email-gate-note" style="margin-top: 8px;">
+                    Don't see your report email? Check your spam or promotions folder — it may have landed there.
+                  </p>
                 </div>
               </div>
 
@@ -1749,14 +1752,20 @@
               const level = score <= 2 ? 'low' : score <= 5 ? 'moderate' : score <= 8 ? 'elevated' : 'high';
               const levelLabel = level.charAt(0).toUpperCase() + level.slice(1);
               const guidance = riskGuidance[riskGuidanceKeys[si]]?.[level] || {};
-              const qLines = sec.questions.map((q, qi) => `Q${qi+1}: ${q} — ${labels[arr[qi] ?? 0]}`).join(' | ');
+              
               return {
                 domain: sec.title,
-                score: `${score}/10`,
+                risk_name: sec.riskName,
+                score: score,
+                max_score: 10,
                 level: levelLabel,
                 finding: guidance.issue || '',
+                why: guidance.why || '',
                 action: guidance.action || '',
-                responses: qLines
+                questions: sec.questions.map((q, qi) => ({
+                  question: q,
+                  answer: labels[arr[qi] ?? 0]
+                }))
               };
             });
 
