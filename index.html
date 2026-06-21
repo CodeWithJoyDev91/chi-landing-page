@@ -17,6 +17,9 @@
                 <div class="logo">
                     <img src="images/logo-background.png" alt="CodeHive Innovations Logo">
                 </div>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <i data-lucide="menu"></i>
+                </button>
                 <nav>
                     <ul>
                         <li><a href="#hero"><i data-lucide="home"></i>Home</a></li>
@@ -408,5 +411,24 @@
         </main>
 
         <script>lucide.createIcons();</script>
+        <script>
+            const navToggle = document.querySelector('.nav-toggle');
+            const nav = document.querySelector('header nav');
+
+            navToggle.addEventListener('click', () => {
+                nav.classList.toggle('open');
+                const isOpen = nav.classList.contains('open');
+                navToggle.querySelector('[data-lucide]').setAttribute('data-lucide', isOpen ? 'x' : 'menu');
+                lucide.createIcons();
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('header')) {
+                    nav.classList.remove('open');
+                    navToggle.querySelector('[data-lucide]').setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                }
+            });
+        </script>
     </body>
 </html>
