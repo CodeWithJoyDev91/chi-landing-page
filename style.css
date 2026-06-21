@@ -522,7 +522,7 @@ ul.icon-list li [data-lucide] {
     color: var(--chi-gold);
 }
 
-/* NAV TOGGLE (hamburger - mobile only) */
+/* NAV TOGGLE (hamburger) */
 
 .nav-toggle {
     display: none;
@@ -542,14 +542,36 @@ ul.icon-list li [data-lucide] {
     stroke: var(--chi-navy);
 }
 
-/* RESPONSIVE */
+/* MEDIUM SCREENS - tighten nav before hamburger kicks in */
 
-@media (max-width: 768px) {
+@media (max-width: 1300px) {
+    .header-inner {
+        gap: 20px;
+        padding: 10px 24px;
+    }
+
+    nav ul {
+        gap: 14px;
+    }
+
+    nav a {
+        font-size: 0.88rem !important;
+    }
+
+    .header-inner .logo {
+        width: clamp(120px, 13vw, 180px);
+    }
+}
+
+/* HAMBURGER - tablets and smaller laptops */
+
+@media (max-width: 1024px) {
 
     /* Header */
     .header-inner {
         padding: 10px 20px;
         position: relative;
+        gap: 16px;
     }
 
     /* Show hamburger button */
@@ -596,8 +618,12 @@ ul.icon-list li [data-lucide] {
     nav ul li:last-child a {
         border-bottom: none;
     }
+}
 
-    /* About section */
+/* MOBILE */
+
+@media (max-width: 768px) {
+
     .about-layout {
         flex-direction: column;
     }
@@ -607,7 +633,6 @@ ul.icon-list li [data-lucide] {
         margin: 0 auto;
     }
 
-    /* Typography */
     h1 {
         font-size: 2rem;
     }

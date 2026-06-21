@@ -415,20 +415,18 @@
             const navToggle = document.querySelector('.nav-toggle');
             const nav = document.querySelector('header nav');
 
-            navToggle.addEventListener('click', () => {
-                nav.classList.toggle('open');
-                const isOpen = nav.classList.contains('open');
-                navToggle.querySelector('[data-lucide]').setAttribute('data-lucide', isOpen ? 'x' : 'menu');
-                lucide.createIcons();
-            });
+            if (navToggle && nav) {
+                navToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    nav.classList.toggle('open');
+                });
 
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('header')) {
-                    nav.classList.remove('open');
-                    navToggle.querySelector('[data-lucide]').setAttribute('data-lucide', 'menu');
-                    lucide.createIcons();
-                }
-            });
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('header')) {
+                        nav.classList.remove('open');
+                    }
+                });
+            }
         </script>
     </body>
 </html>
