@@ -522,9 +522,82 @@ ul.icon-list li [data-lucide] {
     color: var(--chi-gold);
 }
 
+/* NAV TOGGLE (hamburger - mobile only) */
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    color: var(--chi-navy);
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.nav-toggle [data-lucide] {
+    width: 26px;
+    height: 26px;
+    stroke: var(--chi-navy);
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 768px) {
+
+    /* Header */
+    .header-inner {
+        padding: 10px 20px;
+        position: relative;
+    }
+
+    /* Show hamburger button */
+    .nav-toggle {
+        display: flex;
+    }
+
+    /* Nav hidden by default, drops below header when open */
+    .header-inner nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border-top: 1px solid #eee;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        display: none;
+        z-index: 999;
+    }
+
+    .header-inner nav.open {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0;
+    }
+
+    nav ul li {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    nav a {
+        display: block;
+        padding: 14px 24px;
+        font-size: 1rem !important;
+        border-bottom: 1px solid #f0f0f0;
+        white-space: normal;
+    }
+
+    nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    /* About section */
     .about-layout {
         flex-direction: column;
     }
@@ -534,10 +607,7 @@ ul.icon-list li [data-lucide] {
         margin: 0 auto;
     }
 
-    nav ul {
-        gap: 16px;
-    }
-
+    /* Typography */
     h1 {
         font-size: 2rem;
     }
