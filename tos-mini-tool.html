@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free ToS Risk Check | CHI</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="images/chi-favicon.png" href="images/chi-favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --chi-navy: #1c4587;
+    --chi-gold: #cda349;
+    --chi-gold-dark: #b8923e;
+    --chi-text: #444;
+    --chi-text-mid: #555;
+    --chi-text-muted: #777;
+    --chi-light: #f7f9fc;
+    --chi-border: #e6e8ef;
+    --chi-border-active: #cfd5e3;
+    --chi-surface: #ffffff;
+    --green: #2e9e5b;
+    --amber: #d68b1c;
+    --red: #c23c3c;
+    --risk-crit: #a52b2b;
+  }
+
+  body {
+    background: #ffffff;
+    color: var(--chi-text);
+    font-family: "Inter", sans-serif;
+    font-size: 17px;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* ── HEADER ── */
+  .mini-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+
+  .mini-header img {
+    width: 44px;
+    display: block;
+  }
+
+  .mini-header .wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .mini-header .wordmark-chi {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--chi-navy);
+  }
+
+  .mini-header .wordmark-sub {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--chi-gold);
+  }
+
+  /* ── INTRO ── */
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--chi-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .headline {
+    font-size: 2.6rem;
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--chi-navy);
+    margin-bottom: 18px;
+  }
+
+  .sub {
+    font-size: 1.1rem;
+    color: var(--chi-text-mid);
+    line-height: 1.8;
+    margin-bottom: 12px;
+    max-width: 640px;
+  }
+
+  .trust-line {
+    font-size: 14px;
+    color: var(--chi-text-muted);
+    margin-bottom: 40px;
+  }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--chi-gold);
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 14px 32px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background: var(--chi-gold-dark);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:disabled {
+    background: var(--chi-border-active);
+    cursor: not-allowed;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 2px solid var(--chi-navy);
+    color: var(--chi-navy);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 14px 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-secondary:hover {
+    background: var(--chi-navy);
+    color: #ffffff;
+  }
+
+  /* ── RISK BADGES ── */
+  .risk-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+
+  .risk-badge.data { background: rgba(46, 158, 91, 0.08); color: var(--green); border: 1px solid rgba(46, 158, 91, 0.2); }
+  .risk-badge.legal { background: rgba(205, 163, 73, 0.1); color: var(--chi-gold); border: 1px solid rgba(205, 163, 73, 0.25); }
+  .risk-badge.revenue { background: rgba(214, 139, 28, 0.08); color: var(--amber); border: 1px solid rgba(214, 139, 28, 0.2); }
+  .risk-badge.business { background: rgba(205, 163, 73, 0.1); color: var(--chi-gold); border: 1px solid rgba(205, 163, 73, 0.25); }
+
+  /* ── QUESTIONS ── */
+  .questions-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--chi-text-muted);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .question-item {
+    background: #ffffff;
+    border: 1px solid var(--chi-border);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .question-item:has(.answer-btn.selected) {
+    border-color: var(--chi-navy);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  .question-num {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--chi-text-muted);
+    margin-bottom: 8px;
+  }
+
+  .question-text {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--chi-navy);
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+
+  .question-why {
+    font-size: 14px;
+    color: var(--chi-text-mid);
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .question-item:hover { border-color: var(--chi-border-active); }
+
+  .answer-row { display: flex; gap: 8px; }
+
+  .answer-btn {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--chi-border);
+    background: #ffffff;
+    color: var(--chi-text-mid);
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .answer-btn:hover { border-color: var(--chi-navy); color: var(--chi-navy); }
+
+  .answer-btn.selected.yes { background: rgba(46, 158, 91, 0.08); border-color: var(--green); color: var(--green); }
+  .answer-btn.selected.unsure { background: rgba(214, 139, 28, 0.08); border-color: var(--amber); color: var(--amber); }
+  .answer-btn.selected.no { background: rgba(194, 60, 60, 0.08); border-color: var(--red); color: var(--red); }
+
+  .progress-note {
+    font-size: 13px;
+    color: var(--chi-text-muted);
+    margin: 20px 0 24px;
+  }
+
+  /* ── SCORE BLOCK ── */
+  .score-block {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    background: #ffffff;
+    border: 1px solid var(--chi-border);
+    border-top: 4px solid var(--chi-gold);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 32px;
+    align-items: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  }
+
+  .score-dial { text-align: center; }
+  .dial-svg { width: 160px; height: 160px; }
+  .dial-num { font-size: 2.6rem; font-weight: 600; color: var(--chi-navy); }
+  .dial-denom { font-size: 13px; color: var(--chi-text-muted); }
+
+  .score-verdict-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: var(--chi-text-muted);
+  }
+
+  .score-verdict { font-size: 1.6rem; font-weight: 600; color: var(--chi-navy); margin-bottom: 10px; }
+  .score-description { font-size: 15px; color: var(--chi-text-mid); line-height: 1.7; }
+
+  /* ── EMAIL GATE ── */
+  .email-gate-box {
+    background: var(--chi-light);
+    border: 1px solid var(--chi-border);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 8px;
+  }
+
+  .email-gate-title { font-size: 1.2rem; font-weight: 600; color: var(--chi-navy); margin-bottom: 8px; }
+  .email-gate-sub { font-size: 15px; color: var(--chi-text-mid); line-height: 1.7; margin-bottom: 20px; }
+
+  .email-gate-form { display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+
+  .email-input {
+    flex: 1;
+    min-width: 180px;
+    padding: 13px 16px;
+    border: 1px solid var(--chi-border);
+    border-radius: 8px;
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    color: var(--chi-text);
+    outline: none;
+    transition: border-color 0.2s;
+    background: #ffffff;
+  }
+
+  .email-input:focus { border-color: var(--chi-navy); }
+
+  .email-gate-note { font-size: 13px; color: var(--chi-text-muted); margin: 0; }
+
+  /* ── BREAKDOWN ── */
+  .breakdown-title { font-size: 1.6rem; font-weight: 600; color: var(--chi-navy); margin-bottom: 20px; }
+
+  .question-row {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--chi-border);
+  }
+
+  .question-row:last-child { border-bottom: none; }
+
+  .question-row-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .question-row-title { font-size: 15px; font-weight: 500; color: var(--chi-text); flex: 1; }
+
+  .domain-flag {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .flag-low { background: rgba(46, 158, 91, 0.1); color: var(--green); }
+  .flag-mod { background: rgba(214, 139, 28, 0.1); color: var(--amber); }
+  .flag-crit { background: rgba(165, 43, 43, 0.12); color: var(--risk-crit); }
+
+  .domain-guidance {
+    padding: 12px 16px;
+    background: #f7f9fc;
+    border-left: 3px solid #ccc;
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #444;
+  }
+
+  .question-row:has(.flag-low) .domain-guidance { border-left-color: var(--green); }
+  .question-row:has(.flag-mod) .domain-guidance { border-left-color: var(--amber); }
+  .question-row:has(.flag-crit) .domain-guidance { border-left-color: var(--risk-crit); }
+
+  .guidance-action { margin-top: 4px; }
+
+  /* ── SUMMARY / CTA ── */
+  .summary-block { margin: 36px 0; }
+  .summary-title { font-size: 1.3rem; font-weight: 600; color: var(--chi-navy); margin-bottom: 12px; }
+  .summary-text { font-size: 15px; color: var(--chi-text-mid); line-height: 1.8; }
+
+  .cta-block {
+    background: var(--chi-light);
+    border: 1px solid var(--chi-border);
+    border-radius: 12px;
+    padding: 36px;
+    margin-top: 32px;
+    text-align: center;
+  }
+
+  .cta-title { font-size: 1.6rem; font-weight: 600; color: var(--chi-navy); margin-bottom: 10px; }
+  .cta-sub { font-size: 15px; color: var(--chi-text-mid); max-width: 520px; margin: 0 auto 24px; line-height: 1.7; }
+  .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .cta-note { font-size: 13px; color: var(--chi-text-muted); margin: 14px 0 0; }
+
+  .disclaimer {
+    font-size: 12px;
+    color: var(--chi-text-muted);
+    line-height: 1.6;
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid var(--chi-border);
+  }
+
+  /* ── UTILITY ── */
+  .hidden { display: none !important; }
+
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in { animation: fadeSlideUp 0.3s ease forwards; }
+
+  @media (max-width: 640px) {
+    .headline { font-size: 2rem; }
+    .score-block { grid-template-columns: 1fr; }
+    .cta-buttons { flex-direction: column; align-items: center; }
+    .email-gate-form { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="mini-header">
+    <img src="images/logo-background.png" alt="CHI Logo">
+    <div class="wordmark">
+      <div class="wordmark-chi">CHI</div>
+      <div class="wordmark-sub">Free ToS Risk Check</div>
+    </div>
+  </div>
+
+  <!-- INTRO + QUESTIONS -->
+  <div id="introSection">
+    <div class="eyebrow">Terms of Service Risk Check</div>
+    <h1 class="headline">Is your ToS protecting you, or just sitting there?</h1>
+    <p class="sub">
+      Answer 5 quick questions about your Terms of Service and get an instant risk score,
+      plus a breakdown of exactly where the gaps are.
+    </p>
+    <p class="trust-line">Takes about 2 minutes. No legal jargon required.</p>
+  </div>
+
+  <div id="questionsSection">
+    <div class="questions-label">5 Questions</div>
+    <div id="questionList"></div>
+    <p class="progress-note" id="progressNote">0 of 5 answered</p>
+    <button class="btn-primary" id="scoreBtn" onclick="checkScore()" disabled>
+      Check My Score
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- SCORE + EMAIL GATE -->
+  <div id="scoreSection" class="hidden">
+    <div class="score-block">
+      <div class="score-dial">
+        <svg class="dial-svg" viewBox="0 0 160 160" id="dialSvg">
+          <circle cx="80" cy="80" r="64" fill="none" stroke="#eceff5" stroke-width="10"/>
+          <circle cx="80" cy="80" r="64" fill="none" stroke="#cda349" stroke-width="10"
+            stroke-dasharray="402" stroke-dashoffset="402"
+            stroke-linecap="round"
+            transform="rotate(-90 80 80)"
+            id="dialArc"
+            style="transition: stroke-dashoffset 1s ease, stroke 0.5s ease"/>
+          <text x="80" y="76" text-anchor="middle" font-family="DM Serif Display, serif" font-size="32" fill="#1c4587" id="dialNum">0</text>
+          <text x="80" y="96" text-anchor="middle" font-family="DM Mono, monospace" class="dial-denom" font-size="11" fill="#777">/10</text>
+        </svg>
+      </div>
+      <div>
+        <div class="score-verdict-label" id="verdictLabel">Risk Level</div>
+        <div class="score-verdict" id="verdictTitle">&mdash;</div>
+        <div class="score-description" id="verdictDesc">&mdash;</div>
+      </div>
+    </div>
+
+    <div class="email-gate-box" id="emailGate">
+      <div class="email-gate-title">Unlock your full gap analysis</div>
+      <p class="email-gate-sub">
+        Enter your name and email to see exactly which of the 5 areas need attention,
+        why they matter, and what to do about each one.
+      </p>
+      <div class="email-gate-form">
+        <input type="text" id="leadName" class="email-input" placeholder="Your Name">
+        <input type="email" id="leadEmail" class="email-input" placeholder="your@email.com">
+        <button class="btn-primary" id="leadSubmitBtn" onclick="handleLeadSubmit()">
+          See My Full Breakdown
+        </button>
+      </div>
+      <p class="email-gate-note">No spam. Unsubscribe at any time.</p>
+    </div>
+  </div>
+
+  <!-- BREAKDOWN + SUMMARY + CTA -->
+  <div id="breakdownSection" class="hidden">
+    <h3 class="breakdown-title">Your Gap Analysis</h3>
+    <div id="questionBreakdown"></div>
+
+    <div class="summary-block">
+      <div class="summary-title" id="summaryTitle"></div>
+      <p class="summary-text" id="summaryText"></p>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-title">See the risks founders usually miss.</div>
+      <div class="cta-sub">
+        This check covers 5 of the biggest ToS gaps for SaaS founders, but it's not a full audit.
+        If you want a proper review of your actual Terms of Service, you can book a free session with CHI.
+      </div>
+      <div class="cta-buttons">
+        <button class="btn-primary" onclick="window.open('https://calendly.com/codehiveinnovations-risk/30min','_blank')">
+          Book a Free ToS Review
+        </button>
+      </div>
+      <div class="cta-note">Private founder review. Limited availability each month.</div>
+    </div>
+
+    <p class="disclaimer">
+      This tool is for educational purposes only and does not constitute legal advice.
+      Completing it does not create an attorney-client relationship. For advice specific to your
+      business, book a review or consult a qualified attorney.
+    </p>
+  </div>
+
+</div>
+
+<script>
+  // ── QUESTION DATA ──
+  const QUESTIONS = [
+    {
+      id: 'aitraining', badge: 'data', badgeLabel: 'Data',
+      title: 'Does your ToS clearly state whether and how customer data is used to train AI, and under what conditions it can be deleted or retained?',
+      why: 'This is currently one of the highest-stakes gaps for SaaS founders right now. Whenever you handle personal data from your users, you have the responsibility of informing them what their data will be used for, and of using it only for those purposes. Any breach of this can lead to fines and lawsuits, the kind of headache no founder wants or needs to deal with.',
+      guidance: {
+        0: { flag: 'Covered', action: 'Keep this language current as your AI features and data practices evolve.' },
+        1: { flag: 'Uncertain', action: 'Find out exactly how your product uses customer data for AI training, then get it written into your ToS.' },
+        2: { flag: 'Gap', action: 'Add clear language covering what data is used for AI training, under what conditions, and how customers can request deletion.' }
+      }
+    },
+    {
+      id: 'ip', badge: 'legal', badgeLabel: 'Legal',
+      title: 'Does your ToS clearly state who owns the IP in your product, customer content, and any AI-generated output?',
+      why: 'IP ownership disputes can quietly kill a sale, a fundraise, or a partnership before it starts. If your ToS doesn’t clearly assign ownership of your product, your code, any AI-generated output, and the content your customers put into your platform, you’re leaving that ownership open to interpretation, and interpretation costs money to resolve. Investors and acquirers will ask this exact question during due diligence, and "it’s not really addressed" doesn’t close deals.',
+      guidance: {
+        0: { flag: 'Covered', action: 'Revisit this clause any time you add new AI features or user-generated content types.' },
+        1: { flag: 'Uncertain', action: 'Get clarity on who owns your code, AI-generated outputs, and customer content before it becomes a dispute.' },
+        2: { flag: 'Gap', action: 'Add an IP ownership clause covering your product, any AI-generated output, and customer content.' }
+      }
+    },
+    {
+      id: 'billing', badge: 'revenue', badgeLabel: 'Revenue',
+      title: 'Does your ToS clearly define how subscriptions renew, cancel, and refund?',
+      why: 'Billing disputes are one of the fastest ways to turn a happy customer into an angry one, or a chargeback. If your ToS doesn’t spell out exactly how subscriptions renew, how customers can cancel, and what they’re entitled to on a refund, you’re relying on goodwill instead of a contract to avoid disputes. Several US states and the EU regulate auto-renewal terms directly, so a vague clause here isn’t just bad practice, it can be a compliance violation.',
+      guidance: {
+        0: { flag: 'Covered', action: 'Keep reviewing this clause as your pricing or plans change.' },
+        1: { flag: 'Uncertain', action: 'Confirm your actual renewal and refund process matches what your ToS says, or fix the gap.' },
+        2: { flag: 'Gap', action: 'Add clear terms covering renewal, cancellation, and refunds before your next billing dispute.' }
+      }
+    },
+    {
+      id: 'userdef', badge: 'business', badgeLabel: 'Business',
+      title: 'Does your ToS clearly define who counts as a "user" for billing and access purposes?',
+      why: 'Seat-based pricing only works if "user" actually means something. If your ToS doesn’t define who counts as a user, you have no contractual ground to stand on when a customer shares one login across twelve employees, or disputes an invoice because their idea of "user" doesn’t match yours. This is one of the most common, and most avoidable, sources of billing arguments and revenue leakage in SaaS.',
+      guidance: {
+        0: { flag: 'Covered', action: 'Make sure your billing system actually enforces this definition.' },
+        1: { flag: 'Uncertain', action: 'Decide what counts as a user for your pricing model and put it in writing.' },
+        2: { flag: 'Gap', action: 'Define what counts as a user so seat sharing and billing disputes have a clear answer.' }
+      }
+    },
+    {
+      id: 'liability', badge: 'legal', badgeLabel: 'Legal',
+      title: 'Does your ToS include a liability cap that reflects what your product actually does?',
+      why: 'A liability cap is only useful if it’s sized for what you actually do. Generic templates often carry a cap copied from a boilerplate, with no real thought to what could go wrong when your product touches customer data, workflows, or money. If something breaks and you get sued, an undersized or missing cap means your exposure is effectively unlimited, one bad incident could threaten the business itself.',
+      guidance: {
+        0: { flag: 'Covered', action: 'Revisit this number any time your product’s risk profile changes.' },
+        1: { flag: 'Uncertain', action: 'Check whether your liability cap actually reflects what your product does today.' },
+        2: { flag: 'Gap', action: 'Add a liability cap sized to your actual risk, not a generic template number.' }
+      }
+    }
+  ];
+
+  const VERDICTS = {
+    low: {
+      title: 'Low Risk',
+      color: 'var(--green)',
+      desc: 'Your ToS covers the fundamentals well. You’ve addressed the areas that create the most exposure for SaaS founders, which puts you ahead of most companies your size. That said, even strong ToS benefit from a periodic review as your product, pricing, or data practices change, since a document written for last year’s business doesn’t always protect this year’s.'
+    },
+    medium: {
+      title: 'Medium Risk',
+      color: 'var(--chi-gold)',
+      desc: 'Your ToS has real gaps in areas that carry meaningful legal and financial exposure. Some of the biggest risk areas for SaaS companies show up unaddressed here, which means you’re currently relying on assumptions rather than clear terms. These are fixable, but the fixes need to be specific to how your business actually operates, not generic template language.'
+    },
+    high: {
+      title: 'High Risk',
+      color: 'var(--red)',
+      desc: 'Your ToS leaves you exposed in several of the areas that matter most for SaaS companies. This level of gap creates real risk, since unclear liability, undefined ownership, or vague data practices can turn a minor disagreement into a costly legal problem. The good news is none of this is unusual. Most founders are working with terms that were never built for what their business actually does today.'
+    }
+  };
+
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mvzegzkp';
+
+  const ANSWER_LABELS = ['Yes', 'Not Sure', 'No'];
+  let answers = new Array(QUESTIONS.length).fill(null);
+  let totalScore = 0;
+  let riskBand = 'low';
+
+  // ── BUILD QUESTIONS ──
+  function buildQuestions() {
+    const list = document.getElementById('questionList');
+    list.innerHTML = QUESTIONS.map((q, qi) => `
+      <div class="question-item" id="qItem${qi}">
+        <div class="question-num">Question ${qi + 1} of ${QUESTIONS.length}</div>
+        <div class="risk-badge ${q.badge}">${q.badgeLabel}</div>
+        <div class="question-text">${q.title}</div>
+        <div class="question-why">${q.why}</div>
+        <div class="answer-row">
+          <button class="answer-btn yes" onclick="setAnswer(${qi}, 0, this)">Yes</button>
+          <button class="answer-btn unsure" onclick="setAnswer(${qi}, 1, this)">Not Sure</button>
+          <button class="answer-btn no" onclick="setAnswer(${qi}, 2, this)">No</button>
+        </div>
+      </div>`).join('');
+  }
+
+  function setAnswer(qi, val, btn) {
+    answers[qi] = val;
+    const row = btn.parentElement;
+    row.querySelectorAll('.answer-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const answeredCount = answers.filter(v => v !== null).length;
+    document.getElementById('progressNote').textContent = `${answeredCount} of ${QUESTIONS.length} answered`;
+    document.getElementById('scoreBtn').disabled = answeredCount < QUESTIONS.length;
+  }
+
+  // ── SCORE ──
+  function checkScore() {
+    if (answers.filter(v => v !== null).length < QUESTIONS.length) return;
+
+    totalScore = answers.reduce((a, b) => a + b, 0);
+    riskBand = totalScore <= 2 ? 'low' : totalScore <= 6 ? 'medium' : 'high';
+
+    document.getElementById('questionsSection').classList.add('hidden');
+    const scoreSection = document.getElementById('scoreSection');
+    scoreSection.classList.remove('hidden');
+    scoreSection.classList.add('fade-in');
+
+    const verdict = VERDICTS[riskBand];
+    document.getElementById('verdictTitle').textContent = verdict.title;
+    document.getElementById('verdictTitle').style.color = verdict.color;
+    document.getElementById('verdictLabel').style.color = verdict.color;
+    document.getElementById('verdictDesc').textContent = verdict.desc;
+
+    const circumference = 402;
+    const offset = circumference - (totalScore / 10) * circumference;
+    const arc = document.getElementById('dialArc');
+    const dialNum = document.getElementById('dialNum');
+
+    setTimeout(() => {
+      arc.style.strokeDashoffset = offset;
+      arc.style.stroke = verdict.color.replace('var(--green)', '#2e9e5b').replace('var(--chi-gold)', '#cda349').replace('var(--red)', '#c23c3c');
+      let n = 0;
+      const ticker = setInterval(() => {
+        n = Math.min(n + 1, totalScore);
+        dialNum.textContent = n;
+        if (n >= totalScore) clearInterval(ticker);
+      }, 60);
+    }, 100);
+
+    window.scrollTo({ top: scoreSection.offsetTop - 20, behavior: 'smooth' });
+  }
+
+  // ── LEAD SUBMIT ──
+  function handleLeadSubmit() {
+    const name = document.getElementById('leadName').value.trim();
+    const email = document.getElementById('leadEmail').value.trim();
+
+    if (!name || !email || !email.includes('@')) {
+      alert('Please enter your name and a valid email address.');
+      return;
+    }
+
+    const btn = document.getElementById('leadSubmitBtn');
+    btn.textContent = 'Unlocking your breakdown...';
+    btn.disabled = true;
+
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('total_score', `${totalScore}/10`);
+    formData.append('risk_level', VERDICTS[riskBand].title);
+    QUESTIONS.forEach((q, qi) => {
+      formData.append(`q${qi + 1}_${q.id}`, ANSWER_LABELS[answers[qi]]);
+    });
+
+    fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData
+    })
+      .catch(err => console.error('Lead capture failed:', err))
+      .finally(() => {
+        revealBreakdown();
+      });
+  }
+
+  function revealBreakdown() {
+    document.getElementById('emailGate').classList.add('hidden');
+    const breakdownSection = document.getElementById('breakdownSection');
+    breakdownSection.classList.remove('hidden');
+    breakdownSection.classList.add('fade-in');
+
+    const container = document.getElementById('questionBreakdown');
+    container.innerHTML = QUESTIONS.map((q, qi) => {
+      const val = answers[qi];
+      const g = q.guidance[val];
+      const flagClass = val === 0 ? 'flag-low' : val === 1 ? 'flag-mod' : 'flag-crit';
+
+      return `
+        <div class="question-row">
+          <div class="question-row-top">
+            <div class="question-row-title">${q.title}</div>
+            <div class="domain-flag ${flagClass}">${g.flag}</div>
+          </div>
+          <div class="domain-guidance">
+            <div><strong>Why it matters:</strong> ${q.why}</div>
+            <div class="guidance-action"><strong>What to do:</strong> ${g.action}</div>
+          </div>
+        </div>`;
+    }).join('');
+
+    const verdict = VERDICTS[riskBand];
+    document.getElementById('summaryTitle').textContent = `Overall: ${verdict.title}`;
+    document.getElementById('summaryText').textContent = verdict.desc;
+
+    window.scrollTo({ top: breakdownSection.offsetTop - 20, behavior: 'smooth' });
+  }
+
+  // ── INIT ──
+  buildQuestions();
+</script>
+</body>
+</html>

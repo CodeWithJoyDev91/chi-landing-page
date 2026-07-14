@@ -147,6 +147,11 @@ li {
     margin-top: 10px;
 }
 
+.hero-alt-cta {
+    margin-top: 16px;
+    font-size: 0.95rem;
+}
+
 .micro-proof {
     font-style: italic;
     color: var(--chi-text-muted);
