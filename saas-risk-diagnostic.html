@@ -626,6 +626,20 @@
                     max-width: 900px;
                   }
 
+                  .consent-row {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 8px;
+                    font-size: 0.85rem;
+                    color: var(--chi-text-muted);
+                    text-align: left;
+                    margin-top: 10px;
+                    max-width: 900px;
+                    cursor: pointer;
+                  }
+                  .consent-row input[type="checkbox"] { margin-top: 2px; flex-shrink: 0; cursor: pointer; }
+                  .consent-row a { color: var(--chi-navy); text-decoration: underline; }
+
                   .email-input {
                     flex: 1;
                     padding: 14px 18px;
@@ -966,9 +980,48 @@
                       align-items: center;
                     }
                   }
+
+                  .policy-notice {
+                    background: var(--chi-navy);
+                    color: #ffffff;
+                    padding: 12px 20px;
+                    font-size: 0.9rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 16px;
+                    flex-wrap: wrap;
+                    text-align: center;
+                  }
+                  .policy-notice a { color: var(--chi-gold); text-decoration: underline; font-weight: 600; }
+                  .policy-notice a:hover { color: #ffffff; }
+                  .policy-notice button {
+                    background: none; border: none; color: #ffffff; font-size: 1.2rem;
+                    cursor: pointer; line-height: 1; padding: 0 0 0 6px; margin: 0;
+                  }
+                  .policy-notice.hidden { display: none; }
             </style>
         </head>
         <body>
+
+          <div class="policy-notice" id="policyNotice">
+            <span>We've updated our Terms of Service and Privacy Policy. Please take a moment to review the changes.</span>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <button onclick="dismissPolicyNotice()" aria-label="Dismiss">&times;</button>
+          </div>
+          <script>
+            (function () {
+              var KEY = "chi_policy_notice_dismissed";
+              var VERSION = "2026-07-28"; // bump this string whenever the ToS/PP materially change
+              var banner = document.getElementById("policyNotice");
+              if (banner && localStorage.getItem(KEY) === VERSION) { banner.classList.add("hidden"); }
+              window.dismissPolicyNotice = function () {
+                localStorage.setItem(KEY, VERSION);
+                if (banner) banner.classList.add("hidden");
+              };
+            })();
+          </script>
 
           <div class="shell">
 
@@ -1102,6 +1155,14 @@
                       </svg>
                     </button>
                   </div>
+                  <label class="consent-row">
+                    <input type="checkbox" id="consentAge" required>
+                    <span>I confirm I am 18 or older and agree to the <a href="terms.html" target="_blank">Terms of Service</a> and <a href="privacy.html" target="_blank">Privacy Policy</a>.</span>
+                  </label>
+                  <label class="consent-row">
+                    <input type="checkbox" id="consentMarketing">
+                    <span>Also send me occasional tips about CodeHive's tools and services.</span>
+                  </label>
                   <p class="email-gate-note">No spam. Unsubscribe at any time.</p>
                   <p class="email-gate-note" style="margin-top: 8px;">
                     Don't see your report email? Check your spam or promotions folder — it may have landed there.
@@ -1176,12 +1237,11 @@
             </main>
           </div>
 
-          <script>
-            const SECTIONS = [
+          <script>const SECTIONS = [
             {
               id: 'tos', domain: 'Domain 1 — Legal Structure', badge: 'legal', badgeLabel: 'Legal',
               title: 'Terms of Service', riskName: 'Weak or Missing Terms of Service',
-              context: 'A Terms of Service only protects you if it actually matches how your product works. Founders often start with a generic template, and generic templates don\'t account for your specific payment flows, data practices, or integrations. That gap is exactly where you end up more exposed than if you\'d had nothing in writing at all.',
+              context: 'A Terms of Service only protects you if it actually matches how your product works. Founders often start with a generic template, and generic templates don\'t account for your specific payment flows, data practices, or integrations. That gap is exactly where you end up more exposed than if you\'d had nothing in writing at all',
               questions: [
                 'Was your Terms of Service written for your specific SaaS product, rather than adapted from a generic template?',
                 'Does it spell out what your software does, and just as importantly, what it doesn\'t guarantee?',
@@ -1309,7 +1369,7 @@
               },
               moderate: {
                 issue: "Parts of your Terms of Service are doing more guessing than governing.",
-                why: "Gaps in acceptable use or liability language are exactly where a frustrated user's lawyer will start looking.",
+                why: "Gaps in acceptable use or liability language are exactly where a frustrated user\'s lawyer will start looking.",
                 action: "Pin down acceptable use, liability limits, and user obligations in plain language before the next dispute forces the issue."
               },
               elevated: {
@@ -1318,7 +1378,7 @@
                 action: "Rebuild the core structure now, platform rules, liability limits, dispute handling, rather than patching it clause by clause later."
               },
               high: {
-                issue: "This ToS isn't doing the job a SaaS contract needs to do.",
+                issue: "This ToS isn\'t doing the job a SaaS contract needs to do.",
                 why: "A thin or generic ToS means every user dispute starts from zero, with nothing in writing to fall back on.",
                 action: "Treat this as a rebuild, not a touch-up, before your next paying customer signs up."
               }
@@ -1336,23 +1396,23 @@
               },
               elevated: {
                 issue: "Multiple disclosure requirements are missing from your privacy policy.",
-                why: "Under GDPR and POPIA-style frameworks, silence on data sharing or retention isn't neutral, it's a violation.",
+                why: "Under GDPR and POPIA-style frameworks, silence on data sharing or retention isn\'t neutral, it\'s a violation.",
                 action: "Add explicit language on third-party sharing, retention periods, and how users can request deletion."
               },
               high: {
-                issue: "There's no real privacy policy standing between you and a compliance complaint.",
-                why: "The moment you collect any personal data without disclosing it properly, you're exposed regardless of your company's size or location.",
-                action: "Get a real privacy policy in place before you onboard another user, this one can't wait for a quiet week."
+                issue: "There\'s no real privacy policy standing between you and a compliance complaint.",
+                why: "The moment you collect any personal data without disclosing it properly, you\'re exposed regardless of your company\'s size or location.",
+                action: "Get a real privacy policy in place before you onboard another user, this one can\'t wait for a quiet week."
               }
             },
             liability: {
               low: {
                 issue: "Your liability provisions actually cap what a dispute could cost you.",
-                why: "Without a cap, a single bad incident, downtime, a bug, a bad output, can turn into a claim sized to a customer's total losses, not your ability to pay.",
+                why: "Without a cap, a single bad incident, downtime, a bug, a bad output, can turn into a claim sized to a customer\'s total losses, not your ability to pay.",
                 action: "Check this figure again any time your customer base or product risk changes materially."
               },
               moderate: {
-                issue: "Your liability cap exists but doesn't cover much.",
+                issue: "Your liability cap exists but doesn\'t cover much.",
                 why: "A weak or narrow cap gives you the appearance of protection without the substance of it.",
                 action: "Widen the exclusions and confirm the cap actually reflects what a real dispute with your platform would cost."
               },
@@ -1362,7 +1422,7 @@
                 action: "Close the specific gaps, service interruptions, bugs, third-party integration failures, rather than relying on one general clause."
               },
               high: {
-                issue: "There's effectively nothing limiting what a legal claim against you could cost.",
+                issue: "There\'s effectively nothing limiting what a legal claim against you could cost.",
                 why: "One serious incident without a liability cap in place could threaten the business itself, not just a line item.",
                 action: "This is the single highest-priority fix on this list, get a liability clause in before anything else."
               }
@@ -1376,17 +1436,17 @@
               moderate: {
                 issue: "Some parts of your data handling are documented, others are just tribal knowledge.",
                 why: "Undocumented access paths are the ones nobody remembers to lock down, and the ones an auditor finds first.",
-                action: "Write down who can access what user data and why, starting with the systems nobody's touched in a while."
+                action: "Write down who can access what user data and why, starting with the systems nobody\'s touched in a while."
               },
               elevated: {
                 issue: "Your platform is collecting and moving user data without much of a paper trail.",
-                why: "When something goes wrong with data you can't fully account for, you can't tell a customer, or a regulator, exactly what happened.",
+                why: "When something goes wrong with data you can\'t fully account for, you can\'t tell a customer, or a regulator, exactly what happened.",
                 action: "Map out what data flows where, then lock down access to only what each system actually needs."
               },
               high: {
                 issue: "Right now, nobody could tell you with confidence everywhere your user data ends up.",
-                why: "That's not just a security risk, it's the first question any serious customer or investor will ask, and the first one you'll fail to answer cleanly.",
-                action: "Start with a full inventory: what you collect, where it's stored, and who can reach it. Everything else depends on having that first."
+                why: "That\'s not just a security risk, it\'s the first question any serious customer or investor will ask, and the first one you\'ll fail to answer cleanly.",
+                action: "Start with a full inventory: what you collect, where it\'s stored, and who can reach it. Everything else depends on having that first."
               }
             },
             billing: {
@@ -1396,17 +1456,17 @@
                 action: "Revisit this any time you change pricing or add a new plan tier."
               },
               moderate: {
-                issue: "Some billing moments, a renewal, a cancellation, aren't spelled out clearly enough.",
+                issue: "Some billing moments, a renewal, a cancellation, aren\'t spelled out clearly enough.",
                 why: "Payment processors side with the customer by default when your terms are ambiguous, so vague billing language costs you money, not just goodwill.",
                 action: "Clarify exactly when renewals trigger and exactly how a customer cancels, in language a non-lawyer would understand."
               },
               elevated: {
                 issue: "Your billing terms leave real gaps around renewals, cancellations, or refunds.",
-                why: "Each of those gaps is a future chargeback you'll have to fight with limited documentation on your side.",
-                action: "Rewrite the billing section to explicitly cover renewal timing, cancellation steps, and refund eligibility, don't leave any of the three implied."
+                why: "Each of those gaps is a future chargeback you\'ll have to fight with limited documentation on your side.",
+                action: "Rewrite the billing section to explicitly cover renewal timing, cancellation steps, and refund eligibility, don\'t leave any of the three implied."
               },
               high: {
-                issue: "There's not much in writing about how your billing actually works.",
+                issue: "There\'s not much in writing about how your billing actually works.",
                 why: "Every unclear billing cycle is a customer dispute waiting to happen, and without written terms, you have no leg to stand on when it does.",
                 action: "This needs a full billing terms section before your next renewal cycle runs, not after a dispute forces it."
               }
@@ -1418,18 +1478,18 @@
                 action: "Keep the list current as you add or drop integrations."
               },
               moderate: {
-                issue: "You're relying on some third-party tools without a clear picture of what happens if they fail.",
-                why: "A vendor's outage or policy change becomes your outage or policy change the moment your platform depends on it.",
-                action: "List out your critical dependencies and check what each one's terms actually commit to."
+                issue: "You\'re relying on some third-party tools without a clear picture of what happens if they fail.",
+                why: "A vendor\'s outage or policy change becomes your outage or policy change the moment your platform depends on it.",
+                action: "List out your critical dependencies and check what each one\'s terms actually commit to."
               },
               elevated: {
-                issue: "Several parts of your platform depend on third-party services you haven't fully vetted.",
-                why: "You're inheriting each of those vendors' risks, security, uptime, data handling, without necessarily knowing what they are.",
-                action: "Review the terms and security posture of anything your platform can't function without."
+                issue: "Several parts of your platform depend on third-party services you haven\'t fully vetted.",
+                why: "You\'re inheriting each of those vendors' risks, security, uptime, data handling, without necessarily knowing what they are.",
+                action: "Review the terms and security posture of anything your platform can\'t function without."
               },
               high: {
-                issue: "Your platform's uptime and data security currently depend on vendors you haven't evaluated.",
-                why: "If any one of them has a bad day, so does your business, and you'd be finding out about the risk for the first time when it happens.",
+                issue: "Your platform\'s uptime and data security currently depend on vendors you haven\'t evaluated.",
+                why: "If any one of them has a bad day, so does your business, and you\'d be finding out about the risk for the first time when it happens.",
                 action: "Start with whichever integration touches the most user data or the most core functionality, and work outward from there."
               }
             },
@@ -1441,17 +1501,17 @@
               },
               moderate: {
                 issue: "A few security basics are inconsistent across your platform.",
-                why: "Attackers don't need every door open, one weak spot in authentication or access control is enough to get in.",
+                why: "Attackers don\'t need every door open, one weak spot in authentication or access control is enough to get in.",
                 action: "Audit authentication, encryption, and role-based access together, gaps in one usually mean gaps in the others."
               },
               elevated: {
-                issue: "Your platform's security controls aren't strong enough for the data you're handling.",
+                issue: "Your platform\'s security controls aren\'t strong enough for the data you\'re handling.",
                 why: "Inconsistent encryption or loose access permissions are exactly what turns a routine bug into a breach.",
                 action: "Prioritize authentication and encryption first, then tighten role-based access across the rest of the platform."
               },
               high: {
-                issue: "There isn't enough standing between your platform and a breach.",
-                why: "For an early-stage company, one serious incident can do reputational damage you don't recover from, regardless of how good the product is.",
+                issue: "There isn\'t enough standing between your platform and a breach.",
+                why: "For an early-stage company, one serious incident can do reputational damage you don\'t recover from, regardless of how good the product is.",
                 action: "This is urgent: lock down authentication and encryption now, then build out the rest of your security posture."
               }
             },
@@ -1462,26 +1522,26 @@
                 action: "Revisit this whenever you expand into a new market or start processing a new type of data."
               },
               moderate: {
-                issue: "You haven't fully mapped which regulations apply to your specific data practices.",
-                why: "Enterprise buyers ask about compliance early, and \"we haven't looked into that yet\" ends the conversation.",
+                issue: "You haven\'t fully mapped which regulations apply to your specific data practices.",
+                why: "Enterprise buyers ask about compliance early, and \"we haven\'t looked into that yet\" ends the conversation.",
                 action: "Identify which frameworks, data protection, financial, security, actually apply based on what you collect and where your users are."
               },
               elevated: {
-                issue: "Your platform likely falls under regulatory requirements you haven't addressed.",
-                why: "Regulators don't care that you didn't know, ignorance of an applicable rule isn't a defense.",
+                issue: "Your platform likely falls under regulatory requirements you haven\'t addressed.",
+                why: "Regulators don\'t care that you didn\'t know, ignorance of an applicable rule isn\'t a defense.",
                 action: "Get a clear picture of which regulations apply to you, then check your current practices against each one."
               },
               high: {
-                issue: "You're operating without a clear read on what regulations apply to your business.",
-                why: "This isn't just a compliance risk, it's a growth ceiling, enterprise deals stall the moment this question comes up and you don't have an answer.",
+                issue: "You\'re operating without a clear read on what regulations apply to your business.",
+                why: "This isn\'t just a compliance risk, it\'s a growth ceiling, enterprise deals stall the moment this question comes up and you don\'t have an answer.",
                 action: "Treat this as immediate groundwork: find out what applies to you before it finds you first."
               }
             },
             incident: {
               low: {
                 issue: "You have a real plan for when something breaks.",
-                why: "Speed of response is what separates a minor blip from a credibility crisis, and you're set up to move fast.",
-                action: "Run through the plan periodically so it's not just a document nobody's looked at in months."
+                why: "Speed of response is what separates a minor blip from a credibility crisis, and you\'re set up to move fast.",
+                action: "Run through the plan periodically so it\'s not just a document nobody\'s looked at in months."
               },
               moderate: {
                 issue: "Your incident response is more improvised than planned.",
@@ -1489,12 +1549,12 @@
                 action: "Write down who owns incident response and what the first steps are, before you need it."
               },
               elevated: {
-                issue: "There's no clear process for handling a major outage or security incident.",
+                issue: "There\'s no clear process for handling a major outage or security incident.",
                 why: "Without one, your team is figuring out roles and communication in real time, exactly when speed matters most.",
-                action: "Put a basic response plan in place: who's responsible, how you'll communicate with users, and how you recover."
+                action: "Put a basic response plan in place: who\'s responsible, how you\'ll communicate with users, and how you recover."
               },
               high: {
-                issue: "If something broke right now, there's no plan guiding what happens next.",
+                issue: "If something broke right now, there\'s no plan guiding what happens next.",
                 why: "Every well-built system eventually has a bad day, the only question is whether your response makes it a footnote or a headline.",
                 action: "This is foundational and missing. Build a basic incident plan this week, even a simple one beats none."
               }
@@ -1503,7 +1563,7 @@
               low: {
                 issue: "Your marketing claims line up with what the product actually does.",
                 why: "That consistency is what keeps a sales pitch from turning into a misrepresentation claim later.",
-                action: "Loop in whoever writes marketing copy whenever the product's actual capabilities change."
+                action: "Loop in whoever writes marketing copy whenever the product\'s actual capabilities change."
               },
               moderate: {
                 issue: "A few marketing claims are running ahead of what the product currently does.",
@@ -1511,14 +1571,14 @@
                 action: "Go through your marketing pages and pitch materials and flag anything that overstates current functionality."
               },
               elevated: {
-                issue: "Several claims in your marketing create expectations the product doesn't consistently meet.",
+                issue: "Several claims in your marketing create expectations the product doesn\'t consistently meet.",
                 why: "Overstated claims around security, uptime, or performance are exactly the kind of thing that turns into a public complaint or a support escalation.",
                 action: "Rewrite the claims that are running ahead of reality, and get technical sign-off on anything related to compliance or uptime before it goes out again."
               },
               high: {
-                issue: "Your marketing is making promises the product can't consistently back up.",
+                issue: "Your marketing is making promises the product can\'t consistently back up.",
                 why: "For a small company, even a handful of these complaints creates outsized legal and reputational pressure relative to your size.",
-                action: "Get marketing and product aligned on what's actually true before anything else goes out under your name."
+                action: "Get marketing and product aligned on what\'s actually true before anything else goes out under your name."
               }
             }
           };
@@ -1734,9 +1794,16 @@
           function submitEmail() {
             const email = document.getElementById('userEmail').value.trim();
             const userName = document.getElementById('userName').value.trim() || 'User';
+            const ageAgreed = document.getElementById('consentAge').checked;
+            const marketingConsent = document.getElementById('consentMarketing').checked;
 
             if (!email || !email.includes('@')) {
               alert('Please enter a valid email address.');
+              return;
+            }
+
+            if (!ageAgreed) {
+              alert('Please confirm you are 18 or older and agree to the Terms of Service and Privacy Policy.');
               return;
             }
 
@@ -1785,7 +1852,8 @@
                 subscriber: {
                   email_address: email,
                   first_name: userName,
-                  id: email.replace(/[^a-z0-9]/gi, '_')  // use email as unique user_id
+                  id: email.replace(/[^a-z0-9]/gi, '_'),  // use email as unique user_id
+                  marketing_consent: marketingConsent
                 },
                 diagnostic: {
                   total_score: total,
@@ -1986,7 +2054,6 @@
 
           // ── INIT ──
           buildSidebar();
-          buildSections();
-          </script>
+          buildSections();</script>
         </body>
     </html>

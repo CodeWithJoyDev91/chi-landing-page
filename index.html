@@ -11,6 +11,28 @@
     </head>
     <body>
 
+        <!-- Policy Update Notice -->
+        <div class="policy-notice" id="policyNotice">
+            <span>We've updated our Terms of Service and Privacy Policy. Please take a moment to review the changes.</span>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <button onclick="dismissPolicyNotice()" aria-label="Dismiss">&times;</button>
+        </div>
+        <script>
+            (function () {
+                var KEY = "chi_policy_notice_dismissed";
+                var VERSION = "2026-07-28"; // bump this string whenever the ToS/PP materially change
+                var banner = document.getElementById("policyNotice");
+                if (banner && localStorage.getItem(KEY) === VERSION) {
+                    banner.classList.add("hidden");
+                }
+                window.dismissPolicyNotice = function () {
+                    localStorage.setItem(KEY, VERSION);
+                    if (banner) banner.classList.add("hidden");
+                };
+            })();
+        </script>
+
         <!-- Header -->
         <header>
             <div class="header-inner">

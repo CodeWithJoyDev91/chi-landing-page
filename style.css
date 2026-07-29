@@ -625,6 +625,151 @@ ul.icon-list li [data-lucide] {
     }
 }
 
+/* LEGAL DOCUMENT PAGES (Terms of Service / Privacy Policy) */
+
+.legal-doc {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.legal-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.legal-header h1 {
+    margin-bottom: 10px;
+}
+
+.legal-entity {
+    display: inline-block;
+    font-style: italic;
+    color: var(--chi-text-muted);
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--chi-gold);
+    margin-bottom: 16px;
+}
+
+.legal-effective-date {
+    font-weight: 600;
+    color: var(--chi-text-muted);
+    font-size: 0.95rem;
+}
+
+.legal-doc h2 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--chi-gold);
+    padding-bottom: 10px;
+    margin-top: 50px;
+}
+
+.legal-doc h3 {
+    font-size: 1.15rem;
+    color: var(--chi-navy);
+    margin: 28px 0 8px;
+}
+
+.legal-doc p {
+    color: #444;
+    margin-bottom: 14px;
+}
+
+.legal-doc ul,
+.legal-doc ol {
+    margin: 0 0 20px 26px;
+}
+
+.legal-doc ol.lettered {
+    list-style-type: lower-alpha;
+}
+
+.legal-doc li {
+    color: #444;
+    margin-bottom: 8px;
+}
+
+.legal-clause-num {
+    font-weight: 600;
+    color: var(--chi-navy);
+}
+
+.legal-back-link {
+    display: block;
+    text-align: center;
+    margin: 50px auto 0;
+}
+
+/* Simple always-visible back link for subpages (no hamburger needed for a single link) */
+.header-inner .back-home {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: var(--chi-navy);
+    font-weight: 500;
+    font-size: 1rem;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+}
+
+.header-inner .back-home:hover {
+    color: var(--chi-gold);
+}
+
+.header-inner .back-home [data-lucide] {
+    width: 15px;
+    height: 15px;
+    margin-right: 2px;
+}
+
+/* POLICY UPDATE NOTICE BANNER */
+
+.policy-notice {
+    background: var(--chi-navy);
+    color: #ffffff;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.policy-notice span {
+    margin: 0;
+}
+
+.policy-notice a {
+    color: var(--chi-gold);
+    text-decoration: underline;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+}
+
+.policy-notice a:hover {
+    color: #ffffff;
+}
+
+.policy-notice button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 0 0 6px;
+    margin: 0;
+}
+
+.policy-notice.hidden {
+    display: none;
+}
+
 /* MOBILE */
 
 @media (max-width: 768px) {
