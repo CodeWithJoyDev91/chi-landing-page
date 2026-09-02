@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CodeHive Innovations</title>
+        <title>CodeHive Innovations - Code-Compliance Alignment Audit for SaaS</title>
         <link rel="icon" type="image/png" href="images/chi-favicon.png">
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         <script>
             (function () {
                 var KEY = "chi_policy_notice_dismissed";
-                var VERSION = "2026-07-30"; // bump this string whenever the ToS/PP materially change
+                var VERSION = "2026-08-20";
                 var banner = document.getElementById("policyNotice");
                 if (banner && localStorage.getItem(KEY) === VERSION) {
                     banner.classList.add("hidden");
@@ -36,9 +36,6 @@
         <!-- Header -->
         <header>
             <div class="header-inner">
-                <div class="logo">
-                    <img src="images/logo-background.png" alt="CodeHive Innovations Logo">
-                </div>
                 <button class="nav-toggle" aria-label="Toggle navigation">
                     <i data-lucide="menu"></i>
                 </button>
@@ -63,132 +60,78 @@
             <!-- Hero Section -->
             <section id="hero">
                 <div class="inner">
-                    <div class="hero-content">
-                        <h1>De-Risk Your SaaS Before Scale Makes It Expensive</h1>
-                        <p>
-                            I'm a litigation attorney turned software developer. I look at your Terms of Service, data
-                            handling, billing setup, security exposure, and compliance gaps, and I tell you exactly where
-                            your business is at risk before it costs you.
-                        </p>
-                        <p class="micro-proof">
-                            Built for the founder who'd rather find the risk than have it find them.
-                        </p>
+                    <img src="images/Logo_for_websites_etc.png" alt="CodeHive Innovations Logo" class="hero-logo">
+                    <p class="hero-tagline">CodeHive Innovations</p>
+                    <h1>Your code does not match what your Terms of Service and Privacy Policy promise</h1>
+                    <p class="subheadline">Most founders only discover this when an enterprise customer asks for proof, an investor opens the diligence checklist, or a regulator starts looking. By then the fix costs far more than $850: a lost deal, a red flag in fundraising, or a much larger bill.</p>
+                    <p class="supporting-line">I find those mismatches while you can still fix them quietly.</p>
+                    <div class="button-group">
+                        <a href="https://codehiveinnovations.lemonsqueezy.com/checkout/buy/47bcbfa6-5f71-4f37-b80e-97c956332e04" class="btn btn-primary">Run the $29 Risk Diagnostic</a>
+                        <a href="#services" class="btn btn-secondary">See the Code-Compliance Alignment Audit</a>
                     </div>
-                    <div class="hero-cta">
-                        <a href="https://codehiveinnovations.lemonsqueezy.com/checkout/buy/47bcbfa6-5f71-4f37-b80e-97c956332e04" class="cta-primary">Run the CHI SaaS Risk Diagnostic</a>
-                        <a href="#services" class="cta-secondary">Explore Our Services</a>
-                    </div>
-                    <p class="hero-alt-cta">Not ready to commit? <a href="tos-mini-tool.html" class="inline-link">Try the free 2-minute ToS Risk Check</a> instead.</p>
+                    <p class="micro-copy">Not ready for the full picture? Start with the <a href="tos-mini-tool.html">free 2-minute ToS Risk Check</a>.</p>
                 </div>
             </section>
 
             <!-- Problem Section -->
             <section id="problem">
                 <div class="inner">
-                    <h2>Growth Doesn't Break Businesses, <br> It Reveals Where They're Fragile</h2>
-                    <p>
-                        You built fast. That was the right call. But the shortcuts that got you
-                        to MVP are the same ones that will cost you when a VC does due diligence,
-                        or an enterprise client asks for your DPA.
-                    </p>
-                    <p>
-                        As customer volume increases and investor scrutiny intensifies,
-                        hidden vulnerabilities evolve into legal exposure, operational
-                        disruption, and expensive architectural rework.
-                    </p>
-                    <p class="problem-statement">
-                        Risk is inevitable in scaling systems. Leaving it unmanaged is a choice.
-                    </p>
-                    <div class="cta-wrapper">
-                        <a href="#solution" class="cta-secondary">See How I Identify and Prioritise Risk</a>
-                    </div>
+                    <h2>Growth does not create the problem. It reveals it.</h2>
+                    <p>You built fast. That was the right call. The shortcuts that got you here are the same ones that create quiet gaps between what your code actually does and what your legal documents say it does.</p>
+                    <p>Those gaps stay invisible until someone with leverage starts looking. An enterprise customer asking for compliance proof. An investor opening the diligence checklist. A regulator reviewing your data practices.</p>
+                    <p>When that happens the cost jumps. What could have been fixed for $850 becomes a lost deal, a fundraising red flag, or a much larger bill.</p>
+                    <p>Most founders hope it will not surface. Some try to review it themselves. A few hire a lawyer who never reads the code. The result is the same: the mismatch stays hidden until it is expensive.</p>
                 </div>
             </section>
 
             <!-- Solution Section -->
             <section id="solution">
                 <div class="inner">
-                    <h2>Structured Risk Intelligence for Sustainable Growth</h2>
-                    <p>
-                        I don't look at your business in pieces. I look at how your legal documents, your data
-                        handling, your billing setup, and your security practices fit together, because most of the
-                        time, the real risk isn't in one place. It's in the gaps between them.
-                    </p>
-                    <p>
-                        I'm not handing you a generic checklist. I map out where the real risks sit, how serious
-                        each one actually is, and what needs to happen first.
-                    </p>
-                    <p>
-                        What you walk away with is a clear picture of where the risks are, how serious they actually
-                        are, and what to fix first. So when a VC starts asking questions or an enterprise client wants
-                        to see your DPA, you're not scrambling, you already know where you stand.
-                    </p>
+                    <h2>Code-Compliance Alignment Audit</h2>
+                    <div class="solution-content">
+                        <h3>I review three things against each other:</h3>
+                        <ul class="solution-list">
+                            <li>Your actual code</li>
+                            <li>What your Terms of Service and Privacy Policy promise</li>
+                            <li>The regulations your customers and investors care about</li>
+                        </ul>
+                    </div>
+                    <p class="solution-text">The goal is simple. Find the places where those three do not line up, rank them by real risk, and give you a clear list of what to fix first.</p>
+                    <p class="solution-text">You walk away knowing exactly where the exposure sits and what needs attention before an outside party finds it.</p>
+                    <p class="solution-text">This is not a generic legal review. It is not a security audit. It is the specific check almost no one else does: whether your product does what your legal documents claim.</p>
                 </div>
             </section>
 
             <!-- Diagnostic Section -->
             <section id="diagnostic">
                 <div class="inner">
-                    <h2>CHI SaaS Risk Diagnostic</h2>
-                    <p>
-                        Most SaaS founders I talk to aren't reckless. They just built fast and didn't know what to
-                        look for. The problem is those gaps don't stay hidden forever.
-                    </p>
-                    <p>
-                        The CHI SaaS Risk Diagnostic walks you through 50 questions across 10 risk areas — your
-                        legal documents, data handling, billing setup, security practices, and more. At the end you get
-                        a personalised risk score and a PDF report telling you exactly what needs attention.
-                    </p>
-                    <ul class="icon-list">
-                        <li><i data-lucide="check-circle"></i>Identify hidden legal and operational exposure</li>
-                        <li><i data-lucide="check-circle"></i>Evaluate your SaaS across critical risk domains</li>
-                        <li><i data-lucide="check-circle"></i>Understand where scaling may amplify vulnerabilities</li>
-                    </ul>
-                    <div class="tool-meta">
-                        <span><i data-lucide="clock"></i>5 Minute Assessment</span>
-                        <span><i data-lucide="list"></i>50 Questions</span>
-                        <span><i data-lucide="layers"></i>10 Risk Domains</span>
-                        <span><i data-lucide="bar-chart-2"></i>Automated Risk Scoring</span>
-                    </div>
-                    <div class="tool-market">
-                        <h3>Who This Diagnostic Is For</h3>
-                        <ul class="icon-list">
-                            <li><i data-lucide="check-circle"></i>Early-stage SaaS founders preparing to launch</li>
-                            <li><i data-lucide="check-circle"></i>Indie hackers building their first SaaS product</li>
-                            <li><i data-lucide="check-circle"></i>Developers turning side projects into real products</li>
-                            <li><i data-lucide="check-circle"></i>Founders who want to identify legal or operational blind spots</li>
+                    <h2>CHI SaaS Risk Diagnostic - $29</h2>
+                    <p class="diagnostic-intro">Most founders are not reckless. They just built fast and never had a practical way to check the gaps between their code and their legal documents.</p>
+                    <p class="diagnostic-intro">This diagnostic walks you through the key risk areas that matter for SaaS. At the end you receive a personalised risk score and a PDF report that shows where the exposure sits and what needs attention first.</p>
+                    <div class="diagnostic-box">
+                        <h3>What you get</h3>
+                        <ul>
+                            <li>A clear risk score</li>
+                            <li>Identification of the highest-priority gaps</li>
+                            <li>Guidance on where to focus first</li>
+                            <li>Takes about 5 minutes. Instant automated report.</li>
                         </ul>
                     </div>
-                    <div class="tool-receive">
-                        <h3>What You Receive</h3>
-                        <ul class="icon-list">
-                            <li><i data-lucide="file-text"></i>Personalized SaaS Risk Score</li>
-                            <li><i data-lucide="file-text"></i>Identification of key legal, operational, and compliance risks</li>
-                            <li><i data-lucide="file-text"></i>Breakdown of vulnerable areas in your platform</li>
-                            <li><i data-lucide="file-text"></i>Guidance on where to focus first to reduce exposure</li>
+                    
+                    <div class="diagnostic-box">
+                        <h3>Who this is for</h3>
+                        <ul>
+                            <li>SaaS founders at $5k-$50k MRR or Series A/B stage</li>
+                            <li>Founders who have enterprise customers asking questions or investors starting diligence</li>
+                            <li>Anyone who wants a practical view of their exposure before it becomes expensive</li>
                         </ul>
                     </div>
-                    <p>Your report is generated instantly once the diagnostic is complete.</p>
-                    <div class="inner-example">
-                        <h3>Example SaaS Risk Report</h3>
-                        <p>
-                            After completing the diagnostic, the system generates a structured SaaS risk report
-                            highlighting vulnerabilities across key operational and compliance areas.
-                        </p>
-                        <div class="report-preview">
-                            <img src="images/saas-report-preview.png" alt="SaaS Risk Report Preview">
-                        </div>
-                        <p class="preview-note">Example excerpt from the automated SaaS Risk Diagnostic report.</p>
-                    </div>
-                    <a href="https://codehiveinnovations.lemonsqueezy.com/checkout/buy/47bcbfa6-5f71-4f37-b80e-97c956332e04" class="cta-primary">
-                        Run the SaaS Risk Diagnostic
-                    </a>
-                    <p class="price-note">Instant automated report • $29</p>
-                    <p class="diagnostic-note">No fluff. No sales call required. Just clarity.</p>
-
-                    <div class="cta-wrapper">
-                        <p class="diagnostic-note">Not ready to commit $29 yet? Start with the free 2-minute ToS Risk Check.</p>
-                        <a href="tos-mini-tool.html" class="cta-secondary">Take the Free ToS Risk Check</a>
+                    
+                    <div class="cta-box">
+                        <p>Run the $29 Risk Diagnostic</p>
+                        <a href="https://codehiveinnovations.lemonsqueezy.com/checkout/buy/47bcbfa6-5f71-4f37-b80e-97c956332e04" class="btn btn-primary">Start the Diagnostic</a>
+                        <p style="font-size: 14px; margin-top: 15px; color: #ffffff;">No fluff. No sales call required. Just clarity.</p>
+                        <p style="font-size: 13px; margin-top: 10px;"><a href="tos-mini-tool.html" style="color: #1c4587; font-weight: 600;">Start with the free 2-minute ToS Risk Check first</a>.</p>
                     </div>
                 </div>
             </section>
@@ -196,154 +139,59 @@
             <!-- Services Section -->
             <section id="services">
                 <div class="inner">
-                    <h2>Our Services</h2>
-
-                    <!-- Risk Clarity Session -->
-                    <div class="tier tier-starter" id="review">
-                        <h3><span class="tier-icon"><i data-lucide="message-circle"></i></span>Risk Clarity Session</h3>
-                        <p>You've run the diagnostic. Now let's look at it together.</p>
-                        <p>
-                            This is a 45-minute one-on-one call. I'll go through your diagnostic results with you,
-                            explain what the risk scores actually mean, and tell you what to focus on first.
-                            If you're an indie hacker or early-stage founder who needs expert eyes on your results
-                            without committing to a full assessment, this is where to start.
-                        </p>
-
-                        <h4><span class="h4-icon"><i data-lucide="users"></i></span>Who This Is For</h4>
-                        <ul class="icon-list">
-                            <li><i data-lucide="check"></i>Founders who've completed the CHI SaaS Risk Diagnostic and want expert guidance on their results</li>
-                            <li><i data-lucide="check"></i>Indie hackers who need clarity without committing to a full assessment</li>
-                            <li><i data-lucide="check"></i>Anyone who wants to understand their risk profile before deciding what to do next</li>
+                    <div class="service-item">
+                        <h3>Code-Compliance Alignment Audit - $850</h3>
+                        <p class="intro">This is the full review.</p>
+                        <p>I examine your code, your Terms of Service, your Privacy Policy, and the relevant regulations side by side. You receive a prioritised list of mismatches, a clear view of the real risk attached to each one, and a practical action plan for what to fix first.</p>
+                        
+                        <h4>Who this is for</h4>
+                        <ul>
+                            <li>SaaS founders at $5k-$50k MRR or Series A/B stage</li>
+                            <li>Founders facing (or about to face) enterprise customer demands or investor diligence</li>
+                            <li>Anyone who wants the gaps found while they can still be fixed quietly and affordably</li>
                         </ul>
-
-                        <h4><span class="h4-icon"><i data-lucide="clipboard"></i></span>What's Included</h4>
-                        <ul class="icon-list">
-                            <li><i data-lucide="check"></i>45-minute one-on-one call to walk through your diagnostic results</li>
-                            <li><i data-lucide="check"></i>Prioritisation of your top 3 risk areas</li>
-                            <li><i data-lucide="check"></i>Direct answers to your specific questions</li>
-                            <li><i data-lucide="check"></i>Written follow-up summary of what to address first</li>
+                        
+                        <h4>What is included</h4>
+                        <ul>
+                            <li>Review of your actual code against your legal documents</li>
+                            <li>Check against the regulations that matter for your customers and market</li>
+                            <li>Risk scoring and prioritisation</li>
+                            <li>Written executive summary and action plan</li>
+                            <li>30-60-90 day recommendations</li>
                         </ul>
-
-                        <h4><span class="h4-icon"><i data-lucide="dollar-sign"></i></span>Investment</h4>
-                        <p class="tier-price">$149 — Fixed fee</p>
-                        <div class="tier-cta">
-                            <a href="#contact" class="cta-secondary">Book a Clarity Session</a>
+                        
+                        <h4>Timeline</h4>
+                        <p>7-10 days from start</p>
+                        
+                        <div class="investment">
+                            <p>$850 fixed fee</p>
                         </div>
+                        
+                        <a href="#contact" class="btn btn-primary" style="margin-top: 30px;">Book the Audit</a>
                     </div>
 
-                    <!-- Tier 1 -->
-                    <div class="tier" id="tier1">
-                        <h3><span class="tier-icon"><i data-lucide="layers"></i></span>Tier 1 — Foundation Assessment</h3>
-                        <p>Protect your business before risk impacts your operations.</p>
-
-                        <h4><span class="h4-icon"><i data-lucide="users"></i></span>Who This Is For</h4>
-                        <ul class="icon-list">
-                            <li><i data-lucide="check"></i>Small SaaS businesses or early-stage startups</li>
-                            <li><i data-lucide="check"></i>Businesses at MVP stage</li>
-                            <li><i data-lucide="check"></i>Companies wanting to lay a solid system foundation</li>
+                    <div class="service-item">
+                        <h3>Risk Clarity Session – $149</h3>
+                        <p class="intro">You have run the diagnostic. Now we look at the results together.</p>
+                        <p>45-minute one-on-one call. I walk through your scores, explain what they actually mean, and tell you the top three things to address first. You leave with a short written summary.</p>
+                        <p>Useful if you want expert eyes on the diagnostic without committing to the full audit yet.</p>
+                        
+                        <h4>What is included</h4>
+                        <ul>
+                            <li>45-minute one-on-one call</li>
+                            <li>Review of your diagnostic results</li>
+                            <li>Prioritisation of your top 3 risk areas</li>
+                            <li>Written follow-up summary</li>
                         </ul>
-
-                        <h4><span class="h4-icon"><i data-lucide="clipboard"></i></span>Scope of Assessment</h4>
-                        <ul class="icon-list">
-                            <li><i data-lucide="check"></i>Review of key documents (ToS, Privacy Policy, DPA, EULA)</li>
-                            <li><i data-lucide="check"></i>Client Intake and Snapshot</li>
-                            <li><i data-lucide="check"></i>Risk Register — full baseline assessment</li>
-                            <li><i data-lucide="check"></i>Risk Scoring &amp; Priority Level</li>
-                            <li><i data-lucide="check"></i>Executive Summary &amp; Action Plan</li>
-                            <li><i data-lucide="check"></i>30-60-90 Day Recommendations</li>
-                        </ul>
-
-                        <h4><span class="h4-icon"><i data-lucide="settings"></i></span>How It Works</h4>
-                        <ul class="icon-list">
-                            <li><i data-lucide="check"></i>Discovery call and intake</li>
-                            <li><i data-lucide="check"></i>Document and system analysis</li>
-                            <li><i data-lucide="check"></i>Risk scoring and prioritization</li>
-                            <li><i data-lucide="check"></i>Comprehensive report and recommendations</li>
-                        </ul>
-
-                        <h4><span class="h4-icon"><i data-lucide="clock"></i></span>Timeline</h4>
-                        <p>7-10 days from commencement</p>
-
-                        <h4><span class="h4-icon"><i data-lucide="dollar-sign"></i></span>Investment</h4>
-                        <p class="tier-price">$850 — Fixed fee</p>
-                        <p>Contact me to get started.</p>
-                    </div>
-
-                    <!-- Tier 2 -->
-                    <div class="tier" id="tier2">
-                        <h3><span class="tier-icon"><i data-lucide="trending-up"></i></span>Tier 2 — Scale-Ready Audit</h3>
-                        <p>Gain clarity on your system's resilience as your business scales.</p>
-
-                        <h4><span class="h4-icon"><i data-lucide="users"></i></span>Who This Is For</h4>
-                        <ul class="icon-list">
-                            <li><i data-lucide="check"></i>Growing SaaS companies preparing for scale</li>
-                            <li><i data-lucide="check"></i>Startups onboarding larger clients</li>
-                            <li><i data-lucide="check"></i>Founders preparing for funding rounds</li>
-                            <li><i data-lucide="check"></i>Companies expanding into new markets</li>
-                        </ul>
-
-                        <h4><span class="h4-icon"><i data-lucide="clipboard"></i></span>Scope of Assessment</h4>
-                        <ul class="icon-list">
-                            <li><i data-lucide="check"></i>System &amp; Architecture Review</li>
-                            <li><i data-lucide="check"></i>Data Flow &amp; Governance Mapping</li>
-                            <li><i data-lucide="check"></i>Compliance Exposure Identification</li>
-                            <li><i data-lucide="check"></i>Operational Process Review</li>
-                            <li><i data-lucide="check"></i>Risk Intelligence &amp; Deliverables</li>
-                        </ul>
-
-                        <h4><span class="h4-icon"><i data-lucide="settings"></i></span>How It Works</h4>
-                        <ul class="icon-list">
-                            <li><i data-lucide="check"></i>Initial intake and scoping call</li>
-                            <li><i data-lucide="check"></i>Document &amp; system evaluation</li>
-                            <li><i data-lucide="check"></i>Risk scoring and heat mapping</li>
-                            <li><i data-lucide="check"></i>Strategic debrief session</li>
-                        </ul>
-
-                        <h4><span class="h4-icon"><i data-lucide="clock"></i></span>Timeline</h4>
-                        <p>2–3 weeks from commencement, depending on complexity</p>
-
-                        <h4><span class="h4-icon"><i data-lucide="dollar-sign"></i></span>Investment</h4>
-                        <p>Custom pricing based on company size and scope. <a href="#contact" class="inline-link">Contact me for a proposal.</a></p>
-                    </div>
-
-                    <!-- Tier 3 -->
-                    <div class="tier" id="tier3">
-                        <h3><span class="tier-icon"><i data-lucide="award"></i></span>Tier 3 — Investor-Ready Deep Dive</h3>
-                        <p>Executive-level assessment of complex or investor-ready systems.</p>
-
-                        <h4><span class="h4-icon"><i data-lucide="users"></i></span>Who This Is For</h4>
-                        <ul class="icon-list">
-                            <li><i data-lucide="check"></i>Scaling SaaS companies preparing for funding</li>
-                            <li><i data-lucide="check"></i>Companies entering enterprise markets</li>
-                            <li><i data-lucide="check"></i>Multi-product or multi-system businesses</li>
-                            <li><i data-lucide="check"></i>Founders preparing for due diligence</li>
-                        </ul>
-
-                        <h4><span class="h4-icon"><i data-lucide="clipboard"></i></span>Scope of Assessment</h4>
-                        <ul class="icon-list">
-                            <li><i data-lucide="check"></i>Multi-System &amp; Infrastructure Analysis</li>
-                            <li><i data-lucide="check"></i>Security &amp; Control Review</li>
-                            <li><i data-lucide="check"></i>Operational &amp; Workflow Vulnerability Assessment</li>
-                            <li><i data-lucide="check"></i>Risk Intelligence &amp; Strategic Output</li>
-                        </ul>
-
-                        <h4><span class="h4-icon"><i data-lucide="settings"></i></span>How It Works</h4>
-                        <ul class="icon-list">
-                            <li><i data-lucide="check"></i>Initial scoping discussion</li>
-                            <li><i data-lucide="check"></i>Full systems evaluation and analysis</li>
-                            <li><i data-lucide="check"></i>Risk prioritization and executive summary</li>
-                            <li><i data-lucide="check"></i>Two strategic advisory sessions</li>
-                        </ul>
-
-                        <h4><span class="h4-icon"><i data-lucide="clock"></i></span>Timeline</h4>
-                        <p>3–4 weeks depending on system complexity</p>
-
-                        <h4><span class="h4-icon"><i data-lucide="dollar-sign"></i></span>Investment</h4>
-                        <p>Custom pricing based on company size and scope. <a href="#contact" class="inline-link">Contact me for a proposal.</a></p>
-                    </div>
-
-                    <div class="cta-wrapper">
-                        <a href="#contact" class="cta-primary">Ready to know what's actually in your risk profile? Let's talk.</a>
+                        
+                        <h4>Timeline</h4>
+                        <p>Book a time that works for you. Call happens within 5 business days.</p>
+                        
+                        <div class="investment">
+                            <p>$149 fixed fee</p>
+                        </div>
+                        
+                        <a href="#contact" class="btn btn-primary" style="margin-top: 30px;">Book a Clarity Session</a>
                     </div>
                 </div>
             </section>
@@ -351,54 +199,30 @@
             <!-- About Section -->
             <section id="about">
                 <div class="inner">
-                    <h2>Strategic Advantage</h2>
+                    <h2>Why this works</h2>
                     <div class="about-layout">
                         <div class="about-photo">
                             <img src="images/joy-1.jpg" alt="Johandria Heyman, Founder of CodeHive Innovations">
                         </div>
                         <div class="about-text">
-                            <p>
-                                Most risk consultants come from either law or tech.
-                                Johandria Heyman comes from both — a former litigation attorney
-                                who retrained as a software developer. That cross-domain lens is
-                                exactly what finds the vulnerabilities a pure technologist or a
-                                pure lawyer would miss.
-                            </p>
-                            <p>
-                                That combination matters. A pure lawyer will spot the contract problem but miss the
-                                technical one. A pure developer will see the architecture risk but won't know what it means
-                                legally. I can see both, and I know which one is going to hurt you first.
-                            </p>
-                            <p>
-                                My job is to make risk visible and manageable. Not overwhelming. Just clear.
-                            </p>
-                            <p>
-                                The goal is straightforward: help you scale without unknowingly
-                                increasing your exposure.
-                            </p>
+                            <p>Most people who look at SaaS risk come from either law or engineering. I come from both.</p>
+                            <p>I am a former litigation attorney who later trained as a software developer. That combination lets me read the code and the legal documents in the same conversation and see where they stop matching.</p>
+                            <p>The result is not a generic checklist. It is a clear map of the specific mismatches that create real exposure for your business.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Final CTA Section -->
+            <!-- CTA Section -->
             <section id="cta">
                 <div class="inner">
-                    <h2>Scale With Confidence</h2>
-                    <p>
-                        Every week you scale without a risk baseline is a week your exposure grows.
-                        Get clear visibility into your systems before complexity turns into a crisis.
-                    </p>
-                    <p>
-                        Whether you're pre-launch or already scaling, I'll show you exactly what's there so you can
-                        make smart decisions instead of finding out the hard way.
-                    </p>
-                    <p class="cta-text">
-                        If you'd like help addressing the risks identified in your report, book a Clarity Session
-                        or reach out to discuss a full assessment.
-                    </p>
-                    <div class="cta-wrapper">
-                        <a href="#contact" class="cta-primary">Discuss Your Risk Report</a>
+                    <h2>Find the gaps before someone else does</h2>
+                    <p>Every week the mismatch stays hidden is a week the eventual cost can grow. The $850 audit is designed to surface the problems while they are still quiet and fixable.</p>
+                    <p>If you want a lighter starting point, run the $29 diagnostic first. If you already know the exposure is there, book the full audit.</p>
+                    
+                    <div class="button-group">
+                        <a href="https://codehiveinnovations.lemonsqueezy.com/checkout/buy/47bcbfa6-5f71-4f37-b80e-97c956332e04" class="btn btn-primary">Run the $29 Risk Diagnostic</a>
+                        <a href="#contact" class="btn btn-secondary">Book the $850 Audit</a>
                     </div>
                 </div>
             </section>
@@ -406,55 +230,46 @@
             <!-- Contact Section -->
             <section id="contact">
                 <div class="inner">
-                    <h2>Get in Touch</h2>
-                    <p>
-                        If you're unsure about your current risk exposure or preparing for growth,
-                        reach out. I'd love to talk.
-                    </p>
+                    <h2>Ready to know what is actually in your risk profile?</h2>
+                    <p>Let's talk.</p>
                     <div class="contact-item">
                         <i data-lucide="mail"></i>
                         <a href="mailto:joy@codehiveinnovations.com">joy@codehiveinnovations.com</a>
                     </div>
                     <div class="contact-item">
                         <i data-lucide="linkedin"></i>
-                        <a href="https://www.linkedin.com/in/codingwithjoy" target="_blank">Connect with Johandria on LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/codingwithjoy" target="_blank">Connect on LinkedIn</a>
                     </div>
-                    <p>
-                        Initial consultations are focused, practical, and designed to give you clarity,
-                        not unnecessary complexity.
-                    </p>
                 </div>
             </section>
-
-            <!-- Footer -->
-            <footer>
-                <div class="inner">
-                    <a href="terms.html">Terms &amp; Conditions</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <p>&copy; 2026 CodeHive Innovations. All rights reserved.</p>
-                    <img src="images/chi-favicon.png" alt="CHI Logo">
-                </div>
-            </footer>
-
         </main>
 
-        <script>lucide.createIcons();</script>
-        <script>
-            const navToggle = document.querySelector('.nav-toggle');
-            const nav = document.querySelector('header nav');
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 CodeHive Innovations. All rights reserved. | <a href="terms.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a></p>
+        </footer>
 
-            if (navToggle && nav) {
-                navToggle.addEventListener('click', function(e) {
-                    e.stopPropagation();
+        <script>
+            // Toggle hamburger menu
+            const navToggle = document.querySelector('.nav-toggle');
+            const nav = document.querySelector('.header-inner nav');
+
+            if (navToggle) {
+                navToggle.addEventListener('click', () => {
                     nav.classList.toggle('open');
                 });
 
-                document.addEventListener('click', function(e) {
-                    if (!e.target.closest('header')) {
+                // Close menu when a link is clicked
+                nav.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
                         nav.classList.remove('open');
-                    }
+                    });
                 });
             }
+
+            // Initialize Lucide icons
+            lucide.createIcons();
         </script>
+
     </body>
 </html>

@@ -1028,9 +1028,9 @@
             <!-- ── SIDEBAR ── -->
             <aside class="sidebar">
               <div class="sidebar-logo">
-                <img src="images/logo-background.png" alt="CHI Logo">
+                <img src="images/Logo_for_websites_etc.png" alt="CHI Logo">
                 <div class="logo-tag">CHI</div>
-                <div class="logo-title">SaaS Risk<br>Diagnostic</div>
+                <div class="logo-title">Risk<br>Diagnostic</div>
               </div>
 
               <nav class="sidebar-nav" id="sidebarNav">
@@ -1053,48 +1053,49 @@
 
               <!-- INTRO -->
               <div class="intro-screen" id="introScreen">
-                <div class="intro-eyebrow">SaaS Risk Diagnostic</div>
-                <h1 class="intro-headline">Map your SaaS risks <em>before they</em> become real problems.</h1>
+                <div class="intro-eyebrow">Risk Diagnostic</div>
+                <h1 class="intro-headline">Find the gaps <em>before</em> someone else does</h1>
                 <p class="intro-sub">
-                  This automated SaaS Risk Diagnostic Tool evaluates your platform across ten critical risk 
-                  domains and generates an instant risk report. In under five minutes you'll see where hidden 
-                  vulnerabilities could threaten growth.
+                  This diagnostic checks the practical risk areas that most often create problems for SaaS founders. In under ten minutes you get a clear score and a breakdown of where the exposure sits.
+                </p>
+                <p class="intro-sub">
+                  It is not a full review of your code against your legal documents. That is what the $850 audit is for. This is the first practical step so you know where to look.
                 </p>
                 <p class="intro-note">
-                  The automated tool calculates your SaaS risk score instantly.
+                 Your score is calculated instantly once you finish.
                 </p>
                 <div class="intro-deliverables">
-                  <h2 class="intro-h2">What You'll Receive</h2>
+                  <h2 class="intro-h2">What you get</h2>
                   <ul>
-                    <li>Your total SaaS risk score (0–100)</li>
-                    <li>Risk ratings across 10 critical SaaS domains</li>
-                    <li>Domain-by-domain vulnerability breakdown</li>
-                    <li>Priority areas flagged for immediate attention</li>
-                    <li>Your results emailed to you for future reference</li>
+                    <li>Your total risk score (0-100)</li>
+                    <li>Ratings across 10 key areas</li>
+                    <li>A clear view of which gaps need attention first</li>
+                    <li>Priority flags so you know what matters most</li>
+                    <li>Results emailed to you for reference</li>
                   </ul>
                   <p class="deliverable-note">
-                    Your automated SaaS Risk Report is generated instantly after completing the diagnostic.
+                    Your report is generated as soon as you complete the diagnostic.
                   </p>
                 </div>
                 <div class="intro-stats">
                   <div class="stat-card">
                     <div class="stat-num">10</div>
-                    <div class="stat-label">Risk categories across your SaaS platform</div>
+                    <div class="stat-label">10 risk areas that matter for SaaS</div>
                   </div>
                   <div class="stat-card">
                     <div class="stat-num">50</div>
-                    <div class="stat-label">Diagnostic questions, ~8 minutes total</div>
+                    <div class="stat-label">50 questions, about 8-10 minutes</div>
                   </div>
                   <div class="stat-card">
                     <div class="stat-num">1</div>
-                    <div class="stat-label">Prioritised risk score to act on immediately</div>
+                    <div class="stat-label">1 prioritised score you can act on</div>
                   </div>
                 </div>
                 <p class="intro-trust">
-                Used by early-stage SaaS founders preparing to scale or raise capital.
+                Built for SaaS founders at the stage where enterprise customers or investors start asking harder questions.
                 </p>
                 <button class="btn-primary" onclick="startAudit()">
-                  Begin Audit
+                  Start the Diagnostic
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
@@ -1107,12 +1108,13 @@
               <!-- RESULTS -->
               <div id="emailGate" class="section-screen">
                 <div class="email-gate-box">
-                  <div class="results-eyebrow">One Last Step</div>
-                  <h2 class="results-title">Your Risk Results Are Ready</h2>
+                  <div class="results-eyebrow">One last Step</div>
+                  <h2 class="results-title">Your results are ready</h2>
                   <p class="email-gate-sub">
-                    You've completed all 10 sections. Enter your email to unlock your 
-                    full SaaS Risk Profile — including your total score, domain-by-domain 
-                    breakdown, and priority areas to address.
+                    You have completed all 10 sections. Enter your email to unlock the full score, the domain-by-domain breakdown, and the priority areas.
+                  </p>
+                  <p class="email-gate-sub">
+                    This diagnostic shows you where the surface risks sit. The bigger exposure often lives in the places where your code and your legal documents stop matching. That is what the full audit checks.
                   </p>
 
                   <div class="email-gate-highlights">
@@ -1122,15 +1124,15 @@
                     </div>
                     <div class="highlight-item">
                       <div class="highlight-icon">✓</div>
-                      <div class="highlight-text">Risk rating across all 10 domains</div>
+                      <div class="highlight-text">Risk rating across all 10 areas</div>
                     </div>
                     <div class="highlight-item">
                       <div class="highlight-icon">✓</div>
-                      <div class="highlight-text">Priority areas flagged for immediate attention</div>
+                      <div class="highlight-text">Priority gaps flagged for attention</div>
                     </div>
                     <div class="highlight-item">
                       <div class="highlight-icon">✓</div>
-                      <div class="highlight-text">Results emailed to you for future reference</div>
+                      <div class="highlight-text">Results emailed to you</div>
                     </div>
                   </div>
 
@@ -1210,22 +1212,28 @@
                 <div id="domainBreakdown"></div>
 
                 <div class="cta-block">
-                  <div class="cta-title">See the risks founders usually miss.</div>
+                  <div class="cta-title">Ready for the full picture?</div>
 
                     <div class="cta-sub">
-                      Your diagnostic report highlights the key areas where your SaaS may 
-                      have risk exposure. If you want deeper guidance on interpreting the 
-                      results, you can optionally book a founder review with CHI.
+                     This diagnostic shows you the surface risks. The real exposure often sits in the mismatch between what your code actually does and what your Terms of Service and Privacy Policy promise.
                     </div>
-
+                    <div class="cta-sub">
+                      The Code-Compliance Alignment Audit reviews your code, your legal documents, and the regulations that matter, then gives you a clear prioritised list of what to fix first.
+                    </div>
+                    
                     <div class="cta-buttons">
                       <button class="btn-primary" onclick="window.open('https://calendly.com/codehiveinnovations-risk/30min','_blank')">
-                        Book a Founder Review
+                        Book the $850 Audit
+                      </button>
+                    </div>
+                    <div class="cta-buttons">
+                      <button class="btn-secondary" onclick="window.open('https://calendly.com/codehiveinnovations-risk/30min','_blank')">
+                        Book a Clarity Session ($149)
                       </button>
                     </div>
 
                     <div class="cta-note">
-                    Private founder review. Limited availability each month.
+                    Or reply to the email with your results if you want to talk first.
                     </div>
                     <button class="btn-secondary" onclick="resetAudit()">
                       <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5A4.5 4.5 0 016.5 2c1.5 0 2.8.7 3.7 1.8M11 6.5A4.5 4.5 0 016.5 11c-1.5 0-2.8-.7-3.7-1.8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M9.5 1.5v2.5H12M1 9h2.5v2.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1241,7 +1249,7 @@
             {
               id: 'tos', domain: 'Domain 1 — Legal Structure', badge: 'legal', badgeLabel: 'Legal',
               title: 'Terms of Service', riskName: 'Weak or Missing Terms of Service',
-              context: 'A Terms of Service only protects you if it actually matches how your product works. Founders often start with a generic template, and generic templates don\'t account for your specific payment flows, data practices, or integrations. That gap is exactly where you end up more exposed than if you\'d had nothing in writing at all',
+              context: 'Your Terms of Service is the contract that governs how customers can use the platform. If it does not accurately reflect what the product actually does, or if key protections are missing, the first person who notices is usually not you. It is an enterprise customer, an investor, or a lawyer looking for leverage.',
               questions: [
                 'Was your Terms of Service written for your specific SaaS product, rather than adapted from a generic template?',
                 'Does it spell out what your software does, and just as importantly, what it doesn\'t guarantee?',
@@ -1253,7 +1261,7 @@
             {
               id: 'privacy', domain: 'Domain 1 — Legal Structure', badge: 'legal', badgeLabel: 'Legal',
               title: 'Privacy Policy', riskName: 'No Proper Privacy Policy (or Non-Compliant One)',
-              context: 'Your Privacy Policy needs to match what your SaaS actually does with user data, not a generic description of what a privacy policy usually covers. A mismatch between the policy and your real practices creates regulatory exposure under frameworks like GDPR and POPIA, and that exposure follows your users, not your company\'s home address.',
+              context: 'Your privacy policy is one of the first things enterprise buyers and regulators check. If it does not match what the product actually collects, stores, or shares, the mismatch is easy to find and hard to explain away.',
               questions: [
                 'Does your Privacy Policy list every type of data your SaaS actually collects?',
                 'Does it explain how that data gets used and where it\'s stored?',
@@ -1349,7 +1357,7 @@
             {
               id: 'marketing', domain: 'Domain 8 — Business & Representation', badge: 'business', badgeLabel: 'Business',
               title: 'Marketing Claims', riskName: 'Misleading Marketing or Product Claims',
-              context: 'Every claim on your product pages, in your sales materials, and in your pitch deck sets an expectation. If the platform doesn\'t consistently live up to those claims, on security, compliance, uptime, or performance, a customer has a real argument that they were misled. For an early-stage company, it doesn\'t take many of these disputes to create legal and operational pressure way out of proportion to your size.',
+              context: 'Every claim on your site, in your sales materials, or in your pitch deck sets an expectation. If the product does not consistly deliver on those claims, a customer has a real argument that they were misled. That gap is exactly the kind of thing that surfaces when someone starts looking closely.',
               questions: [
                 'Do the claims in your marketing materials actually match what your platform can do?',
                 'Do you steer clear of claiming compliance with standards you haven\'t actually verified?',
@@ -1916,23 +1924,23 @@
             let verdictLabel, verdictTitle, verdictDesc, verdictColor;
             if (total <= 20) {
               verdictLabel = 'Low Risk Exposure';
-              verdictTitle = 'Well-Structured';
-              verdictDesc  = 'Your platform appears to have strong foundational protections across most key areas. Even well-prepared platforms benefit from periodic review as the product evolves.';
+              verdictTitle = 'Solid foundations';
+              verdictDesc  = 'Your answers suggest the main risk areas are in reasonable shape. That is good. Even well-prepared platforms still benefit from checking whether the code and the legal documents actually line up. That is the gap most founders only discover when an enterprise customer or investor starts looking.';
               verdictColor = 'var(--green)';
             } else if (total <= 40) {
               verdictLabel = 'Moderate Risk Exposure';
-              verdictTitle = 'Gaps to Address';
-              verdictDesc  = 'Important safeguards may be in place, but several areas need attention. As your SaaS scales, these gaps can compound into larger structural vulnerabilities.';
+              verdictTitle = 'Gaps that need attention';
+              verdictDesc  = 'Some important areas are covered, but several gaps remain. Left alone, these are the kinds of issues that surface when an enterprise buyer asks for proof or an investor opens the diligence checklist. Fixing them now is far cheaper than fixing them under pressure.';
               verdictColor = 'var(--chi-gold)';
             } else if (total <= 70) {
               verdictLabel = 'Elevated Risk Exposure';
-              verdictTitle = 'Action Required';
-              verdictDesc  = 'Several important risk controls are not yet fully implemented. As your user base expands, these unresolved risks in areas like data protection and security will create real operational pressure.';
+              verdictTitle = 'Action required';
+              verdictDesc  = 'Several key controls are missing or incomplete. These are the exact places an enterprise customer, investor, or regulator will eventually look. The longer they stay open, the more expensive the fix becomes.';
               verdictColor = 'var(--amber)';
             } else {
               verdictLabel = 'High Risk Exposure';
-              verdictTitle = 'Immediate Attention Needed';
-              verdictDesc  = 'Multiple structural safeguards are missing or unclear. Your platform is currently vulnerable to user disputes, data incidents, regulatory scrutiny, and operational disruption.';
+              verdictTitle = 'Immediate attention needed';
+              verdictDesc  = 'Multiple structural gaps are present. Your platforms is currently exposed to the kind of discovery that turns into a lost deal, a diligence red flag, or a much larger bill. The $850 audit is designed to surface the full picture while you can still fix it quietly.';
               verdictColor = 'var(--red)';
             }
 
@@ -1997,7 +2005,7 @@
                 .high { color: #c23c3c; } .crit { color: #a52b2b; }
                 .footer { margin-top: 40px; font-size: 12px; color: #777; border-top: 1px solid #eee; padding-top: 16px; }
               </style></head><body>
-              <h1>CHI SaaS Risk Diagnostic Report</h1>
+              <h1>CHI Risk Diagnostic Report</h1>
               <p>Generated: ${new Date().toLocaleDateString()}</p>
               <div class="score">${total}/100</div>
               <div class="risk-level">Risk Level: <strong>${riskLevel}</strong></div>
@@ -2028,8 +2036,8 @@
 
             html += `
               <div class="footer">
-                <p>This report was generated by the CHI SaaS Risk Diagnostic Tool.</p>
-                <p>For a full audit and remediation roadmap, contact CodeHive Innovations: joy@codehiveinnovations.com</p>
+                <p>This report was generated by the CHI Risk Diagnostic. It is a practical first look at surface risks. It does not review your actual code against your legal documents.</p>
+                <p>For the full Code-Compliance Alignment Audit, contact CodeHive Innovations: joy@codehiveinnovations.com</p>
               </div>
               </body></html>`;
 
